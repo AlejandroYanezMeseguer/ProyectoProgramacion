@@ -1,0 +1,10 @@
+15|12|c|muy_rapido|wef
+18|12|c|rapido|wef
+12|22|b|muy_rapido|wef
+20|14|c|rapido|wef
+12|12|b|muy_rapido|wef
+20|12|c|rapido|wef
+14|12|b|rapido|wef
+18|12|c|muy_rapido|wef
+18|12|b|rapido|ew
+22|12|c|muy_rapido|wef

@@ -1,0 +1,10 @@
+25|20|d|muy_lento|wef
+22|20|d|muy_lento|wef
+23|19|e|muy_lento|wef
+20|22|c|muy_lento|wef
+22|23|d|muy_lento|wef
+25|26|d|muy_lento|wefwef
+26|28|e|muy_lento|wef
+24|18|d|muy_lento|wef
+23|19|d|muy_lento|wef
+23|17|e|muy_lento|wef

@@ -1,0 +1,10 @@
+14|11|b|normal|wef
+21|12|c|normal|wef
+19|12|b|normal|wef
+20|10|c|normal|wef
+12|10|b|rapido|wef
+18|9|c|normal|wef
+18|13|b|normal|wef
+14|14|c|normal|wef
+18|12|b|normal|wef
+12|14|c|normal|wef
