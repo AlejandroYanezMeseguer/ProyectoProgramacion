@@ -15,7 +15,9 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
-
+/**
+ * Clase que crea la parte grafica del programa
+ */
 public class EntornoDeJuego extends JFrame{
 
     private Jugador jugador1;
@@ -79,6 +81,10 @@ public class EntornoDeJuego extends JFrame{
     public JTextField nombreJ2;
 
 
+    /**
+     * Constructor de la clase donde se crea la ventana
+     * @throws IOException
+     */
     public EntornoDeJuego() throws IOException {
 
         setEntorno();
@@ -86,6 +92,9 @@ public class EntornoDeJuego extends JFrame{
 
     }
 
+    /**
+     * Metodo con las propiedades basicas del entorno grafico
+     */
     private void setEntorno(){
 
         setSize(1700,985);
@@ -97,6 +106,9 @@ public class EntornoDeJuego extends JFrame{
 
     }
 
+    /**
+     * Metodo que crea los JTextField
+     */
     private void crearTextField(){
 
         nombreJ1 = new JTextField();
@@ -112,6 +124,9 @@ public class EntornoDeJuego extends JFrame{
 
     }
 
+    /**
+     * Metodo que crea los Jpanel
+     */
     private void crearPaneles(){
 
         entornoPelea = new JPanel();
@@ -220,6 +235,10 @@ public class EntornoDeJuego extends JFrame{
 
     }
 
+    /**
+     * Metodo que crea los JButton
+     * @throws IOException
+     */
     private void crearBotones() throws IOException {
 
         cambiarArmaJ1 = new JButton("Cambiar de arma");
@@ -281,7 +300,10 @@ public class EntornoDeJuego extends JFrame{
         comenzarPelea.add(empezarPelea);
     }
 
-    private void accionesBotones(){
+    /**
+     * Metodo que crea los listeners de todos los JButton
+     */
+    private void listenersBotones(){
 
         AtaqueJ1.addActionListener(new ActionListener() {
             @Override
@@ -365,6 +387,12 @@ public class EntornoDeJuego extends JFrame{
         });
     }
 
+    /**
+     * metodo que crea las acciones que ejecuta el boton ataqueJugador1
+     * @param e
+     * @param luchador1
+     * @param luchador2
+     */
     private void botonAtaqueJugador1ActionPerformed(ActionEvent e, Jugador luchador1, Jugador luchador2){
 
         dañoJ1 = luchador1.atacar(1);
@@ -382,6 +410,12 @@ public class EntornoDeJuego extends JFrame{
 
     }
 
+    /**
+     * metodo que crea las acciones que ejecuta el boton ataqueJugador2
+     * @param e
+     * @param luchador1
+     * @param luchador2
+     */
     private void botonAtaqueJugador2ActionPerformed(ActionEvent e, Jugador luchador1, Jugador luchador2){
 
         dañoJ2 = luchador2.atacar(1);
@@ -398,6 +432,10 @@ public class EntornoDeJuego extends JFrame{
 
     }
 
+    /**
+     * metodo que crea las acciones que ejecuta el boton empezarALuchar
+     * @param e
+     */
     private void empezarALucharActionPerformed(ActionEvent e){
 
         ArrayList<String> validaciones = validarJugadores();
@@ -420,6 +458,10 @@ public class EntornoDeJuego extends JFrame{
 
     }
 
+    /**
+     * metodo que añade a un arraylist mensajes de error al iniciar partida
+     * @return mensajes con los mensajes añadidos
+     */
     private ArrayList<String> validarJugadores(){
 
         ArrayList<String> mensajes = new ArrayList<String>();
@@ -439,6 +481,10 @@ public class EntornoDeJuego extends JFrame{
         return mensajes;
     }
 
+    /**
+     * metodo que crea las acciones que ejecuta el boton seleccionarMagoJ1
+     * @param e
+     */
     private void seleccionarMagoJ1ActionPerformed(ActionEvent e){
 
         jugador1 = new Mago(nombreJ1.getText());
@@ -448,6 +494,10 @@ public class EntornoDeJuego extends JFrame{
 
     }
 
+    /**
+     * metodo que crea las acciones que ejecuta el boton seleccionarGuerreroJ1
+     * @param e
+     */
     private void seleccionarGuerreroJ1ActionPerformed(ActionEvent e){
 
         jugador1 = new Guerrero(nombreJ1.getText());
@@ -457,6 +507,10 @@ public class EntornoDeJuego extends JFrame{
 
     }
 
+    /**
+     * metodo que crea las acciones que ejecuta el boton seleccionarSamuraiJ1
+     * @param e
+     */
     private void seleccionarSamuraiJ1ActionPerformed(ActionEvent e){
 
         jugador1 = new Samurai(nombreJ1.getText());
@@ -466,6 +520,10 @@ public class EntornoDeJuego extends JFrame{
 
     }
 
+    /**
+     * metodo que crea las acciones que ejecuta el boton seleccionarMagoJ2
+     * @param e
+     */
     private void seleccionarMagoJ2ActionPerformed(ActionEvent e){
 
         jugador2 = new Mago(nombreJ2.getText());
@@ -475,6 +533,10 @@ public class EntornoDeJuego extends JFrame{
 
     }
 
+    /**
+     * metodo que crea las acciones que ejecuta el boton seleccionarGuerreroJ2
+     * @param e
+     */
     private void seleccionarGuerreroJ2ActionPerformed(ActionEvent e){
 
         jugador2 = new Guerrero(nombreJ2.getText());
@@ -484,6 +546,10 @@ public class EntornoDeJuego extends JFrame{
 
     }
 
+    /**
+     * metodo que crea las acciones que ejecuta el boton seleccionarSamuraiJ2
+     * @param e
+     */
     private void seleccionarSamuraiJ2ActionPerformed(ActionEvent e){
 
         jugador2 = new Samurai(nombreJ2.getText());
@@ -493,6 +559,11 @@ public class EntornoDeJuego extends JFrame{
 
     }
 
+    /**
+     * Metodo que crea las JLabel con las vidas de los jugadores
+     * @param luchador1
+     * @param luchador2
+     */
     private void crearVidasJugadores(Jugador luchador1, Jugador luchador2){
 
         vidaJ1 = new JLabel("Vida Jugador 1: " +luchador1);
@@ -504,6 +575,9 @@ public class EntornoDeJuego extends JFrame{
         panelVidaJ1.add(vidaJ2);
     }
 
+    /**
+     * Metodo que crea las JLabel
+     */
     private void crearEtiquetas(){
 
         ganador = new JLabel();
@@ -572,6 +646,9 @@ public class EntornoDeJuego extends JFrame{
 
     }
 
+    /**
+     * Metodo que crea los JTextArea
+     */
     private void crearTextArea(){
 
         comentariosSeleccion = new JTextArea();
@@ -582,16 +659,20 @@ public class EntornoDeJuego extends JFrame{
 
     }
 
+    /**
+     * Metodo que carga todos los componentes del progrrama para que en el constructor solo se cargue este
+     * metodo y el que crea las propiedades basicas de la interfaz
+     * @throws IOException
+     */
     private void iniciarComponentes() throws IOException {
 
         crearPaneles();
         crearBotones();
-        accionesBotones();
+        listenersBotones();
         crearVidasJugadores(jugador1,jugador2);
         crearEtiquetas();
         crearTextField();
         crearTextArea();
 
     }
-
 }
