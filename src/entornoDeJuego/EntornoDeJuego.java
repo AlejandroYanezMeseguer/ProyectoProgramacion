@@ -327,7 +327,7 @@ public class EntornoDeJuego extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                empezarALucharActionPerformed(e);
+                empezarALucharActionPerformed(e,jugador1,jugador2);
 
             }
         });
@@ -436,7 +436,7 @@ public class EntornoDeJuego extends JFrame{
      * metodo que crea las acciones que ejecuta el boton empezarALuchar
      * @param e
      */
-    private void empezarALucharActionPerformed(ActionEvent e){
+    private void empezarALucharActionPerformed(ActionEvent e,Jugador luchador1, Jugador luchador2){
 
         ArrayList<String> validaciones = validarJugadores();
 
@@ -455,6 +455,8 @@ public class EntornoDeJuego extends JFrame{
         entornoPelea.setVisible(true);
         mostrarNombreJ1.setText(nombreJ1.getText());
         mostrarNombreJ2.setText(nombreJ2.getText());
+        vidaJ1.setText("Vida Jugador 1: " +luchador1);
+        vidaJ2.setText("Vida Jugador 2: " +luchador2);
 
     }
 
