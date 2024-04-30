@@ -397,8 +397,8 @@ public class EntornoDeJuego extends JFrame{
 
         dañoJ1 = luchador1.atacar(1);
         vigorFinalJ1 = luchador2.recibirGolpe(dañoJ1);
-        vidaJ1.setText("Vida Jugador 1: " +luchador1);
-        vidaJ2.setText("Vida Jugador 2: " +luchador2);
+        vidaJ1.setText("Vida Jugador 1: " +jugador1.getVigor());
+        vidaJ2.setText("Vida Jugador 2: " +jugador2.getVigor());
 
         if (vigorFinalJ1<0){
 
@@ -420,8 +420,8 @@ public class EntornoDeJuego extends JFrame{
 
         dañoJ2 = luchador2.atacar(1);
         vigorFinalJ2 = luchador1.recibirGolpe(dañoJ2);
-        vidaJ1.setText("Vida Jugador 1: " +luchador1);
-        vidaJ2.setText("Vida Jugador 2: " +luchador2);
+        vidaJ1.setText("Vida Jugador 1: " +jugador1.getVigor());
+        vidaJ2.setText("Vida Jugador 2: " +jugador2.getVigor());
 
         if (vigorFinalJ2<0){
 

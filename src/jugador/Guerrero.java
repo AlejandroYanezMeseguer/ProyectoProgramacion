@@ -27,6 +27,8 @@ public class Guerrero extends Jugador{
 
     }
 
+
+
     /**
      * toString
      * @return vigor con la vida del jugador
