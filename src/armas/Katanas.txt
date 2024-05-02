@@ -6,5 +6,3 @@
 20|12|c|rapido|wef
 14|12|b|rapido|wef
 18|12|c|muy_rapido|wef
-18|12|b|rapido|ew
-22|12|c|muy_rapido|wef

@@ -6,7 +6,7 @@ import interfaces.IAcciones;
 
 public class ContenedorArmas {
 
-    public IAcciones[][] listaArmas = new IAcciones[3][10];
+    public IAcciones[][] listaArmas = new IAcciones[3][8];
 
     public ContenedorArmas(TipoGuerrero tipoGuerrero){
 
@@ -19,7 +19,7 @@ public class ContenedorArmas {
 
             for (int i = 0; i < 3; i++) {
 
-                for (int j = 0; j < 10; j++) {
+                for (int j = 0; j < 8; j++) {
 
                     if (i == 0) {
 
@@ -42,7 +42,7 @@ public class ContenedorArmas {
 
             for (int i = 0; i < 3; i++) {
 
-                for (int j = 0; j < 10; j++) {
+                for (int j = 0; j < 8; j++) {
 
                     if (i == 0) {
 
@@ -65,7 +65,7 @@ public class ContenedorArmas {
 
             for (int i = 0; i < 3; i++) {
 
-                for (int j = 0; j < 10; j++) {
+                for (int j = 0; j < 8; j++) {
 
                     if (i == 0) {
 
