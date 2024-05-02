@@ -47,6 +47,8 @@ public class EntornoDeJuego extends JFrame{
     public JPanel panelIntroducirNombreJ2;
     public JPanel seleccionClaseJ2;
     public JPanel panelComentariosSeleccion;
+    public JPanel panelCambiarArmaJ1;
+    public JPanel panelCambiarArmaJ2;
 
     public JButton AtaqueJ1;
     public JButton cambiarArmaJ1;
@@ -210,6 +212,13 @@ public class EntornoDeJuego extends JFrame{
         seleccionClaseJ1.setLayout(null);
         seleccionPersonajeJ1.add(seleccionClaseJ1);
 
+        panelCambiarArmaJ1 = new JPanel();
+        panelCambiarArmaJ1.setBounds(0,150,850,615);
+        panelCambiarArmaJ1.setBackground(Color.yellow);
+        panelCambiarArmaJ1.setLayout(null);
+        entornoPelea.add(panelCambiarArmaJ1);
+        panelCambiarArmaJ1.setVisible(false);
+
         seleccionPersonajeJ2 = new JPanel();
         seleccionPersonajeJ2.setBounds(850,0,850,750);
         seleccionPersonajes.add(seleccionPersonajeJ2);
@@ -226,6 +235,13 @@ public class EntornoDeJuego extends JFrame{
         seleccionClaseJ2.setBackground(Color.green);
         seleccionClaseJ2.setLayout(null);
         seleccionPersonajeJ2.add(seleccionClaseJ2);
+
+        panelCambiarArmaJ2 = new JPanel();
+        panelCambiarArmaJ2.setBounds(850,150,850,615);
+        panelCambiarArmaJ2.setBackground(Color.cyan);
+        panelCambiarArmaJ2.setLayout(null);
+        entornoPelea.add(panelCambiarArmaJ2);
+        panelCambiarArmaJ2.setVisible(false);
 
         panelComentariosSeleccion = new JPanel();
         panelComentariosSeleccion.setBounds(0,820,1700,140);
@@ -382,6 +398,24 @@ public class EntornoDeJuego extends JFrame{
             public void actionPerformed(ActionEvent e) {
 
                 seleccionarSamuraiJ2ActionPerformed(e);
+
+            }
+        });
+
+        cambiarArmaJ1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                cambiarArmaJ1ActionPerformed(e);
+
+            }
+        });
+
+        cambiarArmaJ2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                cambiarArmaJ2ActionPerformed(e);
 
             }
         });
@@ -558,6 +592,28 @@ public class EntornoDeJuego extends JFrame{
         seleccionarSamuraiJ2.setEnabled(false);
         seleccionarGuerreroJ2.setEnabled(true);
         seleccionarMagoJ2.setEnabled(true);
+
+    }
+
+    /**
+     * metodo que crea las acciones que ejecuta el boton cambiarArmaJ1
+     * @param e
+     */
+    private void cambiarArmaJ1ActionPerformed(ActionEvent e){
+
+        skinJ1.setVisible(false);
+        panelCambiarArmaJ1.setVisible(true);
+
+    }
+
+    /**
+     * metodo que crea las acciones que ejecuta el boton cambiarArmaJ1
+     * @param e
+     */
+    private void cambiarArmaJ2ActionPerformed(ActionEvent e){
+
+        skinJ2.setVisible(false);
+        panelCambiarArmaJ2.setVisible(true);
 
     }
 
