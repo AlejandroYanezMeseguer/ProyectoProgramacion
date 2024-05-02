@@ -6,5 +6,3 @@
 18|9|c|normal|wef
 18|13|b|normal|wef
 14|14|c|normal|wef
-18|12|b|normal|wef
-12|14|c|normal|wef

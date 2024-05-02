@@ -6,5 +6,3 @@
 22|9|c|normal|wef
 18|13|b|normal|wef
 11|12|c|normal|wef
-17|11|b|rapido|wef
-8|12|c|normal|wef

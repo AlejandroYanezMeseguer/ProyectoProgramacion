@@ -6,5 +6,3 @@
 25|26|d|muy_lento|wefwef
 26|28|e|muy_lento|wef
 24|18|d|muy_lento|wef
-23|19|d|muy_lento|wef
-23|17|e|muy_lento|wef

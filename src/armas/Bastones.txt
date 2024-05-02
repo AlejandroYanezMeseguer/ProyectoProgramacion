@@ -6,5 +6,3 @@
 22|24|d|lento|fw
 18|18|b|lento|fwe
 21|12|c|lento|few
-19|17|c|lento|fwe
-22|12|d|lento|fwe
