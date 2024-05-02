@@ -45,6 +45,9 @@ public class EntornoDeJuego extends JFrame{
     public JPanel panelIntroducirNombreJ2;
     public JPanel seleccionClaseJ2;
     public JPanel panelComentariosSeleccion;
+    public JPanel panelCambiarArmaJ1;
+    public JPanel panelCambiarArmaJ2;
+
 
     public JButton AtaqueJ1;
     public JButton cambiarArmaJ1;
@@ -88,7 +91,7 @@ public class EntornoDeJuego extends JFrame{
 
     private void setEntorno(){
 
-        setSize(1700,985);
+        setSize(1700,1000);
         setTitle("Coia_Ring");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(false);
@@ -173,13 +176,13 @@ public class EntornoDeJuego extends JFrame{
         seleccionPersonajes.setLayout(null);
 
         comenzarPelea = new JPanel();
-        comenzarPelea.setBounds(0,750,1700,70);
+        comenzarPelea.setBounds(0,765,1700,70);
         comenzarPelea.setBackground(Color.black);
         seleccionPersonajes.add(comenzarPelea);
         comenzarPelea.setLayout(null);
 
         seleccionPersonajeJ1 = new JPanel();
-        seleccionPersonajeJ1.setBounds(0,0,850,750);
+        seleccionPersonajeJ1.setBounds(0,0,850,765);
         seleccionPersonajes.add(seleccionPersonajeJ1);
         seleccionPersonajeJ1.setLayout(null);
 
@@ -190,13 +193,20 @@ public class EntornoDeJuego extends JFrame{
         seleccionPersonajeJ1.add(panelIntroducirNombreJ1);
 
         seleccionClaseJ1 = new JPanel();
-        seleccionClaseJ1.setBounds(0,150,850,600);
+        seleccionClaseJ1.setBounds(0,150,850,615);
         seleccionClaseJ1.setBackground(Color.red);
         seleccionClaseJ1.setLayout(null);
         seleccionPersonajeJ1.add(seleccionClaseJ1);
+        seleccionClaseJ1.setVisible(false);
+
+        panelCambiarArmaJ1 = new JPanel();
+        panelCambiarArmaJ1.setBounds(0,150,850,615);
+        panelCambiarArmaJ1.setBackground(Color.yellow);
+        panelCambiarArmaJ1.setLayout(null);
+        seleccionPersonajeJ1.add(panelCambiarArmaJ1);
 
         seleccionPersonajeJ2 = new JPanel();
-        seleccionPersonajeJ2.setBounds(850,0,850,750);
+        seleccionPersonajeJ2.setBounds(850,0,850,765);
         seleccionPersonajes.add(seleccionPersonajeJ2);
         seleccionPersonajeJ2.setLayout(null);
 
@@ -207,13 +217,19 @@ public class EntornoDeJuego extends JFrame{
         seleccionPersonajeJ2.add(panelIntroducirNombreJ2);
 
         seleccionClaseJ2 = new JPanel();
-        seleccionClaseJ2.setBounds(0,150,850,600);
+        seleccionClaseJ2.setBounds(0,150,850,615);
         seleccionClaseJ2.setBackground(Color.green);
         seleccionClaseJ2.setLayout(null);
         seleccionPersonajeJ2.add(seleccionClaseJ2);
 
+        panelCambiarArmaJ2 = new JPanel();
+        panelCambiarArmaJ2.setBounds(0,150,850,615);
+        panelCambiarArmaJ2.setBackground(Color.cyan);
+        panelCambiarArmaJ2.setLayout(null);
+        seleccionPersonajeJ2.add(panelCambiarArmaJ2);
+
         panelComentariosSeleccion = new JPanel();
-        panelComentariosSeleccion.setBounds(0,820,1700,140);
+        panelComentariosSeleccion.setBounds(0,835,1700,140);
         panelComentariosSeleccion.setBackground(Color.BLUE);
         panelComentariosSeleccion.setLayout(null);
         seleccionPersonajes.add(panelComentariosSeleccion);
