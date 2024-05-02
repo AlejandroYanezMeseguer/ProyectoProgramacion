@@ -197,13 +197,12 @@ public class EntornoDeJuego extends JFrame{
         seleccionClaseJ1.setBackground(Color.red);
         seleccionClaseJ1.setLayout(null);
         seleccionPersonajeJ1.add(seleccionClaseJ1);
-        seleccionClaseJ1.setVisible(false);
 
         panelCambiarArmaJ1 = new JPanel();
         panelCambiarArmaJ1.setBounds(0,150,850,615);
         panelCambiarArmaJ1.setBackground(Color.yellow);
         panelCambiarArmaJ1.setLayout(null);
-        seleccionPersonajeJ1.add(panelCambiarArmaJ1);
+        entornoPelea.add(panelCambiarArmaJ1);
 
         seleccionPersonajeJ2 = new JPanel();
         seleccionPersonajeJ2.setBounds(850,0,850,765);
@@ -226,7 +225,7 @@ public class EntornoDeJuego extends JFrame{
         panelCambiarArmaJ2.setBounds(0,150,850,615);
         panelCambiarArmaJ2.setBackground(Color.cyan);
         panelCambiarArmaJ2.setLayout(null);
-        seleccionPersonajeJ2.add(panelCambiarArmaJ2);
+        entornoPelea.add(panelCambiarArmaJ2);
 
         panelComentariosSeleccion = new JPanel();
         panelComentariosSeleccion.setBounds(0,835,1700,140);
@@ -379,6 +378,24 @@ public class EntornoDeJuego extends JFrame{
 
             }
         });
+
+        cambiarArmaJ1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                cambiarArmaJ1ActionPerformed(e);
+
+            }
+        });
+
+        cambiarArmaJ2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                cambiarArmaJ2ActionPerformed(e);
+
+            }
+        });
     }
 
     private void botonAtaqueJugador1ActionPerformed(ActionEvent e, Jugador luchador1, Jugador luchador2){
@@ -506,6 +523,20 @@ public class EntornoDeJuego extends JFrame{
         seleccionarSamuraiJ2.setEnabled(false);
         seleccionarGuerreroJ2.setEnabled(true);
         seleccionarMagoJ2.setEnabled(true);
+
+    }
+
+    private void cambiarArmaJ1ActionPerformed(ActionEvent e){
+
+        skinJ1.setVisible(false);
+        panelCambiarArmaJ1.setVisible(true);
+
+    }
+
+    private void cambiarArmaJ2ActionPerformed(ActionEvent e){
+
+        skinJ2.setVisible(false);
+        panelCambiarArmaJ2.setVisible(true);
 
     }
 
