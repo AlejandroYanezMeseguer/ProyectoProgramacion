@@ -53,4 +53,9 @@ public abstract class Armas {
         }
         return ValorA;
     }
+
+
+    public String getName() {
+        return nombre;
+    }
 }

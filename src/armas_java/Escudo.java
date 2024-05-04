@@ -36,4 +36,9 @@ public class Escudo implements IAcciones {
     public int defender(int ValorD) {
         return ValorD+ defensa + peso;
     }
+
+    @Override
+    public String getName() {
+        return "dfwed";
+    }
 }

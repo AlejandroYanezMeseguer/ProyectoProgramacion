@@ -35,10 +35,6 @@ public abstract class Jugador {
         return vigor;
     }
 
-    public void setVigor(int vigor) {
-        this.vigor = vigor;
-    }
-
     /**
      * Metodo uqe crea la funcionalidad de cambiar de arma
      * @param armaSeleccionada

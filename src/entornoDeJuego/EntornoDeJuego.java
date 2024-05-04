@@ -1,9 +1,6 @@
 package entornoDeJuego;
 
-import jugador.Jugador;
-import jugador.Mago;
-import jugador.Guerrero;
-import jugador.Samurai;
+import jugador.*;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -604,6 +601,15 @@ public class EntornoDeJuego extends JFrame{
         skinJ1.setVisible(false);
         panelCambiarArmaJ1.setVisible(true);
 
+       PanelArmas armas = new PanelArmas(panelCambiarArmaJ1,jugador1);
+    var listener = new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+
+            seleccionDeArmaJ1ActionPerformed(e);
+
+        }};
+       armas.añadirArmas(listener);
     }
 
     /**
@@ -615,6 +621,50 @@ public class EntornoDeJuego extends JFrame{
         skinJ2.setVisible(false);
         panelCambiarArmaJ2.setVisible(true);
 
+        PanelArmas armas = new PanelArmas(panelCambiarArmaJ2,jugador2);
+        var listener = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                seleccionDeArmaJ2ActionPerformed(e);
+
+            }};
+        armas.añadirArmas(listener);
+
+    }
+
+    /**
+     * metodo que crea las acciones que ejecuta el boton seleccionDeArmaJ1
+     * @param e
+     */
+    private void seleccionDeArmaJ1ActionPerformed(ActionEvent e){
+
+        var boton = (JButton)e.getSource();
+        String[] posicionArma = boton.getName().split("\\|");
+
+        int x = Integer.parseInt(posicionArma[0]);
+        int y = Integer.parseInt(posicionArma[1]);
+
+        Posicion posicion = new Posicion(x,y);
+
+        jugador1.cambiarArma(posicion);
+    }
+
+    /**
+     * metodo que crea las acciones que ejecuta el boton seleccionDeArmaJ2
+     * @param e
+     */
+    private void seleccionDeArmaJ2ActionPerformed(ActionEvent e){
+
+        var boton = (JButton)e.getSource();
+        String[] posicionArma = boton.getName().split("\\|");
+
+        int x = Integer.parseInt(posicionArma[0]);
+        int y = Integer.parseInt(posicionArma[1]);
+
+        Posicion posicion = new Posicion(x,y);
+
+        jugador2.cambiarArma(posicion);
     }
 
     /**

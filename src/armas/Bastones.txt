@@ -1,8 +1,8 @@
-22|18|c|lento|ewf
-20|16|c|lento|wef
-20|18|d|lento|wef
-18|22|c|lento|wef
-20|20|d|lento|wefwe
-22|24|d|lento|fw
-18|18|b|lento|fwe
-21|12|c|lento|few
+22|18|c|lento|baston1
+20|16|c|lento|baston2
+20|18|d|lento|baston3
+18|22|c|lento|baston4
+20|20|d|lento|baston5
+22|24|d|lento|baston6
+18|18|b|lento|baston7
+21|12|c|lento|baston8
