@@ -1,8 +1,8 @@
-25|20|d|muy_lento|catalaziador1
-22|20|d|muy_lento|catalaziador2
-23|19|e|muy_lento|catalaziador3
-20|22|c|muy_lento|catalaziador4
-22|23|d|muy_lento|catalaziador5
-25|26|d|muy_lento|catalaziador6
-26|28|e|muy_lento|catalaziador7
-24|18|d|muy_lento|catalaziador8
+25|20|d|muy_lento|catalazador1
+22|20|d|muy_lento|catalazador2
+23|19|e|muy_lento|catalazador3
+20|22|c|muy_lento|catalazador4
+22|23|d|muy_lento|catalazador5
+25|26|d|muy_lento|catalazador6
+26|28|e|muy_lento|catalazador7
+24|18|d|muy_lento|catalazador8

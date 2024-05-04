@@ -111,13 +111,13 @@ public class EntornoDeJuego extends JFrame{
     private void crearTextField(){
 
         nombreJ1 = new JTextField();
-        nombreJ1.setBounds(280,70,300,32);
+        nombreJ1.setBounds(280,55,300,32);
         nombreJ1.setFont(new Font(null,Font.PLAIN,24));
         panelIntroducirNombreJ1.add(nombreJ1);
 
 
         nombreJ2 = new JTextField();
-        nombreJ2.setBounds(280,70,300,32);
+        nombreJ2.setBounds(280,55,300,32);
         nombreJ2.setFont(new Font(null,Font.PLAIN,24));
         panelIntroducirNombreJ2.add(nombreJ2);
 
@@ -140,32 +140,32 @@ public class EntornoDeJuego extends JFrame{
         this.getContentPane().add(jugadorGanador);
 
         panelNombreJ1 = new JPanel();
-        panelNombreJ1.setBounds(0,0,850,60);
+        panelNombreJ1.setBounds(0,0,850,50);
         panelNombreJ1.setBackground(Color.magenta);
         entornoPelea.add(panelNombreJ1);
 
         panelNombreJ2 = new JPanel();
-        panelNombreJ2.setBounds(850,0,850,60);
+        panelNombreJ2.setBounds(850,0,850,50);
         panelNombreJ2.setBackground(Color.cyan);
         entornoPelea.add(panelNombreJ2);
 
         panelVidaJ2 = new JPanel();
-        panelVidaJ2.setBounds(0,60,850,90);
+        panelVidaJ2.setBounds(0,50,850,50);
         panelVidaJ2.setBackground(Color.RED);
         entornoPelea.add(panelVidaJ2);
 
         panelVidaJ1 = new JPanel();
-        panelVidaJ1.setBounds(850,60,850,90);
+        panelVidaJ1.setBounds(850,50,850,50);
         panelVidaJ1.setBackground(Color.GREEN);
         entornoPelea.add(panelVidaJ1);
 
         skinJ1 = new JPanel();
-        skinJ1.setBounds(0,150,850,600);
+        skinJ1.setBounds(0,100,850,650);
         skinJ1.setBackground(Color.BLUE);
         entornoPelea.add(skinJ1);
 
         skinJ2 = new JPanel();
-        skinJ2.setBounds(850,150,850,600);
+        skinJ2.setBounds(850,100,850,650);
         skinJ2.setBackground(Color.yellow);
         entornoPelea.add(skinJ2);
 
@@ -198,19 +198,19 @@ public class EntornoDeJuego extends JFrame{
         seleccionPersonajeJ1.setLayout(null);
 
         panelIntroducirNombreJ1 = new JPanel();
-        panelIntroducirNombreJ1.setBounds(0,0,850,150);
+        panelIntroducirNombreJ1.setBounds(0,0,850,115);
         panelIntroducirNombreJ1.setBackground(Color.cyan);
         panelIntroducirNombreJ1.setLayout(null);
         seleccionPersonajeJ1.add(panelIntroducirNombreJ1);
 
         seleccionClaseJ1 = new JPanel();
-        seleccionClaseJ1.setBounds(0,150,850,600);
+        seleccionClaseJ1.setBounds(0,115,850,635);
         seleccionClaseJ1.setBackground(Color.red);
         seleccionClaseJ1.setLayout(null);
         seleccionPersonajeJ1.add(seleccionClaseJ1);
 
         panelCambiarArmaJ1 = new JPanel();
-        panelCambiarArmaJ1.setBounds(0,150,850,615);
+        panelCambiarArmaJ1.setBounds(0,100,850,650);
         panelCambiarArmaJ1.setBackground(Color.yellow);
         panelCambiarArmaJ1.setLayout(null);
         entornoPelea.add(panelCambiarArmaJ1);
@@ -222,19 +222,19 @@ public class EntornoDeJuego extends JFrame{
         seleccionPersonajeJ2.setLayout(null);
 
         panelIntroducirNombreJ2 = new JPanel();
-        panelIntroducirNombreJ2.setBounds(0,0,850,150);
+        panelIntroducirNombreJ2.setBounds(0,0,850,115);
         panelIntroducirNombreJ2.setBackground(Color.yellow);
         panelIntroducirNombreJ2.setLayout(null);
         seleccionPersonajeJ2.add(panelIntroducirNombreJ2);
 
         seleccionClaseJ2 = new JPanel();
-        seleccionClaseJ2.setBounds(0,150,850,600);
+        seleccionClaseJ2.setBounds(0,115,850,635);
         seleccionClaseJ2.setBackground(Color.green);
         seleccionClaseJ2.setLayout(null);
         seleccionPersonajeJ2.add(seleccionClaseJ2);
 
         panelCambiarArmaJ2 = new JPanel();
-        panelCambiarArmaJ2.setBounds(850,150,850,615);
+        panelCambiarArmaJ2.setBounds(850,100,850,650);
         panelCambiarArmaJ2.setBackground(Color.cyan);
         panelCambiarArmaJ2.setLayout(null);
         entornoPelea.add(panelCambiarArmaJ2);
@@ -598,18 +598,19 @@ public class EntornoDeJuego extends JFrame{
      */
     private void cambiarArmaJ1ActionPerformed(ActionEvent e){
 
-        skinJ1.setVisible(false);
-        panelCambiarArmaJ1.setVisible(true);
+       PanelCambiarArmas armas = new PanelCambiarArmas(panelCambiarArmaJ1,jugador1);
+        var listener = new ActionListener() {
+             @Override
+             public void actionPerformed(ActionEvent e) {
 
-       PanelArmas armas = new PanelArmas(panelCambiarArmaJ1,jugador1);
-    var listener = new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
+                seleccionDeArmaJ1ActionPerformed(e);
 
-            seleccionDeArmaJ1ActionPerformed(e);
-
-        }};
+             }};
        armas.añadirArmas(listener);
+
+       armas.añadirNombresArmas();
+       skinJ1.setVisible(false);
+       panelCambiarArmaJ1.setVisible(true);
     }
 
     /**
@@ -618,10 +619,7 @@ public class EntornoDeJuego extends JFrame{
      */
     private void cambiarArmaJ2ActionPerformed(ActionEvent e){
 
-        skinJ2.setVisible(false);
-        panelCambiarArmaJ2.setVisible(true);
-
-        PanelArmas armas = new PanelArmas(panelCambiarArmaJ2,jugador2);
+        PanelCambiarArmas armas = new PanelCambiarArmas(panelCambiarArmaJ2,jugador2);
         var listener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -631,6 +629,9 @@ public class EntornoDeJuego extends JFrame{
             }};
         armas.añadirArmas(listener);
 
+        armas.añadirNombresArmas();
+        skinJ2.setVisible(false);
+        panelCambiarArmaJ2.setVisible(true);
     }
 
     /**
@@ -693,13 +694,13 @@ public class EntornoDeJuego extends JFrame{
         jugadorGanador.setVisible(false);
 
         introducirNombreJ1 = new JLabel("Nombre del jugador 1:");
-        introducirNombreJ1.setBounds(290,15,300,36);
-        introducirNombreJ1.setFont(new Font(null,Font.PLAIN,27));
+        introducirNombreJ1.setBounds(290,8,300,36);
+        introducirNombreJ1.setFont(new Font(null,Font.PLAIN,26));
         panelIntroducirNombreJ1.add(introducirNombreJ1);
 
         introducirNombreJ2 = new JLabel("Nombre del jugador 2:");
-        introducirNombreJ2.setBounds(287,15,300,36);
-        introducirNombreJ2.setFont(new Font(null,Font.PLAIN,27));
+        introducirNombreJ2.setBounds(287,8,300,36);
+        introducirNombreJ2.setFont(new Font(null,Font.PLAIN,26));
         panelIntroducirNombreJ2.add(introducirNombreJ2);
 
         seleccionarClaseJ1 = new JLabel("Selecciona la clase con la que quieres combatir");
@@ -743,13 +744,13 @@ public class EntornoDeJuego extends JFrame{
         seleccionClaseJ2.add(samuraiJ2);
 
         mostrarNombreJ1 = new JLabel();
-        mostrarNombreJ1.setBounds(200,30,500,30);
-        mostrarNombreJ1.setFont(new Font(null,Font.PLAIN,32));
+        mostrarNombreJ1.setBounds(200,0,500,30);
+        mostrarNombreJ1.setFont(new Font(null,Font.PLAIN,30));
         panelNombreJ1.add(mostrarNombreJ1);
 
         mostrarNombreJ2 = new JLabel();
-        mostrarNombreJ2.setBounds(200,30,500,30);
-        mostrarNombreJ2.setFont(new Font(null,Font.PLAIN,32));
+        mostrarNombreJ2.setBounds(200,0,500,30);
+        mostrarNombreJ2.setFont(new Font(null,Font.PLAIN,30));
         panelNombreJ2.add(mostrarNombreJ2);
 
     }
