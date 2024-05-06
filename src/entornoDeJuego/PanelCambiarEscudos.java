@@ -10,13 +10,14 @@ public class PanelCambiarEscudos{
 
     private JPanel panel;
     private Jugador jugador;
-    final int VALOR_INICIAL_X = -100;
-    final int INCREMENTO_EJE_X = 200;
-    final int VALOR_INICIAL_Y_BOTONES = 44;
-    final int VALOR_INICIAL_Y_ETIQUETAS = 22;
-    final int INCREMENTO_EJE_Y = 132;
-    final int LADO_BOTON = 86;
-    int tres = 3;
+    final int VALOR_INICIAL_X = -300;
+    final int INCREMENTO_EJE_X = 240;
+    final int VALOR_INICIAL_Y_BOTONES = 80;
+    final int VALOR_INICIAL_Y_ETIQUETAS = 58;
+    final int INCREMENTO_EJE_Y = 165;
+    final int LADO_BOTON = 95;
+    private int BotonesPorColumna = 3;
+    private int etiquetasPorColumna = 3;
 
     /**
      * Constructior de la clase PanelCambiarEscudos
@@ -47,9 +48,8 @@ public class PanelCambiarEscudos{
                 boton.addActionListener(e);
                 int y = VALOR_INICIAL_Y_BOTONES +j*INCREMENTO_EJE_Y;
                 if (j==6){
-
                     cambioColumna=true;
-                    tres=6;
+                    BotonesPorColumna = 6;
                 }
                 if (j>2){
 
@@ -59,7 +59,7 @@ public class PanelCambiarEscudos{
                         cambioColumna=false;
 
                     }
-                    y = VALOR_INICIAL_Y_BOTONES +(j-tres)*INCREMENTO_EJE_Y;
+                    y = VALOR_INICIAL_Y_BOTONES +(j- BotonesPorColumna)*INCREMENTO_EJE_Y;
 
                 }
                 int x = VALOR_INICIAL_X+(i+incrementoColumna)*INCREMENTO_EJE_X;
@@ -85,7 +85,11 @@ public class PanelCambiarEscudos{
                 JLabel nombreEscudo = new JLabel(escudos[i][j].getName());
                 nombreEscudo.setName(i +"|" +j);
                 int y = VALOR_INICIAL_Y_ETIQUETAS +j*INCREMENTO_EJE_Y;
-                if (j>3){
+                if (j==6){
+                    cambioColumna=true;
+                    etiquetasPorColumna = 6;
+                }
+                if (j>2){
 
                     if(cambioColumna){
 
@@ -93,7 +97,7 @@ public class PanelCambiarEscudos{
                         cambioColumna=false;
 
                     }
-                    y = VALOR_INICIAL_Y_ETIQUETAS +(j-4)*INCREMENTO_EJE_Y;
+                    y = VALOR_INICIAL_Y_ETIQUETAS +(j- etiquetasPorColumna)*INCREMENTO_EJE_Y;
 
                 }
                 int x = VALOR_INICIAL_X+(i+incrementoColumna)*INCREMENTO_EJE_X;
