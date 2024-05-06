@@ -1,9 +1,6 @@
 package entornoDeJuego;
 
-import jugador.Jugador;
-import jugador.Mago;
-import jugador.Guerrero;
-import jugador.Samurai;
+import jugador.*;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -15,7 +12,9 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
-
+/**
+ * Clase que crea la parte grafica del programa
+ */
 public class EntornoDeJuego extends JFrame{
 
     private Jugador jugador1;
@@ -45,6 +44,8 @@ public class EntornoDeJuego extends JFrame{
     public JPanel panelIntroducirNombreJ2;
     public JPanel seleccionClaseJ2;
     public JPanel panelComentariosSeleccion;
+    public JPanel panelCambiarArmaJ1;
+    public JPanel panelCambiarArmaJ2;
 
     public JButton AtaqueJ1;
     public JButton cambiarArmaJ1;
@@ -79,6 +80,10 @@ public class EntornoDeJuego extends JFrame{
     public JTextField nombreJ2;
 
 
+    /**
+     * Constructor de la clase donde se crea la ventana
+     * @throws IOException
+     */
     public EntornoDeJuego() throws IOException {
 
         setEntorno();
@@ -86,6 +91,9 @@ public class EntornoDeJuego extends JFrame{
 
     }
 
+    /**
+     * Metodo con las propiedades basicas del entorno grafico
+     */
     private void setEntorno(){
 
         setSize(1700,985);
@@ -97,21 +105,27 @@ public class EntornoDeJuego extends JFrame{
 
     }
 
+    /**
+     * Metodo que crea los JTextField
+     */
     private void crearTextField(){
 
         nombreJ1 = new JTextField();
-        nombreJ1.setBounds(280,70,300,32);
+        nombreJ1.setBounds(280,55,300,32);
         nombreJ1.setFont(new Font(null,Font.PLAIN,24));
         panelIntroducirNombreJ1.add(nombreJ1);
 
 
         nombreJ2 = new JTextField();
-        nombreJ2.setBounds(280,70,300,32);
+        nombreJ2.setBounds(280,55,300,32);
         nombreJ2.setFont(new Font(null,Font.PLAIN,24));
         panelIntroducirNombreJ2.add(nombreJ2);
 
     }
 
+    /**
+     * Metodo que crea los Jpanel
+     */
     private void crearPaneles(){
 
         entornoPelea = new JPanel();
@@ -126,32 +140,32 @@ public class EntornoDeJuego extends JFrame{
         this.getContentPane().add(jugadorGanador);
 
         panelNombreJ1 = new JPanel();
-        panelNombreJ1.setBounds(0,0,850,60);
+        panelNombreJ1.setBounds(0,0,850,50);
         panelNombreJ1.setBackground(Color.magenta);
         entornoPelea.add(panelNombreJ1);
 
         panelNombreJ2 = new JPanel();
-        panelNombreJ2.setBounds(850,0,850,60);
+        panelNombreJ2.setBounds(850,0,850,50);
         panelNombreJ2.setBackground(Color.cyan);
         entornoPelea.add(panelNombreJ2);
 
         panelVidaJ2 = new JPanel();
-        panelVidaJ2.setBounds(0,60,850,90);
+        panelVidaJ2.setBounds(0,50,850,50);
         panelVidaJ2.setBackground(Color.RED);
         entornoPelea.add(panelVidaJ2);
 
         panelVidaJ1 = new JPanel();
-        panelVidaJ1.setBounds(850,60,850,90);
+        panelVidaJ1.setBounds(850,50,850,50);
         panelVidaJ1.setBackground(Color.GREEN);
         entornoPelea.add(panelVidaJ1);
 
         skinJ1 = new JPanel();
-        skinJ1.setBounds(0,150,850,600);
+        skinJ1.setBounds(0,100,850,650);
         skinJ1.setBackground(Color.BLUE);
         entornoPelea.add(skinJ1);
 
         skinJ2 = new JPanel();
-        skinJ2.setBounds(850,150,850,600);
+        skinJ2.setBounds(850,100,850,650);
         skinJ2.setBackground(Color.yellow);
         entornoPelea.add(skinJ2);
 
@@ -184,16 +198,23 @@ public class EntornoDeJuego extends JFrame{
         seleccionPersonajeJ1.setLayout(null);
 
         panelIntroducirNombreJ1 = new JPanel();
-        panelIntroducirNombreJ1.setBounds(0,0,850,150);
+        panelIntroducirNombreJ1.setBounds(0,0,850,115);
         panelIntroducirNombreJ1.setBackground(Color.cyan);
         panelIntroducirNombreJ1.setLayout(null);
         seleccionPersonajeJ1.add(panelIntroducirNombreJ1);
 
         seleccionClaseJ1 = new JPanel();
-        seleccionClaseJ1.setBounds(0,150,850,600);
+        seleccionClaseJ1.setBounds(0,115,850,635);
         seleccionClaseJ1.setBackground(Color.red);
         seleccionClaseJ1.setLayout(null);
         seleccionPersonajeJ1.add(seleccionClaseJ1);
+
+        panelCambiarArmaJ1 = new JPanel();
+        panelCambiarArmaJ1.setBounds(0,100,850,650);
+        panelCambiarArmaJ1.setBackground(Color.yellow);
+        panelCambiarArmaJ1.setLayout(null);
+        entornoPelea.add(panelCambiarArmaJ1);
+        panelCambiarArmaJ1.setVisible(false);
 
         seleccionPersonajeJ2 = new JPanel();
         seleccionPersonajeJ2.setBounds(850,0,850,750);
@@ -201,16 +222,23 @@ public class EntornoDeJuego extends JFrame{
         seleccionPersonajeJ2.setLayout(null);
 
         panelIntroducirNombreJ2 = new JPanel();
-        panelIntroducirNombreJ2.setBounds(0,0,850,150);
+        panelIntroducirNombreJ2.setBounds(0,0,850,115);
         panelIntroducirNombreJ2.setBackground(Color.yellow);
         panelIntroducirNombreJ2.setLayout(null);
         seleccionPersonajeJ2.add(panelIntroducirNombreJ2);
 
         seleccionClaseJ2 = new JPanel();
-        seleccionClaseJ2.setBounds(0,150,850,600);
+        seleccionClaseJ2.setBounds(0,115,850,635);
         seleccionClaseJ2.setBackground(Color.green);
         seleccionClaseJ2.setLayout(null);
         seleccionPersonajeJ2.add(seleccionClaseJ2);
+
+        panelCambiarArmaJ2 = new JPanel();
+        panelCambiarArmaJ2.setBounds(850,100,850,650);
+        panelCambiarArmaJ2.setBackground(Color.cyan);
+        panelCambiarArmaJ2.setLayout(null);
+        entornoPelea.add(panelCambiarArmaJ2);
+        panelCambiarArmaJ2.setVisible(false);
 
         panelComentariosSeleccion = new JPanel();
         panelComentariosSeleccion.setBounds(0,820,1700,140);
@@ -220,6 +248,10 @@ public class EntornoDeJuego extends JFrame{
 
     }
 
+    /**
+     * Metodo que crea los JButton
+     * @throws IOException
+     */
     private void crearBotones() throws IOException {
 
         cambiarArmaJ1 = new JButton("Cambiar de arma");
@@ -281,7 +313,10 @@ public class EntornoDeJuego extends JFrame{
         comenzarPelea.add(empezarPelea);
     }
 
-    private void accionesBotones(){
+    /**
+     * Metodo que crea los listeners de todos los JButton
+     */
+    private void listenersBotones(){
 
         AtaqueJ1.addActionListener(new ActionListener() {
             @Override
@@ -305,7 +340,7 @@ public class EntornoDeJuego extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                empezarALucharActionPerformed(e);
+                empezarALucharActionPerformed(e,jugador1,jugador2);
 
             }
         });
@@ -363,14 +398,38 @@ public class EntornoDeJuego extends JFrame{
 
             }
         });
+
+        cambiarArmaJ1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                cambiarArmaJ1ActionPerformed(e);
+
+            }
+        });
+
+        cambiarArmaJ2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                cambiarArmaJ2ActionPerformed(e);
+
+            }
+        });
     }
 
+    /**
+     * metodo que crea las acciones que ejecuta el boton ataqueJugador1
+     * @param e
+     * @param luchador1
+     * @param luchador2
+     */
     private void botonAtaqueJugador1ActionPerformed(ActionEvent e, Jugador luchador1, Jugador luchador2){
 
         dañoJ1 = luchador1.atacar(1);
         vigorFinalJ1 = luchador2.recibirGolpe(dañoJ1);
-        vidaJ1.setText("Vida Jugador 1: " +luchador1);
-        vidaJ2.setText("Vida Jugador 2: " +luchador2);
+        vidaJ1.setText("Vida Jugador 1: " +jugador1.getVigor());
+        vidaJ2.setText("Vida Jugador 2: " +jugador2.getVigor());
 
         if (vigorFinalJ1<0){
 
@@ -382,12 +441,18 @@ public class EntornoDeJuego extends JFrame{
 
     }
 
+    /**
+     * metodo que crea las acciones que ejecuta el boton ataqueJugador2
+     * @param e
+     * @param luchador1
+     * @param luchador2
+     */
     private void botonAtaqueJugador2ActionPerformed(ActionEvent e, Jugador luchador1, Jugador luchador2){
 
         dañoJ2 = luchador2.atacar(1);
         vigorFinalJ2 = luchador1.recibirGolpe(dañoJ2);
-        vidaJ1.setText("Vida Jugador 1: " +luchador1);
-        vidaJ2.setText("Vida Jugador 2: " +luchador2);
+        vidaJ1.setText("Vida Jugador 1: " +jugador1.getVigor());
+        vidaJ2.setText("Vida Jugador 2: " +jugador2.getVigor());
 
         if (vigorFinalJ2<0){
 
@@ -398,7 +463,11 @@ public class EntornoDeJuego extends JFrame{
 
     }
 
-    private void empezarALucharActionPerformed(ActionEvent e){
+    /**
+     * metodo que crea las acciones que ejecuta el boton empezarALuchar
+     * @param e
+     */
+    private void empezarALucharActionPerformed(ActionEvent e,Jugador luchador1, Jugador luchador2){
 
         ArrayList<String> validaciones = validarJugadores();
 
@@ -417,9 +486,15 @@ public class EntornoDeJuego extends JFrame{
         entornoPelea.setVisible(true);
         mostrarNombreJ1.setText(nombreJ1.getText());
         mostrarNombreJ2.setText(nombreJ2.getText());
+        vidaJ1.setText("Vida Jugador 1: " +luchador1);
+        vidaJ2.setText("Vida Jugador 2: " +luchador2);
 
     }
 
+    /**
+     * metodo que añade a un arraylist mensajes de error al iniciar partida
+     * @return mensajes con los mensajes añadidos
+     */
     private ArrayList<String> validarJugadores(){
 
         ArrayList<String> mensajes = new ArrayList<String>();
@@ -439,6 +514,10 @@ public class EntornoDeJuego extends JFrame{
         return mensajes;
     }
 
+    /**
+     * metodo que crea las acciones que ejecuta el boton seleccionarMagoJ1
+     * @param e
+     */
     private void seleccionarMagoJ1ActionPerformed(ActionEvent e){
 
         jugador1 = new Mago(nombreJ1.getText());
@@ -448,6 +527,10 @@ public class EntornoDeJuego extends JFrame{
 
     }
 
+    /**
+     * metodo que crea las acciones que ejecuta el boton seleccionarGuerreroJ1
+     * @param e
+     */
     private void seleccionarGuerreroJ1ActionPerformed(ActionEvent e){
 
         jugador1 = new Guerrero(nombreJ1.getText());
@@ -457,6 +540,10 @@ public class EntornoDeJuego extends JFrame{
 
     }
 
+    /**
+     * metodo que crea las acciones que ejecuta el boton seleccionarSamuraiJ1
+     * @param e
+     */
     private void seleccionarSamuraiJ1ActionPerformed(ActionEvent e){
 
         jugador1 = new Samurai(nombreJ1.getText());
@@ -466,6 +553,10 @@ public class EntornoDeJuego extends JFrame{
 
     }
 
+    /**
+     * metodo que crea las acciones que ejecuta el boton seleccionarMagoJ2
+     * @param e
+     */
     private void seleccionarMagoJ2ActionPerformed(ActionEvent e){
 
         jugador2 = new Mago(nombreJ2.getText());
@@ -475,6 +566,10 @@ public class EntornoDeJuego extends JFrame{
 
     }
 
+    /**
+     * metodo que crea las acciones que ejecuta el boton seleccionarGuerreroJ2
+     * @param e
+     */
     private void seleccionarGuerreroJ2ActionPerformed(ActionEvent e){
 
         jugador2 = new Guerrero(nombreJ2.getText());
@@ -484,6 +579,10 @@ public class EntornoDeJuego extends JFrame{
 
     }
 
+    /**
+     * metodo que crea las acciones que ejecuta el boton seleccionarSamuraiJ2
+     * @param e
+     */
     private void seleccionarSamuraiJ2ActionPerformed(ActionEvent e){
 
         jugador2 = new Samurai(nombreJ2.getText());
@@ -493,6 +592,87 @@ public class EntornoDeJuego extends JFrame{
 
     }
 
+    /**
+     * metodo que crea las acciones que ejecuta el boton cambiarArmaJ1
+     * @param e
+     */
+    private void cambiarArmaJ1ActionPerformed(ActionEvent e){
+
+       PanelCambiarArmas armas = new PanelCambiarArmas(panelCambiarArmaJ1,jugador1);
+        var listener = new ActionListener() {
+             @Override
+             public void actionPerformed(ActionEvent e) {
+
+                seleccionDeArmaJ1ActionPerformed(e);
+
+             }};
+       armas.añadirArmas(listener);
+
+       armas.añadirNombresArmas();
+       skinJ1.setVisible(false);
+       panelCambiarArmaJ1.setVisible(true);
+    }
+
+    /**
+     * metodo que crea las acciones que ejecuta el boton cambiarArmaJ1
+     * @param e
+     */
+    private void cambiarArmaJ2ActionPerformed(ActionEvent e){
+
+        PanelCambiarArmas armas = new PanelCambiarArmas(panelCambiarArmaJ2,jugador2);
+        var listener = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                seleccionDeArmaJ2ActionPerformed(e);
+
+            }};
+        armas.añadirArmas(listener);
+
+        armas.añadirNombresArmas();
+        skinJ2.setVisible(false);
+        panelCambiarArmaJ2.setVisible(true);
+    }
+
+    /**
+     * metodo que crea las acciones que ejecuta el boton seleccionDeArmaJ1
+     * @param e
+     */
+    private void seleccionDeArmaJ1ActionPerformed(ActionEvent e){
+
+        var boton = (JButton)e.getSource();
+        String[] posicionArma = boton.getName().split("\\|");
+
+        int x = Integer.parseInt(posicionArma[0]);
+        int y = Integer.parseInt(posicionArma[1]);
+
+        Posicion posicion = new Posicion(x,y);
+
+        jugador1.cambiarArma(posicion);
+    }
+
+    /**
+     * metodo que crea las acciones que ejecuta el boton seleccionDeArmaJ2
+     * @param e
+     */
+    private void seleccionDeArmaJ2ActionPerformed(ActionEvent e){
+
+        var boton = (JButton)e.getSource();
+        String[] posicionArma = boton.getName().split("\\|");
+
+        int x = Integer.parseInt(posicionArma[0]);
+        int y = Integer.parseInt(posicionArma[1]);
+
+        Posicion posicion = new Posicion(x,y);
+
+        jugador2.cambiarArma(posicion);
+    }
+
+    /**
+     * Metodo que crea las JLabel con las vidas de los jugadores
+     * @param luchador1
+     * @param luchador2
+     */
     private void crearVidasJugadores(Jugador luchador1, Jugador luchador2){
 
         vidaJ1 = new JLabel("Vida Jugador 1: " +luchador1);
@@ -504,6 +684,9 @@ public class EntornoDeJuego extends JFrame{
         panelVidaJ1.add(vidaJ2);
     }
 
+    /**
+     * Metodo que crea las JLabel
+     */
     private void crearEtiquetas(){
 
         ganador = new JLabel();
@@ -511,13 +694,13 @@ public class EntornoDeJuego extends JFrame{
         jugadorGanador.setVisible(false);
 
         introducirNombreJ1 = new JLabel("Nombre del jugador 1:");
-        introducirNombreJ1.setBounds(290,15,300,36);
-        introducirNombreJ1.setFont(new Font(null,Font.PLAIN,27));
+        introducirNombreJ1.setBounds(290,8,300,36);
+        introducirNombreJ1.setFont(new Font(null,Font.PLAIN,26));
         panelIntroducirNombreJ1.add(introducirNombreJ1);
 
         introducirNombreJ2 = new JLabel("Nombre del jugador 2:");
-        introducirNombreJ2.setBounds(287,15,300,36);
-        introducirNombreJ2.setFont(new Font(null,Font.PLAIN,27));
+        introducirNombreJ2.setBounds(287,8,300,36);
+        introducirNombreJ2.setFont(new Font(null,Font.PLAIN,26));
         panelIntroducirNombreJ2.add(introducirNombreJ2);
 
         seleccionarClaseJ1 = new JLabel("Selecciona la clase con la que quieres combatir");
@@ -561,17 +744,20 @@ public class EntornoDeJuego extends JFrame{
         seleccionClaseJ2.add(samuraiJ2);
 
         mostrarNombreJ1 = new JLabel();
-        mostrarNombreJ1.setBounds(200,30,500,30);
-        mostrarNombreJ1.setFont(new Font(null,Font.PLAIN,32));
+        mostrarNombreJ1.setBounds(200,0,500,30);
+        mostrarNombreJ1.setFont(new Font(null,Font.PLAIN,30));
         panelNombreJ1.add(mostrarNombreJ1);
 
         mostrarNombreJ2 = new JLabel();
-        mostrarNombreJ2.setBounds(200,30,500,30);
-        mostrarNombreJ2.setFont(new Font(null,Font.PLAIN,32));
+        mostrarNombreJ2.setBounds(200,0,500,30);
+        mostrarNombreJ2.setFont(new Font(null,Font.PLAIN,30));
         panelNombreJ2.add(mostrarNombreJ2);
 
     }
 
+    /**
+     * Metodo que crea los JTextArea
+     */
     private void crearTextArea(){
 
         comentariosSeleccion = new JTextArea();
@@ -582,16 +768,20 @@ public class EntornoDeJuego extends JFrame{
 
     }
 
+    /**
+     * Metodo que carga todos los componentes del progrrama para que en el constructor solo se cargue este
+     * metodo y el que crea las propiedades basicas de la interfaz
+     * @throws IOException
+     */
     private void iniciarComponentes() throws IOException {
 
         crearPaneles();
         crearBotones();
-        accionesBotones();
+        listenersBotones();
         crearVidasJugadores(jugador1,jugador2);
         crearEtiquetas();
         crearTextField();
         crearTextArea();
 
     }
-
 }

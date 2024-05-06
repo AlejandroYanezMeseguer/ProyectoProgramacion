@@ -4,8 +4,15 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
+/**
+ * Clase abstracta  con los metodos que cargan las armas
+ */
 public abstract class CargarArmas {
 
+    /**
+     * Metodo que carga el fichero donde estan las estadisticas de las armas
+     * @param rutaArchivo
+     */
     protected void leerFicheros(String rutaArchivo){
 
         try {
@@ -31,6 +38,10 @@ public abstract class CargarArmas {
         }
     }
 
+    /**
+     * Metodo que lee las lineas de los archivos
+     * @param listaPropiedadesArmas
+     */
     protected abstract void leerLineas(String[] listaPropiedadesArmas);
 
 
