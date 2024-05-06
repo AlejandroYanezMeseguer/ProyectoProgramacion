@@ -355,12 +355,12 @@ public class EntornoDeJuego extends JFrame{
         panelCambiarArmaJ2.add(seleccionarArmaJ2);
 
         seleccionarEscudoJ1 = new JButton("Utilizar escudo seleccionado");
-        seleccionarEscudoJ1.setBounds(243,575,355,38);
+        seleccionarEscudoJ1.setBounds(280,575,355,38);
         seleccionarEscudoJ1.setFont(new Font(null,Font.PLAIN,24));
         panelCambiarEscudoJ1.add(seleccionarEscudoJ1);
 
         seleccionarEscudoJ2 = new JButton("Utilizar escudo seleccionado");
-        seleccionarEscudoJ2.setBounds(243,575,355,38);
+        seleccionarEscudoJ2.setBounds(300,575,355,38);
         seleccionarEscudoJ2.setFont(new Font(null,Font.PLAIN,24));
         panelCambiarEscudoJ2.add(seleccionarEscudoJ2);
     }
@@ -772,9 +772,9 @@ public class EntornoDeJuego extends JFrame{
                 seleccionDeEscudoJ1ActionPerformed(e);
 
             }};
-        escudos.añadirEscudos(listener);
+        escudos.añadirEscudosJ1(listener);
 
-        escudos.añadirNombresEscudos();
+        escudos.añadirNombresEscudosJ1();
         skinJ1.setVisible(false);
         panelCambiarEscudoJ1.setVisible(true);
     }
@@ -802,9 +802,9 @@ public class EntornoDeJuego extends JFrame{
                 seleccionDeEscudoJ2ActionPerformed(e);
 
             }};
-        escudos.añadirEscudos(listener);
+        escudos.añadirEscudosJ2(listener);
 
-        escudos.añadirNombresEscudos();
+        escudos.añadirNombresEscudosJ2();
         skinJ2.setVisible(false);
         panelCambiarEscudoJ2.setVisible(true);
     }
