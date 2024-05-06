@@ -6,3 +6,4 @@
 27|18|c|normal|espada6
 11|10|b|lento|espada7
 21|12|c|normal|espada8
+0|0|n|n|n

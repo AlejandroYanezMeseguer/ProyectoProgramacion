@@ -5,4 +5,5 @@
 12|12|b|muy_rapido|katana5
 20|12|c|rapido|katana6
 14|12|b|rapido|katana7
-18|12|c|muy_rapido|katana7
+18|12|c|muy_rapido|katana8
+0|0|n|n|n

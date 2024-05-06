@@ -6,3 +6,4 @@
 25|26|d|muy_lento|catalazador6
 26|28|e|muy_lento|catalazador7
 24|18|d|muy_lento|catalazador8
+0|0|n|n|n

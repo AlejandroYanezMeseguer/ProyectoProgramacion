@@ -8,15 +8,17 @@ public class Escudo implements IAcciones {
 
     protected int defensa;
     protected int peso;
+    protected String nombre;
 
     /**
      * Constructor con parametros de escudo
      * @param defensa
      * @param peso
      */
-    public Escudo(int defensa, int peso) {
+    public Escudo(int defensa, int peso, String nombre) {
         this.defensa = defensa;
         this.peso = peso;
+        this.nombre = nombre;
     }
 
     /**
@@ -39,6 +41,6 @@ public class Escudo implements IAcciones {
 
     @Override
     public String getName() {
-        return "dfwed";
+        return nombre;
     }
 }

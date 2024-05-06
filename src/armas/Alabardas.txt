@@ -6,3 +6,4 @@
 22|9|c|normal|alabarda6
 18|13|b|normal|alabarda7
 11|12|c|normal|alabarda8
+0|0|n|n|n

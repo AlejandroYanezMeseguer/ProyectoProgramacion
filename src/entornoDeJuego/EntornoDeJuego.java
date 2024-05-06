@@ -64,6 +64,8 @@ public class EntornoDeJuego extends JFrame{
     public JButton seleccionarArmaJ2;
     public JButton cambiarEscudoJ1;
     public JButton cambiarEscudoJ2;
+    public JButton seleccionarEscudoJ1;
+    public JButton seleccionarEscudoJ2;
 
     public JLabel vidaJ1;
     public JLabel vidaJ2;
@@ -275,33 +277,33 @@ public class EntornoDeJuego extends JFrame{
     private void crearBotones() throws IOException {
 
         cambiarArmaJ1 = new JButton("Cambiar de arma");
-        cambiarArmaJ1.setBounds(600,20,230,38);
+        cambiarArmaJ1.setBounds(545,20,230,38);
         cambiarArmaJ1.setFont(new Font(null,Font.PLAIN,23));
         accionesJ1.add(cambiarArmaJ1);
 
         cambiarEscudoJ1 = new JButton("Cambiar de escudo");
-        cambiarEscudoJ1.setBounds(70,20,260,40);
-        cambiarEscudoJ1.setFont(new Font(null,Font.PLAIN,24));
+        cambiarEscudoJ1.setBounds(70,20,260,38);
+        cambiarEscudoJ1.setFont(new Font(null,Font.PLAIN,23));
         accionesJ1.add(cambiarEscudoJ1);
 
         AtaqueJ1 = new JButton("Atacar");
         AtaqueJ1.setBounds(383,20,110,40);
-        AtaqueJ1.setFont(new Font(null,Font.PLAIN,24));
+        AtaqueJ1.setFont(new Font(null,Font.PLAIN,23));
         accionesJ1.add(AtaqueJ1);
 
         cambiarArmaJ2 = new JButton("Cambiar de arma");
-        cambiarArmaJ2.setBounds(230,20,240,40);
-        cambiarArmaJ2.setFont(new Font(null,Font.PLAIN,24));
+        cambiarArmaJ2.setBounds(545,20,230,38);
+        cambiarArmaJ2.setFont(new Font(null,Font.PLAIN,23));
         accionesJ2.add(cambiarArmaJ2);
 
         cambiarEscudoJ2 = new JButton("Cambiar de escudo");
-        cambiarEscudoJ2.setBounds(230,20,240,40);
-        cambiarEscudoJ2.setFont(new Font(null,Font.PLAIN,24));
+        cambiarEscudoJ2.setBounds(70,20,260,38);
+        cambiarEscudoJ2.setFont(new Font(null,Font.PLAIN,23));
         accionesJ2.add(cambiarEscudoJ2);
 
         AtaqueJ2 = new JButton("Atacar");
-        AtaqueJ2.setBounds(530,20,120,40);
-        AtaqueJ2.setFont(new Font(null,Font.PLAIN,24));
+        AtaqueJ2.setBounds(383,20,110,38);
+        AtaqueJ2.setFont(new Font(null,Font.PLAIN,23));
         accionesJ2.add(AtaqueJ2);
 
         BufferedImage iconoMago = ImageIO.read(new File("src/imagenes/mago.png"));
@@ -351,6 +353,16 @@ public class EntornoDeJuego extends JFrame{
         seleccionarArmaJ2.setBounds(253,575,335,38);
         seleccionarArmaJ2.setFont(new Font(null,Font.PLAIN,24));
         panelCambiarArmaJ2.add(seleccionarArmaJ2);
+
+        seleccionarEscudoJ1 = new JButton("Utilizar escudo seleccionada");
+        seleccionarEscudoJ1.setBounds(243,575,355,38);
+        seleccionarEscudoJ1.setFont(new Font(null,Font.PLAIN,24));
+        panelCambiarEscudoJ1.add(seleccionarEscudoJ1);
+
+        seleccionarEscudoJ2 = new JButton("Utilizar escudo seleccionada");
+        seleccionarEscudoJ2.setBounds(243,575,355,38);
+        seleccionarEscudoJ2.setFont(new Font(null,Font.PLAIN,24));
+        panelCambiarEscudoJ2.add(seleccionarEscudoJ2);
     }
 
     /**
@@ -484,11 +496,29 @@ public class EntornoDeJuego extends JFrame{
             }
         });
 
-        cambiarEscudoJ1.addActionListener(new ActionListener() {
+        cambiarEscudoJ2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
                 cambiarEscudoJ2ActionPerformed(e);
+
+            }
+        });
+
+        seleccionarEscudoJ1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                seleccionarEscudoJ1ActionPerformed(e);
+
+            }
+        });
+
+        seleccionarEscudoJ2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                seleccionarEscudoJ2ActionPerformed(e);
 
             }
         });
@@ -730,40 +760,62 @@ public class EntornoDeJuego extends JFrame{
     }
 
     /**
-     * metodo que crea las acciones que ejecuta el boton cambiarArmaJ1
+     * metodo que crea las acciones que ejecuta el boton cambiarEscudoJ1
      * @param e
      */
     private void cambiarEscudoJ1ActionPerformed(ActionEvent e){
+        PanelCambiarEscudos escudos = new PanelCambiarEscudos(panelCambiarEscudoJ1,jugador1);
+        var listener = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                seleccionDeEscudoJ1ActionPerformed(e);
+
+            }};
+        escudos.añadirEscudos(listener);
+
+        escudos.añadirNombresEscudos();
         skinJ1.setVisible(false);
         panelCambiarEscudoJ1.setVisible(true);
     }
 
     /**
-     * metodo que crea las acciones que ejecuta el boton seleccionarArmaJ1
+     * metodo que crea las acciones que ejecuta el boton seleccionarEscudoJ1
      * @param e
      */
     private void seleccionarEscudoJ1ActionPerformed(ActionEvent e){
         skinJ1.setVisible(true);
-        panelCambiarArmaJ1.setVisible(false);
+        panelCambiarEscudoJ1.setVisible(false);
     }
 
 
     /**
-     * metodo que crea las acciones que ejecuta el boton cambiarArmaJ1
+     * metodo que crea las acciones que ejecuta el boton cambiarEscudoJ2
      * @param e
      */
     private void cambiarEscudoJ2ActionPerformed(ActionEvent e){
+        PanelCambiarEscudos escudos = new PanelCambiarEscudos(panelCambiarEscudoJ2,jugador2);
+        var listener = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                seleccionDeEscudoJ2ActionPerformed(e);
+
+            }};
+        escudos.añadirEscudos(listener);
+
+        escudos.añadirNombresEscudos();
         skinJ2.setVisible(false);
         panelCambiarEscudoJ2.setVisible(true);
     }
 
     /**
-     * metodo que crea las acciones que ejecuta el boton seleccionarArmaJ2
+     * metodo que crea las acciones que ejecuta el boton seleccionarEscudoJ2
      * @param e
      */
     private void seleccionarEscudoJ2ActionPerformed(ActionEvent e){
         skinJ2.setVisible(true);
-        panelCambiarArmaJ2.setVisible(false);
+        panelCambiarEscudoJ2.setVisible(false);
     }
 
     /**
@@ -798,6 +850,40 @@ public class EntornoDeJuego extends JFrame{
         Posicion posicion = new Posicion(x,y);
 
         jugador2.cambiarArma(posicion);
+    }
+
+    /**
+     * metodo que crea las acciones que se le pasan al listener de AñadirArmas para el J1
+     * @param e
+     */
+    private void seleccionDeEscudoJ1ActionPerformed(ActionEvent e){
+
+        var boton = (JButton)e.getSource();
+        String[] posicionEscudo = boton.getName().split("\\|");
+
+        int x = Integer.parseInt(posicionEscudo[0]);
+        int y = Integer.parseInt(posicionEscudo[1]);
+
+        Posicion posicion = new Posicion(x,y);
+
+        jugador1.cambiarEscudo(posicion);
+    }
+
+    /**
+     * metodo que crea las acciones que se le pasan al listener de AñadirArmas para el J2
+     * @param e
+     */
+    private void seleccionDeEscudoJ2ActionPerformed(ActionEvent e){
+
+        var boton = (JButton)e.getSource();
+        String[] posicionEscudo = boton.getName().split("\\|");
+
+        int x = Integer.parseInt(posicionEscudo[0]);
+        int y = Integer.parseInt(posicionEscudo[1]);
+
+        Posicion posicion = new Posicion(x,y);
+
+        jugador2.cambiarEscudo(posicion);
     }
 
     /**
