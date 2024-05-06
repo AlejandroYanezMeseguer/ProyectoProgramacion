@@ -6,7 +6,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
 
-public class PanelCambiarArmas {
+public class PanelCambiarEscudos{
 
     private JPanel panel;
     private Jugador jugador;
@@ -18,28 +18,26 @@ public class PanelCambiarArmas {
     final int LADO_BOTON = 86;
 
     /**
-     * Constructior de la clase PanelCambiarArmas
+     * Constructior de la clase PanelCambiarEscudos
      * @param panel
      * @param jugador
      */
-    public PanelCambiarArmas(JPanel panel, Jugador jugador) {
+    public PanelCambiarEscudos(JPanel panel, Jugador jugador) {
         this.panel = panel;
         this.jugador = jugador;
     }
 
     /**
-     * Metodo que añade al panel de cambiar de arma los botones para seleccionar el arma de cada clase en 4 columnas
+     * Metodo que añade al panel de cambiar de escudo los botones para seleccionar el arma de cada clase en 4 columnas
      * @param e
      */
     public void añadirArmas(ActionListener e){
 
         int incrementoColumna = 0;
-        boolean cambioColumna;
+        boolean cambioColumna = true;
         var armas = jugador.baul.listaArmas;
 
         for(int i = 0;i < 2; i++){
-
-            cambioColumna = true;
 
             for(int j = 0;j < 8; j++){
 
@@ -62,6 +60,11 @@ public class PanelCambiarArmas {
                 boton.setBounds(x,y,LADO_BOTON,LADO_BOTON);
                 panel.add(boton);
             }
+
+            JButton aceptarArmaSeleccionada = new JButton("Utilizar arma seleccionada");
+            aceptarArmaSeleccionada.setBounds(262,575,315,38);
+            aceptarArmaSeleccionada.setFont(new Font(null,Font.PLAIN,24));
+            panel.add(aceptarArmaSeleccionada);
         }
     }
 
