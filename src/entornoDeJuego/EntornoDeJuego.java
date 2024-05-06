@@ -104,7 +104,7 @@ public class EntornoDeJuego extends JFrame{
      */
     private void setEntorno(){
 
-        setSize(1700,985);
+        setSize(1880,985);
         setTitle("Coia_Ring");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(false);
@@ -137,133 +137,133 @@ public class EntornoDeJuego extends JFrame{
     private void crearPaneles(){
 
         entornoPelea = new JPanel();
-        entornoPelea.setBounds(0,0,1700,900);
+        entornoPelea.setBounds(0,0,1880,900);
         this.getContentPane().add(entornoPelea);
         entornoPelea.setLayout(null);
         entornoPelea.setVisible(false);
 
         jugadorGanador = new JPanel();
-        jugadorGanador.setBounds(0,0,1700,1050);
+        jugadorGanador.setBounds(0,0,1880,985);
         jugadorGanador.setBackground(Color.pink);
         this.getContentPane().add(jugadorGanador);
 
         panelNombreJ1 = new JPanel();
-        panelNombreJ1.setBounds(0,0,850,50);
+        panelNombreJ1.setBounds(0,0,940,50);
         panelNombreJ1.setBackground(Color.magenta);
         entornoPelea.add(panelNombreJ1);
 
         panelNombreJ2 = new JPanel();
-        panelNombreJ2.setBounds(850,0,850,50);
+        panelNombreJ2.setBounds(940,0,940,50);
         panelNombreJ2.setBackground(Color.cyan);
         entornoPelea.add(panelNombreJ2);
 
         panelVidaJ2 = new JPanel();
-        panelVidaJ2.setBounds(0,50,850,50);
+        panelVidaJ2.setBounds(0,50,940,50);
         panelVidaJ2.setBackground(Color.RED);
         entornoPelea.add(panelVidaJ2);
 
         panelVidaJ1 = new JPanel();
-        panelVidaJ1.setBounds(850,50,850,50);
+        panelVidaJ1.setBounds(940,50,940,50);
         panelVidaJ1.setBackground(Color.GREEN);
         entornoPelea.add(panelVidaJ1);
 
         skinJ1 = new JPanel();
-        skinJ1.setBounds(0,100,850,650);
+        skinJ1.setBounds(0,100,940,650);
         skinJ1.setBackground(Color.BLUE);
         entornoPelea.add(skinJ1);
 
         skinJ2 = new JPanel();
-        skinJ2.setBounds(850,100,850,650);
+        skinJ2.setBounds(940,100,940,650);
         skinJ2.setBackground(Color.yellow);
         entornoPelea.add(skinJ2);
 
         accionesJ1 = new JPanel();
-        accionesJ1.setBounds(0,750,850,90);
+        accionesJ1.setBounds(0,750,940,90);
         accionesJ1.setBackground(Color.darkGray);
         entornoPelea.add(accionesJ1);
         accionesJ1.setLayout(null);
 
         accionesJ2 = new JPanel();
-        accionesJ2.setBounds(850,750,850,90);
+        accionesJ2.setBounds(940,750,940,90);
         accionesJ2.setBackground(Color.black);
         entornoPelea.add(accionesJ2);
         accionesJ2.setLayout(null);
 
         seleccionPersonajes = new JPanel();
-        seleccionPersonajes.setBounds(0,0,1700,1000);
+        seleccionPersonajes.setBounds(0,0,1880,1000);
         this.getContentPane().add(seleccionPersonajes);
         seleccionPersonajes.setLayout(null);
 
         comenzarPelea = new JPanel();
-        comenzarPelea.setBounds(0,750,1700,70);
+        comenzarPelea.setBounds(0,750,1880,70);
         comenzarPelea.setBackground(Color.black);
         seleccionPersonajes.add(comenzarPelea);
         comenzarPelea.setLayout(null);
 
         seleccionPersonajeJ1 = new JPanel();
-        seleccionPersonajeJ1.setBounds(0,0,850,750);
+        seleccionPersonajeJ1.setBounds(0,0,940,750);
         seleccionPersonajes.add(seleccionPersonajeJ1);
         seleccionPersonajeJ1.setLayout(null);
 
         panelIntroducirNombreJ1 = new JPanel();
-        panelIntroducirNombreJ1.setBounds(0,0,850,115);
+        panelIntroducirNombreJ1.setBounds(0,0,940,115);
         panelIntroducirNombreJ1.setBackground(Color.cyan);
         panelIntroducirNombreJ1.setLayout(null);
         seleccionPersonajeJ1.add(panelIntroducirNombreJ1);
 
         seleccionClaseJ1 = new JPanel();
-        seleccionClaseJ1.setBounds(0,115,850,635);
+        seleccionClaseJ1.setBounds(0,115,940,635);
         seleccionClaseJ1.setBackground(Color.red);
         seleccionClaseJ1.setLayout(null);
         seleccionPersonajeJ1.add(seleccionClaseJ1);
 
         panelCambiarArmaJ1 = new JPanel();
-        panelCambiarArmaJ1.setBounds(0,100,850,650);
+        panelCambiarArmaJ1.setBounds(0,100,940,650);
         panelCambiarArmaJ1.setBackground(Color.yellow);
         panelCambiarArmaJ1.setLayout(null);
         entornoPelea.add(panelCambiarArmaJ1);
         panelCambiarArmaJ1.setVisible(false);
 
         panelCambiarEscudoJ1 = new JPanel();
-        panelCambiarEscudoJ1.setBounds(0,100,850,650);
+        panelCambiarEscudoJ1.setBounds(0,100,940,650);
         panelCambiarEscudoJ1.setBackground(Color.green);
         panelCambiarEscudoJ1.setLayout(null);
         entornoPelea.add(panelCambiarEscudoJ1);
         panelCambiarEscudoJ1.setVisible(false);
 
         seleccionPersonajeJ2 = new JPanel();
-        seleccionPersonajeJ2.setBounds(850,0,850,750);
+        seleccionPersonajeJ2.setBounds(940,0,940,750);
         seleccionPersonajes.add(seleccionPersonajeJ2);
         seleccionPersonajeJ2.setLayout(null);
 
         panelIntroducirNombreJ2 = new JPanel();
-        panelIntroducirNombreJ2.setBounds(0,0,850,115);
+        panelIntroducirNombreJ2.setBounds(0,0,940,115);
         panelIntroducirNombreJ2.setBackground(Color.yellow);
         panelIntroducirNombreJ2.setLayout(null);
         seleccionPersonajeJ2.add(panelIntroducirNombreJ2);
 
         seleccionClaseJ2 = new JPanel();
-        seleccionClaseJ2.setBounds(0,115,850,635);
+        seleccionClaseJ2.setBounds(0,115,940,635);
         seleccionClaseJ2.setBackground(Color.green);
         seleccionClaseJ2.setLayout(null);
         seleccionPersonajeJ2.add(seleccionClaseJ2);
 
         panelCambiarArmaJ2 = new JPanel();
-        panelCambiarArmaJ2.setBounds(850,100,850,650);
+        panelCambiarArmaJ2.setBounds(940,100,940,650);
         panelCambiarArmaJ2.setBackground(Color.cyan);
         panelCambiarArmaJ2.setLayout(null);
         entornoPelea.add(panelCambiarArmaJ2);
         panelCambiarArmaJ2.setVisible(false);
 
         panelCambiarEscudoJ2 = new JPanel();
-        panelCambiarEscudoJ2.setBounds(850,100,850,650);
+        panelCambiarEscudoJ2.setBounds(940,100,940,650);
         panelCambiarEscudoJ2.setBackground(Color.red);
         panelCambiarEscudoJ2.setLayout(null);
         entornoPelea.add(panelCambiarEscudoJ2);
         panelCambiarEscudoJ2.setVisible(false);
 
         panelComentariosSeleccion = new JPanel();
-        panelComentariosSeleccion.setBounds(0,820,1700,140);
+        panelComentariosSeleccion.setBounds(0,820,1880,140);
         panelComentariosSeleccion.setBackground(Color.BLUE);
         panelComentariosSeleccion.setLayout(null);
         seleccionPersonajes.add(panelComentariosSeleccion);
@@ -345,21 +345,21 @@ public class EntornoDeJuego extends JFrame{
         comenzarPelea.add(empezarPelea);
 
         seleccionarArmaJ1 = new JButton("Utilizar arma seleccionada");
-        seleccionarArmaJ1.setBounds(253,575,335,38);
+        seleccionarArmaJ1.setBounds(250,575,335,38);
         seleccionarArmaJ1.setFont(new Font(null,Font.PLAIN,24));
         panelCambiarArmaJ1.add(seleccionarArmaJ1);
 
         seleccionarArmaJ2 = new JButton("Utilizar arma seleccionada");
-        seleccionarArmaJ2.setBounds(253,575,335,38);
+        seleccionarArmaJ2.setBounds(350,575,335,38);
         seleccionarArmaJ2.setFont(new Font(null,Font.PLAIN,24));
         panelCambiarArmaJ2.add(seleccionarArmaJ2);
 
-        seleccionarEscudoJ1 = new JButton("Utilizar escudo seleccionada");
+        seleccionarEscudoJ1 = new JButton("Utilizar escudo seleccionado");
         seleccionarEscudoJ1.setBounds(243,575,355,38);
         seleccionarEscudoJ1.setFont(new Font(null,Font.PLAIN,24));
         panelCambiarEscudoJ1.add(seleccionarEscudoJ1);
 
-        seleccionarEscudoJ2 = new JButton("Utilizar escudo seleccionada");
+        seleccionarEscudoJ2 = new JButton("Utilizar escudo seleccionado");
         seleccionarEscudoJ2.setBounds(243,575,355,38);
         seleccionarEscudoJ2.setFont(new Font(null,Font.PLAIN,24));
         panelCambiarEscudoJ2.add(seleccionarEscudoJ2);
@@ -712,9 +712,9 @@ public class EntornoDeJuego extends JFrame{
                 seleccionDeArmaJ1ActionPerformed(e);
 
              }};
-       armas.añadirArmas(listener);
+       armas.añadirArmasJ1(listener);
 
-       armas.añadirNombresArmas();
+       armas.añadirNombresArmasJ1();
        skinJ1.setVisible(false);
        panelCambiarArmaJ1.setVisible(true);
     }
@@ -743,9 +743,9 @@ public class EntornoDeJuego extends JFrame{
                 seleccionDeArmaJ2ActionPerformed(e);
 
             }};
-        armas.añadirArmas(listener);
+        armas.añadirArmasJ2(listener);
 
-        armas.añadirNombresArmas();
+        armas.añadirNombresArmasJ2();
         skinJ2.setVisible(false);
         panelCambiarArmaJ2.setVisible(true);
     }
@@ -819,7 +819,7 @@ public class EntornoDeJuego extends JFrame{
     }
 
     /**
-     * metodo que crea las acciones que se le pasan al listener de AñadirArmas para el J1
+     * metodo que crea las acciones que se le pasan al listener de seleccionDeArmaJ1 para el J1
      * @param e
      */
     private void seleccionDeArmaJ1ActionPerformed(ActionEvent e){
@@ -836,7 +836,7 @@ public class EntornoDeJuego extends JFrame{
     }
 
     /**
-     * metodo que crea las acciones que se le pasan al listener de AñadirArmas para el J2
+     * metodo que crea las acciones que se le pasan al listener de seleccionDeArmaJ2 para el J2
      * @param e
      */
     private void seleccionDeArmaJ2ActionPerformed(ActionEvent e){
@@ -853,7 +853,7 @@ public class EntornoDeJuego extends JFrame{
     }
 
     /**
-     * metodo que crea las acciones que se le pasan al listener de AñadirArmas para el J1
+     * metodo que crea las acciones que se le pasan al listener de seleccionDeEscudoJ1 para el J1
      * @param e
      */
     private void seleccionDeEscudoJ1ActionPerformed(ActionEvent e){
@@ -870,7 +870,7 @@ public class EntornoDeJuego extends JFrame{
     }
 
     /**
-     * metodo que crea las acciones que se le pasan al listener de AñadirArmas para el J2
+     * metodo que crea las acciones que se le pasan al listener de seleccionDeEscudoJ2 para el J2
      * @param e
      */
     private void seleccionDeEscudoJ2ActionPerformed(ActionEvent e){
