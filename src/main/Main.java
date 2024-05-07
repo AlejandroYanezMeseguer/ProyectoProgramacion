@@ -1,7 +1,7 @@
 
 package main;
 
-import entornoDeJuego.EntornoDeJuego;
+import entornoGrafico.EntornoDeJuego;
 
 import java.io.IOException;
 //import Guerrero.Guerrero;

@@ -1,4 +1,4 @@
-package entornoDeJuego;
+package entornoGrafico;
 
 import jugador.*;
 
@@ -48,6 +48,12 @@ public class EntornoDeJuego extends JFrame{
     public JPanel panelCambiarArmaJ2;
     public JPanel panelCambiarEscudoJ1;
     public JPanel panelCambiarEscudoJ2;
+    public JPanel equipamientoJ1;
+    public JPanel equipamientoJ2;
+    public JPanel armaEquipadaJ1;
+    public JPanel armaEquipadaJ2;
+    public JPanel escudoEquipadoJ1;
+    public JPanel escudoEquipadoJ2;
 
     public JButton AtaqueJ1;
     public JButton cambiarArmaJ1;
@@ -267,6 +273,42 @@ public class EntornoDeJuego extends JFrame{
         panelComentariosSeleccion.setBackground(Color.BLUE);
         panelComentariosSeleccion.setLayout(null);
         seleccionPersonajes.add(panelComentariosSeleccion);
+
+        equipamientoJ1 = new JPanel();
+        equipamientoJ1.setBounds(0,100,160,650);
+        equipamientoJ1.setBackground(Color.pink);
+        equipamientoJ1.setLayout(null);
+        entornoPelea.add(equipamientoJ1);
+
+        armaEquipadaJ1 = new JPanel();
+        armaEquipadaJ1.setBounds(45,40,70,70);
+        armaEquipadaJ1.setBackground(Color.green);
+        armaEquipadaJ1.setLayout(null);
+        equipamientoJ1.add(armaEquipadaJ1);
+
+        escudoEquipadoJ1 = new JPanel();
+        escudoEquipadoJ1.setBounds(45,160,70,70);
+        escudoEquipadoJ1.setBackground(Color.green);
+        escudoEquipadoJ1.setLayout(null);
+        equipamientoJ1.add(escudoEquipadoJ1);
+
+        equipamientoJ2 = new JPanel();
+        equipamientoJ2.setBounds(1720,100,160,650);
+        equipamientoJ2.setBackground(Color.MAGENTA);
+        equipamientoJ2.setLayout(null);
+        entornoPelea.add(equipamientoJ2);
+
+        armaEquipadaJ2 = new JPanel();
+        armaEquipadaJ2.setBounds(45,40,70,70);
+        armaEquipadaJ2.setBackground(Color.green);
+        armaEquipadaJ2.setLayout(null);
+        equipamientoJ2.add(armaEquipadaJ2);
+
+        escudoEquipadoJ2 = new JPanel();
+        escudoEquipadoJ2.setBounds(45,160,70,70);
+        escudoEquipadoJ2.setBackground(Color.green);
+        escudoEquipadoJ2.setLayout(null);
+        equipamientoJ2.add(escudoEquipadoJ2);
 
     }
 

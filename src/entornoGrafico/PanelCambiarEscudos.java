@@ -1,4 +1,4 @@
-package entornoDeJuego;
+package entornoGrafico;
 
 import jugador.Jugador;
 
