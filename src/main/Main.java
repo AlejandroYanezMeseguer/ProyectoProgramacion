@@ -1,7 +1,7 @@
 
 package main;
 
-import entornoGrafico.EntornoDeJuego;
+import entornoGrafico.EntornoGrafico;
 
 import java.io.IOException;
 //import Guerrero.Guerrero;
@@ -13,7 +13,7 @@ public class Main {
         
         
 
-        EntornoDeJuego xss = new EntornoDeJuego();
+        EntornoGrafico xss = new EntornoGrafico();
 
         xss.setVisible(true);
 

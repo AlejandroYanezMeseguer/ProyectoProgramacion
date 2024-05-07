@@ -1,5 +1,7 @@
 package entornoGrafico;
 
+import entornoGrafico.cambioDeEquipamiento.PanelCambiarArmas;
+import entornoGrafico.cambioDeEquipamiento.PanelCambiarEscudos;
 import jugador.*;
 
 import javax.imageio.ImageIO;
@@ -15,7 +17,7 @@ import java.util.ArrayList;
 /**
  * Clase que crea la parte grafica del programa
  */
-public class EntornoDeJuego extends JFrame{
+public class EntornoGrafico extends JFrame{
 
     private Jugador jugador1;
     private Jugador jugador2;
@@ -98,7 +100,7 @@ public class EntornoDeJuego extends JFrame{
      * Constructor de la clase donde se crea la ventana
      * @throws IOException
      */
-    public EntornoDeJuego() throws IOException {
+    public EntornoGrafico() throws IOException {
 
         setEntorno();
         iniciarComponentes();

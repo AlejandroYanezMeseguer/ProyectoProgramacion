@@ -1,4 +1,4 @@
-package entornoGrafico;
+package entornoGrafico.cambioDeEquipamiento;
 
 import jugador.Jugador;
 
