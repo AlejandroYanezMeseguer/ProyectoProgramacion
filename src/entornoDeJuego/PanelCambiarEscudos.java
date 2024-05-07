@@ -10,7 +10,7 @@ public class PanelCambiarEscudos{
 
     private JPanel panel;
     private Jugador jugador;
-    final int VALOR_INICIAL_X_J1 = -200;
+    final int VALOR_INICIAL_X_J1 = -360;
     final int VALOR_INICIAL_X_J2 = -400;
     final int INCREMENTO_EJE_X = 240;
     final int VALOR_INICIAL_Y_BOTONES = 80;

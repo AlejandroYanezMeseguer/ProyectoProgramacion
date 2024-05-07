@@ -168,12 +168,12 @@ public class EntornoDeJuego extends JFrame{
         entornoPelea.add(panelVidaJ1);
 
         skinJ1 = new JPanel();
-        skinJ1.setBounds(0,100,940,650);
+        skinJ1.setBounds(160,100,780,650);
         skinJ1.setBackground(Color.BLUE);
         entornoPelea.add(skinJ1);
 
         skinJ2 = new JPanel();
-        skinJ2.setBounds(940,100,940,650);
+        skinJ2.setBounds(940,100,780,650);
         skinJ2.setBackground(Color.yellow);
         entornoPelea.add(skinJ2);
 
@@ -218,14 +218,14 @@ public class EntornoDeJuego extends JFrame{
         seleccionPersonajeJ1.add(seleccionClaseJ1);
 
         panelCambiarArmaJ1 = new JPanel();
-        panelCambiarArmaJ1.setBounds(0,100,940,650);
+        panelCambiarArmaJ1.setBounds(160,100,780,650);
         panelCambiarArmaJ1.setBackground(Color.yellow);
         panelCambiarArmaJ1.setLayout(null);
         entornoPelea.add(panelCambiarArmaJ1);
         panelCambiarArmaJ1.setVisible(false);
 
         panelCambiarEscudoJ1 = new JPanel();
-        panelCambiarEscudoJ1.setBounds(0,100,940,650);
+        panelCambiarEscudoJ1.setBounds(160,100,780,650);
         panelCambiarEscudoJ1.setBackground(Color.green);
         panelCambiarEscudoJ1.setLayout(null);
         entornoPelea.add(panelCambiarEscudoJ1);
@@ -249,14 +249,14 @@ public class EntornoDeJuego extends JFrame{
         seleccionPersonajeJ2.add(seleccionClaseJ2);
 
         panelCambiarArmaJ2 = new JPanel();
-        panelCambiarArmaJ2.setBounds(940,100,940,650);
+        panelCambiarArmaJ2.setBounds(940,100,780,650);
         panelCambiarArmaJ2.setBackground(Color.cyan);
         panelCambiarArmaJ2.setLayout(null);
         entornoPelea.add(panelCambiarArmaJ2);
         panelCambiarArmaJ2.setVisible(false);
 
         panelCambiarEscudoJ2 = new JPanel();
-        panelCambiarEscudoJ2.setBounds(940,100,940,650);
+        panelCambiarEscudoJ2.setBounds(940,100,780,650);
         panelCambiarEscudoJ2.setBackground(Color.red);
         panelCambiarEscudoJ2.setLayout(null);
         entornoPelea.add(panelCambiarEscudoJ2);
@@ -345,7 +345,7 @@ public class EntornoDeJuego extends JFrame{
         comenzarPelea.add(empezarPelea);
 
         seleccionarArmaJ1 = new JButton("Utilizar arma seleccionada");
-        seleccionarArmaJ1.setBounds(250,575,335,38);
+        seleccionarArmaJ1.setBounds(90,575,335,38);
         seleccionarArmaJ1.setFont(new Font(null,Font.PLAIN,24));
         panelCambiarArmaJ1.add(seleccionarArmaJ1);
 
@@ -355,7 +355,7 @@ public class EntornoDeJuego extends JFrame{
         panelCambiarArmaJ2.add(seleccionarArmaJ2);
 
         seleccionarEscudoJ1 = new JButton("Utilizar escudo seleccionado");
-        seleccionarEscudoJ1.setBounds(280,575,355,38);
+        seleccionarEscudoJ1.setBounds(120,575,355,38);
         seleccionarEscudoJ1.setFont(new Font(null,Font.PLAIN,24));
         panelCambiarEscudoJ1.add(seleccionarEscudoJ1);
 
