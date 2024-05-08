@@ -2,6 +2,7 @@ package entornoGrafico;
 
 import entornoGrafico.cambioDeEquipamiento.PanelCambiarArmas;
 import entornoGrafico.cambioDeEquipamiento.PanelCambiarEscudos;
+import entornoGrafico.introducirNombresDeJugadores.IntroducirNombreJ1;
 import jugador.*;
 
 import javax.imageio.ImageIO;
@@ -121,23 +122,7 @@ public class EntornoGrafico extends JFrame{
 
     }
 
-    /**
-     * Metodo que crea los JTextField
-     */
-    private void crearTextField(){
 
-        nombreJ1 = new JTextField();
-        nombreJ1.setBounds(280,55,300,32);
-        nombreJ1.setFont(new Font(null,Font.PLAIN,24));
-        panelIntroducirNombreJ1.add(nombreJ1);
-
-
-        nombreJ2 = new JTextField();
-        nombreJ2.setBounds(280,55,300,32);
-        nombreJ2.setFont(new Font(null,Font.PLAIN,24));
-        panelIntroducirNombreJ2.add(nombreJ2);
-
-    }
 
     /**
      * Metodo que crea los Jpanel
@@ -214,10 +199,7 @@ public class EntornoGrafico extends JFrame{
         seleccionPersonajeJ1.setLayout(null);
 
         panelIntroducirNombreJ1 = new JPanel();
-        panelIntroducirNombreJ1.setBounds(0,0,940,115);
-        panelIntroducirNombreJ1.setBackground(Color.cyan);
-        panelIntroducirNombreJ1.setLayout(null);
-        seleccionPersonajeJ1.add(panelIntroducirNombreJ1);
+        IntroducirNombreJ1.crearPanelIntroducirNombreJ1(panelIntroducirNombreJ1,seleccionPersonajeJ1);
 
         seleccionClaseJ1 = new JPanel();
         seleccionClaseJ1.setBounds(0,115,940,635);
@@ -955,10 +937,8 @@ public class EntornoGrafico extends JFrame{
         jugadorGanador.add(ganador);
         jugadorGanador.setVisible(false);
 
-        introducirNombreJ1 = new JLabel("Nombre del jugador 1:");
-        introducirNombreJ1.setBounds(290,8,300,36);
-        introducirNombreJ1.setFont(new Font(null,Font.PLAIN,26));
-        panelIntroducirNombreJ1.add(introducirNombreJ1);
+        introducirNombreJ1 = new JLabel();
+        IntroducirNombreJ1.crearEtiquetaIntroducirNombreJ1(introducirNombreJ1,panelIntroducirNombreJ1);
 
         introducirNombreJ2 = new JLabel("Nombre del jugador 2:");
         introducirNombreJ2.setBounds(287,8,300,36);
@@ -1027,6 +1007,22 @@ public class EntornoGrafico extends JFrame{
         comentariosSeleccion.setOpaque(false);
         comentariosSeleccion.setFont(new Font(null,Font.PLAIN,24));
         panelComentariosSeleccion.add(comentariosSeleccion);
+
+    }
+
+    /**
+     * Metodo que crea los JTextField
+     */
+    private void crearTextField(){
+
+        nombreJ1 = new JTextField();
+        IntroducirNombreJ1.crearTextFieldNombreJ1(nombreJ1,panelIntroducirNombreJ1);
+
+
+        nombreJ2 = new JTextField();
+        nombreJ2.setBounds(280,55,300,32);
+        nombreJ2.setFont(new Font(null,Font.PLAIN,24));
+        panelIntroducirNombreJ2.add(nombreJ2);
 
     }
 
