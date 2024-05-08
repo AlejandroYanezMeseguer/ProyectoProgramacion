@@ -2,7 +2,8 @@ package entornoGrafico;
 
 import entornoGrafico.cambioDeEquipamiento.PanelCambiarArmas;
 import entornoGrafico.cambioDeEquipamiento.PanelCambiarEscudos;
-import entornoGrafico.introducirNombresDeJugadores.PanelIntroducirNombre;
+import entornoGrafico.creacionDeComponentes.CreacionDePaneles;
+import entornoGrafico.introducirNombresDeJugadores.Provisional;
 import jugador.*;
 
 import javax.imageio.ImageIO;
@@ -130,166 +131,91 @@ public class EntornoGrafico extends JFrame{
     private void crearPaneles(){
 
         entornoPelea = new JPanel();
-        entornoPelea.setBounds(0,0,1880,900);
-        this.getContentPane().add(entornoPelea);
-        entornoPelea.setLayout(null);
-        entornoPelea.setVisible(false);
+        CreacionDePaneles.crearPanelLayoutNullVisibleFalse(entornoPelea,(JPanel) this.getContentPane(),0,0,1880,900,null);
 
         jugadorGanador = new JPanel();
-        jugadorGanador.setBounds(0,0,1880,985);
-        jugadorGanador.setBackground(Color.pink);
-        this.getContentPane().add(jugadorGanador);
+        CreacionDePaneles.crearPanelStandard(jugadorGanador, (JPanel) this.getContentPane(),0,0,1880,985,Color.pink);
 
         panelNombreJ1 = new JPanel();
-        panelNombreJ1.setBounds(0,0,940,50);
-        panelNombreJ1.setBackground(Color.magenta);
-        entornoPelea.add(panelNombreJ1);
+        CreacionDePaneles.crearPanelStandard(panelNombreJ1,entornoPelea,0,0,940,50,Color.magenta);
 
         panelNombreJ2 = new JPanel();
-        panelNombreJ2.setBounds(940,0,940,50);
-        panelNombreJ2.setBackground(Color.cyan);
-        entornoPelea.add(panelNombreJ2);
+        CreacionDePaneles.crearPanelStandard(panelNombreJ2,entornoPelea,940,0,940,50,Color.cyan);
 
         panelVidaJ2 = new JPanel();
-        panelVidaJ2.setBounds(0,50,940,50);
-        panelVidaJ2.setBackground(Color.RED);
-        entornoPelea.add(panelVidaJ2);
+        CreacionDePaneles.crearPanelStandard(panelVidaJ2,entornoPelea,0,50,940,50,Color.red);
 
         panelVidaJ1 = new JPanel();
-        panelVidaJ1.setBounds(940,50,940,50);
-        panelVidaJ1.setBackground(Color.GREEN);
-        entornoPelea.add(panelVidaJ1);
+        CreacionDePaneles.crearPanelStandard(panelVidaJ1,entornoPelea,940,50,940,50,Color.green);
 
         skinJ1 = new JPanel();
-        skinJ1.setBounds(160,100,780,650);
-        skinJ1.setBackground(Color.BLUE);
-        entornoPelea.add(skinJ1);
+        CreacionDePaneles.crearPanelStandard(skinJ1,entornoPelea,160,100,780,650,Color.blue);
 
         skinJ2 = new JPanel();
-        skinJ2.setBounds(940,100,780,650);
-        skinJ2.setBackground(Color.yellow);
-        entornoPelea.add(skinJ2);
+        CreacionDePaneles.crearPanelStandard(skinJ2,entornoPelea,940,100,780,650,Color.yellow);
 
         accionesJ1 = new JPanel();
-        accionesJ1.setBounds(0,750,940,90);
-        accionesJ1.setBackground(Color.darkGray);
-        entornoPelea.add(accionesJ1);
-        accionesJ1.setLayout(null);
+        CreacionDePaneles.crearPanelLayoutNull(accionesJ1,entornoPelea,0,750,940,90,Color.darkGray);
 
         accionesJ2 = new JPanel();
-        accionesJ2.setBounds(940,750,940,90);
-        accionesJ2.setBackground(Color.black);
-        entornoPelea.add(accionesJ2);
-        accionesJ2.setLayout(null);
+        CreacionDePaneles.crearPanelLayoutNull(accionesJ2,entornoPelea,940,750,940,90,Color.black);
 
         seleccionPersonajes = new JPanel();
-        seleccionPersonajes.setBounds(0,0,1880,1000);
-        this.getContentPane().add(seleccionPersonajes);
-        seleccionPersonajes.setLayout(null);
+        CreacionDePaneles.crearPanelLayoutNull(seleccionPersonajes, (JPanel) this.getContentPane(),0,0,1880,1000,null);
 
         comenzarPelea = new JPanel();
-        comenzarPelea.setBounds(0,750,1880,70);
-        comenzarPelea.setBackground(Color.black);
-        seleccionPersonajes.add(comenzarPelea);
-        comenzarPelea.setLayout(null);
+        CreacionDePaneles.crearPanelLayoutNull(comenzarPelea,seleccionPersonajes,0,750,1880,70,Color.black);
 
         seleccionPersonajeJ1 = new JPanel();
-        seleccionPersonajeJ1.setBounds(0,0,940,750);
-        seleccionPersonajes.add(seleccionPersonajeJ1);
-        seleccionPersonajeJ1.setLayout(null);
+        CreacionDePaneles.crearPanelLayoutNull(seleccionPersonajeJ1,seleccionPersonajes,0,0,940,750,null);
 
         panelIntroducirNombreJ1 = new JPanel();
-        PanelIntroducirNombre.crearPanelIntroducirNombreJ1(panelIntroducirNombreJ1,seleccionPersonajeJ1);
+        CreacionDePaneles.crearPanelLayoutNull(panelIntroducirNombreJ1,seleccionPersonajeJ1,0,0,940,115,Color.cyan);
 
         seleccionClaseJ1 = new JPanel();
-        seleccionClaseJ1.setBounds(0,115,940,635);
-        seleccionClaseJ1.setBackground(Color.red);
-        seleccionClaseJ1.setLayout(null);
-        seleccionPersonajeJ1.add(seleccionClaseJ1);
+        CreacionDePaneles.crearPanelLayoutNull(seleccionClaseJ1,seleccionPersonajeJ1,0,115,940,635,Color.red);
 
         panelCambiarArmaJ1 = new JPanel();
-        panelCambiarArmaJ1.setBounds(160,100,780,650);
-        panelCambiarArmaJ1.setBackground(Color.yellow);
-        panelCambiarArmaJ1.setLayout(null);
-        entornoPelea.add(panelCambiarArmaJ1);
-        panelCambiarArmaJ1.setVisible(false);
+        CreacionDePaneles.crearPanelLayoutNullVisibleFalse(panelCambiarArmaJ1,entornoPelea,160,100,780,650,Color.yellow);
 
         panelCambiarEscudoJ1 = new JPanel();
-        panelCambiarEscudoJ1.setBounds(160,100,780,650);
-        panelCambiarEscudoJ1.setBackground(Color.green);
-        panelCambiarEscudoJ1.setLayout(null);
-        entornoPelea.add(panelCambiarEscudoJ1);
-        panelCambiarEscudoJ1.setVisible(false);
+        CreacionDePaneles.crearPanelLayoutNullVisibleFalse(panelCambiarEscudoJ1,entornoPelea,160,100,780,650,Color.green);
 
         seleccionPersonajeJ2 = new JPanel();
-        seleccionPersonajeJ2.setBounds(940,0,940,750);
-        seleccionPersonajes.add(seleccionPersonajeJ2);
-        seleccionPersonajeJ2.setLayout(null);
+        CreacionDePaneles.crearPanelLayoutNull(seleccionPersonajeJ2,seleccionPersonajes,940,0,940,750,null);
 
         panelIntroducirNombreJ2 = new JPanel();
-        PanelIntroducirNombre.crearPanelIntroducirNombreJ2(panelIntroducirNombreJ2,seleccionPersonajeJ2);
+        CreacionDePaneles.crearPanelLayoutNull(panelIntroducirNombreJ2,seleccionPersonajeJ2,0,0,940,115,Color.yellow);
 
         seleccionClaseJ2 = new JPanel();
-        seleccionClaseJ2.setBounds(0,115,940,635);
-        seleccionClaseJ2.setBackground(Color.green);
-        seleccionClaseJ2.setLayout(null);
-        seleccionPersonajeJ2.add(seleccionClaseJ2);
+        CreacionDePaneles.crearPanelLayoutNull(seleccionClaseJ2,seleccionPersonajeJ2,0,115,940,635,Color.green);
 
         panelCambiarArmaJ2 = new JPanel();
-        panelCambiarArmaJ2.setBounds(940,100,780,650);
-        panelCambiarArmaJ2.setBackground(Color.cyan);
-        panelCambiarArmaJ2.setLayout(null);
-        entornoPelea.add(panelCambiarArmaJ2);
-        panelCambiarArmaJ2.setVisible(false);
+        CreacionDePaneles.crearPanelLayoutNullVisibleFalse(panelCambiarArmaJ2,entornoPelea,940,100,780,650,Color.cyan);
 
         panelCambiarEscudoJ2 = new JPanel();
-        panelCambiarEscudoJ2.setBounds(940,100,780,650);
-        panelCambiarEscudoJ2.setBackground(Color.red);
-        panelCambiarEscudoJ2.setLayout(null);
-        entornoPelea.add(panelCambiarEscudoJ2);
-        panelCambiarEscudoJ2.setVisible(false);
+        CreacionDePaneles.crearPanelLayoutNullVisibleFalse(panelCambiarEscudoJ2,entornoPelea,940,100,780,650,Color.red);
 
         panelComentariosSeleccion = new JPanel();
-        panelComentariosSeleccion.setBounds(0,820,1880,140);
-        panelComentariosSeleccion.setBackground(Color.BLUE);
-        panelComentariosSeleccion.setLayout(null);
-        seleccionPersonajes.add(panelComentariosSeleccion);
+        CreacionDePaneles.crearPanelLayoutNull(panelComentariosSeleccion,seleccionPersonajes,0,820,1880,140,Color.blue);
 
         equipamientoJ1 = new JPanel();
-        equipamientoJ1.setBounds(0,100,160,650);
-        equipamientoJ1.setBackground(Color.pink);
-        equipamientoJ1.setLayout(null);
-        entornoPelea.add(equipamientoJ1);
+        CreacionDePaneles.crearPanelLayoutNull(equipamientoJ1,entornoPelea,0,100,160,650,Color.pink);
 
         armaEquipadaJ1 = new JPanel();
-        armaEquipadaJ1.setBounds(45,40,70,70);
-        armaEquipadaJ1.setBackground(Color.green);
-        armaEquipadaJ1.setLayout(null);
-        equipamientoJ1.add(armaEquipadaJ1);
+        CreacionDePaneles.crearPanelLayoutNull(armaEquipadaJ1,equipamientoJ1,45,40,70,70,Color.green);
 
         escudoEquipadoJ1 = new JPanel();
-        escudoEquipadoJ1.setBounds(45,160,70,70);
-        escudoEquipadoJ1.setBackground(Color.green);
-        escudoEquipadoJ1.setLayout(null);
-        equipamientoJ1.add(escudoEquipadoJ1);
+        CreacionDePaneles.crearPanelLayoutNull(escudoEquipadoJ1,equipamientoJ1,45,160,70,70,Color.green);
 
         equipamientoJ2 = new JPanel();
-        equipamientoJ2.setBounds(1720,100,160,650);
-        equipamientoJ2.setBackground(Color.MAGENTA);
-        equipamientoJ2.setLayout(null);
-        entornoPelea.add(equipamientoJ2);
+        CreacionDePaneles.crearPanelLayoutNull(equipamientoJ2,entornoPelea,1720,100,160,650,Color.magenta);
 
         armaEquipadaJ2 = new JPanel();
-        armaEquipadaJ2.setBounds(45,40,70,70);
-        armaEquipadaJ2.setBackground(Color.green);
-        armaEquipadaJ2.setLayout(null);
-        equipamientoJ2.add(armaEquipadaJ2);
+        CreacionDePaneles.crearPanelLayoutNull(armaEquipadaJ2,equipamientoJ2,45,40,70,70,Color.green);
 
         escudoEquipadoJ2 = new JPanel();
-        escudoEquipadoJ2.setBounds(45,160,70,70);
-        escudoEquipadoJ2.setBackground(Color.green);
-        escudoEquipadoJ2.setLayout(null);
-        equipamientoJ2.add(escudoEquipadoJ2);
+        CreacionDePaneles.crearPanelLayoutNull(escudoEquipadoJ2,equipamientoJ2,45,160,70,70,Color.green);
 
     }
 
@@ -937,10 +863,10 @@ public class EntornoGrafico extends JFrame{
         jugadorGanador.setVisible(false);
 
         introducirNombreJ1 = new JLabel();
-        PanelIntroducirNombre.crearEtiquetaIntroducirNombre(introducirNombreJ1,panelIntroducirNombreJ1,texto[0]);
+        Provisional.crearEtiquetaIntroducirNombre(introducirNombreJ1,panelIntroducirNombreJ1,texto[0]);
 
         introducirNombreJ2 = new JLabel();
-        PanelIntroducirNombre.crearEtiquetaIntroducirNombre(introducirNombreJ2,panelIntroducirNombreJ2,texto[1]);
+        Provisional.crearEtiquetaIntroducirNombre(introducirNombreJ2,panelIntroducirNombreJ2,texto[1]);
 
         seleccionarClaseJ1 = new JLabel("Selecciona la clase con la que quieres combatir");
         seleccionarClaseJ1.setBounds(140,0,600,30);
@@ -1013,10 +939,10 @@ public class EntornoGrafico extends JFrame{
     private void crearTextField(){
 
         nombreJ1 = new JTextField();
-        PanelIntroducirNombre.crearTextFieldNombre(nombreJ1,panelIntroducirNombreJ1);
+        Provisional.crearTextFieldNombre(nombreJ1,panelIntroducirNombreJ1);
 
         nombreJ2 = new JTextField();
-        PanelIntroducirNombre.crearTextFieldNombre(nombreJ2,panelIntroducirNombreJ2);
+        Provisional.crearTextFieldNombre(nombreJ2,panelIntroducirNombreJ2);
 
     }
 
