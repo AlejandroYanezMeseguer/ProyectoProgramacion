@@ -4,7 +4,7 @@ import entornoGrafico.cambioDeEquipamiento.PanelCambiarArmas;
 import entornoGrafico.cambioDeEquipamiento.PanelCambiarEscudos;
 import entornoGrafico.creacionDeComponentes.CreacionDeEtiquetas;
 import entornoGrafico.creacionDeComponentes.CreacionDePaneles;
-import entornoGrafico.introducirNombresDeJugadores.Provisional;
+import entornoGrafico.creacionDeComponentes.CreacionDeTextField;
 import jugador.*;
 
 import javax.imageio.ImageIO;
@@ -33,8 +33,8 @@ public class EntornoGrafico extends JFrame{
     public JPanel entornoPelea;
     public JPanel panelNombreJ1;
     public JPanel panelNombreJ2;
-    public JPanel panelVidaJ2;
     public JPanel panelVidaJ1;
+    public JPanel panelVidaJ2;
     public JPanel skinJ1;
     public JPanel skinJ2;
     public JPanel accionesJ1;
@@ -141,11 +141,11 @@ public class EntornoGrafico extends JFrame{
         panelNombreJ2 = new JPanel();
         CreacionDePaneles.crearPanelStandard(panelNombreJ2,entornoPelea,940,0,940,50,Color.cyan);
 
-        panelVidaJ2 = new JPanel();
-        CreacionDePaneles.crearPanelStandard(panelVidaJ2,entornoPelea,0,50,940,50,Color.red);
-
         panelVidaJ1 = new JPanel();
-        CreacionDePaneles.crearPanelStandard(panelVidaJ1,entornoPelea,940,50,940,50,Color.green);
+        CreacionDePaneles.crearPanelStandard(panelVidaJ1,entornoPelea,0,50,940,50,Color.red);
+
+        panelVidaJ2 = new JPanel();
+        CreacionDePaneles.crearPanelStandard(panelVidaJ2,entornoPelea,940,50,940,50,Color.green);
 
         skinJ1 = new JPanel();
         CreacionDePaneles.crearPanelStandard(skinJ1,entornoPelea,160,100,780,650,Color.blue);
@@ -842,12 +842,10 @@ public class EntornoGrafico extends JFrame{
     private void crearVidasJugadores(Jugador luchador1, Jugador luchador2){
 
         vidaJ1 = new JLabel("Vida Jugador 1: " +luchador1);
-        vidaJ1.setFont(new Font(null,Font.PLAIN,24));
-        panelVidaJ2.add(vidaJ1);
+        CreacionDeEtiquetas.CrearEtiquetaStandard(vidaJ1, panelVidaJ1,0,0,0,0,24);
 
         vidaJ2 = new JLabel("Vida Jugador 2: " +luchador2);
-        vidaJ2.setFont(new Font(null,Font.PLAIN,24));
-        panelVidaJ1.add(vidaJ2);
+        CreacionDeEtiquetas.CrearEtiquetaStandard(vidaJ2, panelVidaJ2,0,0,0,0,24);
     }
 
     /**
@@ -917,10 +915,10 @@ public class EntornoGrafico extends JFrame{
     private void crearTextField(){
 
         nombreJ1 = new JTextField();
-        Provisional.crearTextFieldNombre(nombreJ1,panelIntroducirNombreJ1);
+        CreacionDeTextField.crearTextFieldStandard(nombreJ1,panelIntroducirNombreJ1,280,55,300,32,24);
 
         nombreJ2 = new JTextField();
-        Provisional.crearTextFieldNombre(nombreJ2,panelIntroducirNombreJ2);
+        CreacionDeTextField.crearTextFieldStandard(nombreJ2,panelIntroducirNombreJ2,280,55,300,32,24);
 
     }
 
