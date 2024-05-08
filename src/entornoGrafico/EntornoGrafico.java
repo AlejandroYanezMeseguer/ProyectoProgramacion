@@ -2,8 +2,7 @@ package entornoGrafico;
 
 import entornoGrafico.cambioDeEquipamiento.PanelCambiarArmas;
 import entornoGrafico.cambioDeEquipamiento.PanelCambiarEscudos;
-import entornoGrafico.introducirNombresDeJugadores.IntroducirNombreJ1;
-import entornoGrafico.introducirNombresDeJugadores.IntroducirNombreJ2;
+import entornoGrafico.introducirNombresDeJugadores.PanelIntroducirNombre;
 import jugador.*;
 
 import javax.imageio.ImageIO;
@@ -200,7 +199,7 @@ public class EntornoGrafico extends JFrame{
         seleccionPersonajeJ1.setLayout(null);
 
         panelIntroducirNombreJ1 = new JPanel();
-        IntroducirNombreJ1.crearPanelIntroducirNombreJ1(panelIntroducirNombreJ1,seleccionPersonajeJ1);
+        PanelIntroducirNombre.crearPanelIntroducirNombreJ1(panelIntroducirNombreJ1,seleccionPersonajeJ1);
 
         seleccionClaseJ1 = new JPanel();
         seleccionClaseJ1.setBounds(0,115,940,635);
@@ -228,7 +227,7 @@ public class EntornoGrafico extends JFrame{
         seleccionPersonajeJ2.setLayout(null);
 
         panelIntroducirNombreJ2 = new JPanel();
-        IntroducirNombreJ2.crearPanelIntroducirNombreJ2(panelIntroducirNombreJ2,seleccionPersonajeJ2);
+        PanelIntroducirNombre.crearPanelIntroducirNombreJ2(panelIntroducirNombreJ2,seleccionPersonajeJ2);
 
         seleccionClaseJ2 = new JPanel();
         seleccionClaseJ2.setBounds(0,115,940,635);
@@ -931,15 +930,17 @@ public class EntornoGrafico extends JFrame{
      */
     private void crearEtiquetas(){
 
+        String[] texto = {"Nombre del jugador 1:","Nombre del Jugador 2:"};
+
         ganador = new JLabel();
         jugadorGanador.add(ganador);
         jugadorGanador.setVisible(false);
 
         introducirNombreJ1 = new JLabel();
-        IntroducirNombreJ1.crearEtiquetaIntroducirNombreJ1(introducirNombreJ1,panelIntroducirNombreJ1);
+        PanelIntroducirNombre.crearEtiquetaIntroducirNombre(introducirNombreJ1,panelIntroducirNombreJ1,texto[0]);
 
         introducirNombreJ2 = new JLabel();
-        IntroducirNombreJ2.crearEtiquetaIntroducirNombreJ2(introducirNombreJ2,panelIntroducirNombreJ2);
+        PanelIntroducirNombre.crearEtiquetaIntroducirNombre(introducirNombreJ2,panelIntroducirNombreJ2,texto[1]);
 
         seleccionarClaseJ1 = new JLabel("Selecciona la clase con la que quieres combatir");
         seleccionarClaseJ1.setBounds(140,0,600,30);
@@ -1012,10 +1013,10 @@ public class EntornoGrafico extends JFrame{
     private void crearTextField(){
 
         nombreJ1 = new JTextField();
-        IntroducirNombreJ1.crearTextFieldNombreJ1(nombreJ1,panelIntroducirNombreJ1);
+        PanelIntroducirNombre.crearTextFieldNombre(nombreJ1,panelIntroducirNombreJ1);
 
         nombreJ2 = new JTextField();
-        IntroducirNombreJ2.crearTextFieldNombreJ2(nombreJ2,panelIntroducirNombreJ2);
+        PanelIntroducirNombre.crearTextFieldNombre(nombreJ2,panelIntroducirNombreJ2);
 
     }
 
