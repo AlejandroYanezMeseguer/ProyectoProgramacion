@@ -2,6 +2,7 @@ package entornoGrafico;
 
 import entornoGrafico.cambioDeEquipamiento.PanelCambiarArmas;
 import entornoGrafico.cambioDeEquipamiento.PanelCambiarEscudos;
+import entornoGrafico.creacionDeComponentes.CreacionDeEtiquetas;
 import entornoGrafico.creacionDeComponentes.CreacionDePaneles;
 import entornoGrafico.introducirNombresDeJugadores.Provisional;
 import jugador.*;
@@ -123,8 +124,6 @@ public class EntornoGrafico extends JFrame{
 
     }
 
-
-
     /**
      * Metodo que crea los Jpanel
      */
@@ -134,7 +133,7 @@ public class EntornoGrafico extends JFrame{
         CreacionDePaneles.crearPanelLayoutNullVisibleFalse(entornoPelea,(JPanel) this.getContentPane(),0,0,1880,900,null);
 
         jugadorGanador = new JPanel();
-        CreacionDePaneles.crearPanelStandard(jugadorGanador, (JPanel) this.getContentPane(),0,0,1880,985,Color.pink);
+        CreacionDePaneles.crearPanelLayoutNullVisibleFalse(jugadorGanador, (JPanel) this.getContentPane(),0,0,1880,985,Color.pink);
 
         panelNombreJ1 = new JPanel();
         CreacionDePaneles.crearPanelStandard(panelNombreJ1,entornoPelea,0,0,940,50,Color.magenta);
@@ -856,67 +855,46 @@ public class EntornoGrafico extends JFrame{
      */
     private void crearEtiquetas(){
 
-        String[] texto = {"Nombre del jugador 1:","Nombre del Jugador 2:"};
+        String[] textoEtiqueta = {"Nombre del jugador 1:","Nombre del Jugador 2:","Selecciona la clase con la que quieres combatir","Mago","Guerrero","Samurai"};
 
         ganador = new JLabel();
         jugadorGanador.add(ganador);
-        jugadorGanador.setVisible(false);
 
-        introducirNombreJ1 = new JLabel();
-        Provisional.crearEtiquetaIntroducirNombre(introducirNombreJ1,panelIntroducirNombreJ1,texto[0]);
+        introducirNombreJ1 = new JLabel(textoEtiqueta[0]);
+        CreacionDeEtiquetas.CrearEtiquetaStandard(introducirNombreJ1,panelIntroducirNombreJ1,290,8,300,36,26);
 
-        introducirNombreJ2 = new JLabel();
-        Provisional.crearEtiquetaIntroducirNombre(introducirNombreJ2,panelIntroducirNombreJ2,texto[1]);
+        introducirNombreJ2 = new JLabel(textoEtiqueta[1]);
+        CreacionDeEtiquetas.CrearEtiquetaStandard(introducirNombreJ2,panelIntroducirNombreJ2,290,8,300,36,26);
 
-        seleccionarClaseJ1 = new JLabel("Selecciona la clase con la que quieres combatir");
-        seleccionarClaseJ1.setBounds(140,0,600,30);
-        seleccionarClaseJ1.setFont(new Font(null,Font.PLAIN,26));
-        seleccionClaseJ1.add(seleccionarClaseJ1);
+        seleccionarClaseJ1 = new JLabel(textoEtiqueta[2]);
+        CreacionDeEtiquetas.CrearEtiquetaStandard(seleccionarClaseJ1,seleccionClaseJ1,140,0,600,30,26);
 
-        seleccionarClaseJ2 = new JLabel("Selecciona la clase con la que quieres combatir");
-        seleccionarClaseJ2.setBounds(140,0,600,30);
-        seleccionarClaseJ2.setFont(new Font(null,Font.PLAIN,26));
-        seleccionClaseJ2.add(seleccionarClaseJ2);
+        seleccionarClaseJ2 = new JLabel(textoEtiqueta[2]);
+        CreacionDeEtiquetas.CrearEtiquetaStandard(seleccionarClaseJ2,seleccionClaseJ2,140,0,600,30,26);
 
-        magoJ1 = new JLabel("Mago");
-        magoJ1.setBounds(135,58,60,30);
-        magoJ1.setFont(new Font(null,Font.PLAIN,20));
-        seleccionClaseJ1.add(magoJ1);
+        magoJ1 = new JLabel(textoEtiqueta[3]);
+        CreacionDeEtiquetas.CrearEtiquetaStandard(magoJ1,seleccionClaseJ1,135,58,60,30,20);
 
-        guerreroJ1 = new JLabel("Guerrero");
-        guerreroJ1.setBounds(380,58,90,30);
-        guerreroJ1.setFont(new Font(null,Font.PLAIN,20));
-        seleccionClaseJ1.add(guerreroJ1);
+        guerreroJ1 = new JLabel(textoEtiqueta[4]);
+        CreacionDeEtiquetas.CrearEtiquetaStandard(guerreroJ1,seleccionClaseJ1,380,58,90,30,20);
 
-        samuraiJ1 = new JLabel("Samurai");
-        samuraiJ1.setBounds(650,58,82,30);
-        samuraiJ1.setFont(new Font(null,Font.PLAIN,20));
-        seleccionClaseJ1.add(samuraiJ1);
+        samuraiJ1 = new JLabel(textoEtiqueta[5]);
+        CreacionDeEtiquetas.CrearEtiquetaStandard(samuraiJ1,seleccionClaseJ1,650,58,82,30,20);
 
-        magoJ2 = new JLabel("Mago");
-        magoJ2.setBounds(135,58,60,30);
-        magoJ2.setFont(new Font(null,Font.PLAIN,20));
-        seleccionClaseJ2.add(magoJ2);
+        magoJ2 = new JLabel(textoEtiqueta[3]);
+        CreacionDeEtiquetas.CrearEtiquetaStandard(magoJ2,seleccionClaseJ2,135,58,60,30,20);
 
-        guerreroJ2 = new JLabel("Guerrero");
-        guerreroJ2.setBounds(380,58,90,30);
-        guerreroJ2.setFont(new Font(null,Font.PLAIN,20));
-        seleccionClaseJ2.add(guerreroJ2);
+        guerreroJ2 = new JLabel(textoEtiqueta[4]);
+        CreacionDeEtiquetas.CrearEtiquetaStandard(guerreroJ2,seleccionClaseJ2,380,58,60,30,20);
 
-        samuraiJ2 = new JLabel("Samurai");
-        samuraiJ2.setBounds(650,58,82,30);
-        samuraiJ2.setFont(new Font(null,Font.PLAIN,20));
-        seleccionClaseJ2.add(samuraiJ2);
+        samuraiJ2 = new JLabel(textoEtiqueta[5]);
+        CreacionDeEtiquetas.CrearEtiquetaStandard(samuraiJ2,seleccionClaseJ2,650,58,82,30,20);
 
         mostrarNombreJ1 = new JLabel();
-        mostrarNombreJ1.setBounds(200,0,500,30);
-        mostrarNombreJ1.setFont(new Font(null,Font.PLAIN,30));
-        panelNombreJ1.add(mostrarNombreJ1);
+        CreacionDeEtiquetas.CrearEtiquetaStandard(mostrarNombreJ1,panelNombreJ1,200,0,500,30,30);
 
         mostrarNombreJ2 = new JLabel();
-        mostrarNombreJ2.setBounds(200,0,500,30);
-        mostrarNombreJ2.setFont(new Font(null,Font.PLAIN,30));
-        panelNombreJ2.add(mostrarNombreJ2);
+        CreacionDeEtiquetas.CrearEtiquetaStandard(mostrarNombreJ2,panelNombreJ2,200,0,500,30,30);
 
     }
 
