@@ -3,6 +3,7 @@ package entornoGrafico;
 import entornoGrafico.cambioDeEquipamiento.PanelCambiarArmas;
 import entornoGrafico.cambioDeEquipamiento.PanelCambiarEscudos;
 import entornoGrafico.introducirNombresDeJugadores.IntroducirNombreJ1;
+import entornoGrafico.introducirNombresDeJugadores.IntroducirNombreJ2;
 import jugador.*;
 
 import javax.imageio.ImageIO;
@@ -227,10 +228,7 @@ public class EntornoGrafico extends JFrame{
         seleccionPersonajeJ2.setLayout(null);
 
         panelIntroducirNombreJ2 = new JPanel();
-        panelIntroducirNombreJ2.setBounds(0,0,940,115);
-        panelIntroducirNombreJ2.setBackground(Color.yellow);
-        panelIntroducirNombreJ2.setLayout(null);
-        seleccionPersonajeJ2.add(panelIntroducirNombreJ2);
+        IntroducirNombreJ2.crearPanelIntroducirNombreJ2(panelIntroducirNombreJ2,seleccionPersonajeJ2);
 
         seleccionClaseJ2 = new JPanel();
         seleccionClaseJ2.setBounds(0,115,940,635);
@@ -940,10 +938,8 @@ public class EntornoGrafico extends JFrame{
         introducirNombreJ1 = new JLabel();
         IntroducirNombreJ1.crearEtiquetaIntroducirNombreJ1(introducirNombreJ1,panelIntroducirNombreJ1);
 
-        introducirNombreJ2 = new JLabel("Nombre del jugador 2:");
-        introducirNombreJ2.setBounds(287,8,300,36);
-        introducirNombreJ2.setFont(new Font(null,Font.PLAIN,26));
-        panelIntroducirNombreJ2.add(introducirNombreJ2);
+        introducirNombreJ2 = new JLabel();
+        IntroducirNombreJ2.crearEtiquetaIntroducirNombreJ2(introducirNombreJ2,panelIntroducirNombreJ2);
 
         seleccionarClaseJ1 = new JLabel("Selecciona la clase con la que quieres combatir");
         seleccionarClaseJ1.setBounds(140,0,600,30);
@@ -1018,11 +1014,8 @@ public class EntornoGrafico extends JFrame{
         nombreJ1 = new JTextField();
         IntroducirNombreJ1.crearTextFieldNombreJ1(nombreJ1,panelIntroducirNombreJ1);
 
-
         nombreJ2 = new JTextField();
-        nombreJ2.setBounds(280,55,300,32);
-        nombreJ2.setFont(new Font(null,Font.PLAIN,24));
-        panelIntroducirNombreJ2.add(nombreJ2);
+        IntroducirNombreJ2.crearTextFieldNombreJ2(nombreJ2,panelIntroducirNombreJ2);
 
     }
 
