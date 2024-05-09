@@ -2,9 +2,7 @@ package entornoGrafico;
 
 import entornoGrafico.cambioDeEquipamiento.PanelCambiarArmas;
 import entornoGrafico.cambioDeEquipamiento.PanelCambiarEscudos;
-import entornoGrafico.creacionDeComponentes.CreacionDeEtiquetas;
-import entornoGrafico.creacionDeComponentes.CreacionDePaneles;
-import entornoGrafico.creacionDeComponentes.CreacionDeTextField;
+import entornoGrafico.creacionDeComponentes.*;
 import jugador.*;
 
 import javax.imageio.ImageIO;
@@ -218,99 +216,73 @@ public class EntornoGrafico extends JFrame{
 
     }
 
+    private void crearImagenes(){
+
+
+
+    }
+
     /**
      * Metodo que crea los JButton
      * @throws IOException
      */
     private void crearBotones() throws IOException {
 
-        cambiarArmaJ1 = new JButton("Cambiar de arma");
-        cambiarArmaJ1.setBounds(545,20,230,38);
-        cambiarArmaJ1.setFont(new Font(null,Font.PLAIN,23));
-        accionesJ1.add(cambiarArmaJ1);
-
-        cambiarEscudoJ1 = new JButton("Cambiar de escudo");
-        cambiarEscudoJ1.setBounds(70,20,260,38);
-        cambiarEscudoJ1.setFont(new Font(null,Font.PLAIN,23));
-        accionesJ1.add(cambiarEscudoJ1);
-
-        AtaqueJ1 = new JButton("Atacar");
-        AtaqueJ1.setBounds(383,20,110,40);
-        AtaqueJ1.setFont(new Font(null,Font.PLAIN,23));
-        accionesJ1.add(AtaqueJ1);
-
-        cambiarArmaJ2 = new JButton("Cambiar de arma");
-        cambiarArmaJ2.setBounds(545,20,230,38);
-        cambiarArmaJ2.setFont(new Font(null,Font.PLAIN,23));
-        accionesJ2.add(cambiarArmaJ2);
-
-        cambiarEscudoJ2 = new JButton("Cambiar de escudo");
-        cambiarEscudoJ2.setBounds(70,20,260,38);
-        cambiarEscudoJ2.setFont(new Font(null,Font.PLAIN,23));
-        accionesJ2.add(cambiarEscudoJ2);
-
-        AtaqueJ2 = new JButton("Atacar");
-        AtaqueJ2.setBounds(383,20,110,38);
-        AtaqueJ2.setFont(new Font(null,Font.PLAIN,23));
-        accionesJ2.add(AtaqueJ2);
-
+        String[] textoBoton = {"Cambiar de arma","Cambiar de escudo","Atacar","Empezar la pelea","Utilizar arma seleccionada","Utilizar escudo seleccionado"};
         BufferedImage iconoMago = ImageIO.read(new File("src/imagenes/mago.png"));
-        seleccionarMagoJ1 = new JButton();
-        seleccionarMagoJ1.setBounds(62,90,200,270);
-        seleccionarMagoJ1.setIcon(new ImageIcon(iconoMago.getScaledInstance(seleccionarMagoJ1.getWidth(),seleccionarMagoJ1.getHeight(), Image.SCALE_SMOOTH)));
-        seleccionClaseJ1.add(seleccionarMagoJ1);
-
         BufferedImage iconoGuerrero = ImageIO.read(new File("src/imagenes/guerrero.png"));
-        seleccionarGuerreroJ1 = new JButton();
-        seleccionarGuerreroJ1.setBounds(323,90,200,270);
-        seleccionarGuerreroJ1.setIcon(new ImageIcon(iconoGuerrero.getScaledInstance(seleccionarGuerreroJ1.getWidth(),seleccionarGuerreroJ1.getHeight(), Image.SCALE_SMOOTH)));
-        seleccionClaseJ1.add(seleccionarGuerreroJ1);
-
         BufferedImage iconoSamurai = ImageIO.read(new File("src/imagenes/samurai.jpg"));
+
+        cambiarArmaJ1 = new JButton(textoBoton[0]);
+        CreacionDeBotones.crearBotonTexto(cambiarArmaJ1,accionesJ1,545,20,230,38,23);
+
+        cambiarEscudoJ1 = new JButton(textoBoton[1]);
+        CreacionDeBotones.crearBotonTexto(cambiarEscudoJ1,accionesJ1,70,20,260,38,23);
+
+        AtaqueJ1 = new JButton(textoBoton[2]);
+        CreacionDeBotones.crearBotonTexto(AtaqueJ1,accionesJ1,383,20,110,40,23);
+
+        cambiarArmaJ2 = new JButton(textoBoton[0]);
+        CreacionDeBotones.crearBotonTexto(cambiarArmaJ2,accionesJ2,545,20,230,38,23);
+
+        cambiarEscudoJ2 = new JButton(textoBoton[1]);
+        CreacionDeBotones.crearBotonTexto(cambiarEscudoJ2,accionesJ2,70,20,260,38,23);
+
+        AtaqueJ2 = new JButton(textoBoton[2]);
+        CreacionDeBotones.crearBotonTexto(AtaqueJ2,accionesJ2,383,20,110,38,23);
+
+        seleccionarMagoJ1 = new JButton();
+        CreacionDeBotones.crearBotonImagen(seleccionarMagoJ1,seleccionClaseJ1,62,90,200,270,iconoMago);
+
+        seleccionarGuerreroJ1 = new JButton();
+        CreacionDeBotones.crearBotonImagen(seleccionarGuerreroJ1,seleccionClaseJ1,323,90,200,270,iconoGuerrero);
+
         seleccionarSamuraiJ1 = new JButton();
-        seleccionarSamuraiJ1.setBounds(584,90,200,270);
-        seleccionarSamuraiJ1.setIcon(new ImageIcon(iconoSamurai.getScaledInstance(seleccionarSamuraiJ1.getWidth(), seleccionarSamuraiJ1.getHeight(), Image.SCALE_SMOOTH)));
-        seleccionClaseJ1.add(seleccionarSamuraiJ1);
+        CreacionDeBotones.crearBotonImagen(seleccionarSamuraiJ1,seleccionClaseJ1,584,90,200,270,iconoSamurai);
 
         seleccionarMagoJ2 = new JButton();
-        seleccionarMagoJ2.setBounds(62,90,200,270);
-        seleccionarMagoJ2.setIcon(new ImageIcon(iconoMago.getScaledInstance(seleccionarMagoJ2.getWidth(),seleccionarMagoJ2.getHeight(), Image.SCALE_SMOOTH)));
-        seleccionClaseJ2.add(seleccionarMagoJ2);
+        CreacionDeBotones.crearBotonImagen(seleccionarMagoJ2,seleccionClaseJ2,62,90,200,270,iconoMago);
 
         seleccionarGuerreroJ2 = new JButton();
-        seleccionarGuerreroJ2.setBounds(323,90,200,270);
-        seleccionarGuerreroJ2.setIcon(new ImageIcon(iconoGuerrero.getScaledInstance(seleccionarGuerreroJ2.getWidth(),seleccionarGuerreroJ2.getHeight(), Image.SCALE_SMOOTH)));
-        seleccionClaseJ2.add(seleccionarGuerreroJ2);
+        CreacionDeBotones.crearBotonImagen(seleccionarGuerreroJ2,seleccionClaseJ2,323,90,200,270,iconoGuerrero);
 
-        seleccionarSamuraiJ2 = new JButton(new ImageIcon(iconoSamurai));
-        seleccionarSamuraiJ2.setBounds(584,90,200,270);
-        seleccionarSamuraiJ2.setIcon(new ImageIcon(iconoSamurai.getScaledInstance(seleccionarSamuraiJ2.getWidth(), seleccionarSamuraiJ2.getHeight(), Image.SCALE_SMOOTH)));
-        seleccionClaseJ2.add(seleccionarSamuraiJ2);
+        seleccionarSamuraiJ2 = new JButton();
+        CreacionDeBotones.crearBotonImagen(seleccionarSamuraiJ2,seleccionClaseJ2,584,90,200,270,iconoSamurai);
 
-        empezarPelea = new JButton("Empezar la pelea");
-        empezarPelea.setBounds(710,10,280,50);
-        empezarPelea.setFont(new Font(null,Font.PLAIN,28));
-        comenzarPelea.add(empezarPelea);
+        empezarPelea = new JButton(textoBoton[3]);
+        CreacionDeBotones.crearBotonTexto(empezarPelea,comenzarPelea,710,10,280,50,28);
 
-        seleccionarArmaJ1 = new JButton("Utilizar arma seleccionada");
-        seleccionarArmaJ1.setBounds(90,575,335,38);
-        seleccionarArmaJ1.setFont(new Font(null,Font.PLAIN,24));
-        panelCambiarArmaJ1.add(seleccionarArmaJ1);
+        seleccionarArmaJ1 = new JButton(textoBoton[4]);
+        CreacionDeBotones.crearBotonTexto(seleccionarArmaJ1,panelCambiarArmaJ1,90,575,335,38,24);
 
-        seleccionarArmaJ2 = new JButton("Utilizar arma seleccionada");
-        seleccionarArmaJ2.setBounds(350,575,335,38);
-        seleccionarArmaJ2.setFont(new Font(null,Font.PLAIN,24));
-        panelCambiarArmaJ2.add(seleccionarArmaJ2);
+        seleccionarArmaJ2 = new JButton(textoBoton[4]);
+        CreacionDeBotones.crearBotonTexto(seleccionarArmaJ2,panelCambiarArmaJ2,350,575,335,38,24);
 
-        seleccionarEscudoJ1 = new JButton("Utilizar escudo seleccionado");
-        seleccionarEscudoJ1.setBounds(120,575,355,38);
-        seleccionarEscudoJ1.setFont(new Font(null,Font.PLAIN,24));
-        panelCambiarEscudoJ1.add(seleccionarEscudoJ1);
+        seleccionarEscudoJ1 = new JButton(textoBoton[5]);
+        CreacionDeBotones.crearBotonTexto(seleccionarEscudoJ1,panelCambiarEscudoJ1,120,575,355,38,24);
 
-        seleccionarEscudoJ2 = new JButton("Utilizar escudo seleccionado");
-        seleccionarEscudoJ2.setBounds(300,575,355,38);
-        seleccionarEscudoJ2.setFont(new Font(null,Font.PLAIN,24));
-        panelCambiarEscudoJ2.add(seleccionarEscudoJ2);
+        seleccionarEscudoJ2 = new JButton(textoBoton[5]);
+        CreacionDeBotones.crearBotonTexto(seleccionarEscudoJ2,panelCambiarEscudoJ2,300,575,355,38,24);
     }
 
     /**
@@ -883,7 +855,7 @@ public class EntornoGrafico extends JFrame{
         CreacionDeEtiquetas.CrearEtiquetaStandard(magoJ2,seleccionClaseJ2,135,58,60,30,20);
 
         guerreroJ2 = new JLabel(textoEtiqueta[4]);
-        CreacionDeEtiquetas.CrearEtiquetaStandard(guerreroJ2,seleccionClaseJ2,380,58,60,30,20);
+        CreacionDeEtiquetas.CrearEtiquetaStandard(guerreroJ2,seleccionClaseJ2,380,58,90,30,20);
 
         samuraiJ2 = new JLabel(textoEtiqueta[5]);
         CreacionDeEtiquetas.CrearEtiquetaStandard(samuraiJ2,seleccionClaseJ2,650,58,82,30,20);
@@ -902,10 +874,7 @@ public class EntornoGrafico extends JFrame{
     private void crearTextArea(){
 
         comentariosSeleccion = new JTextArea();
-        comentariosSeleccion.setBounds(0,0,1700,150);
-        comentariosSeleccion.setOpaque(false);
-        comentariosSeleccion.setFont(new Font(null,Font.PLAIN,24));
-        panelComentariosSeleccion.add(comentariosSeleccion);
+        CreaccionDeTextArea.crearTextArea(comentariosSeleccion,panelComentariosSeleccion,0,0,1700,150,24);
 
     }
 
