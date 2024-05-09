@@ -15,6 +15,14 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import static entornoGrafico.creacionDeComponentes.CreacionDeBotones.crearBotonImagen;
+import static entornoGrafico.creacionDeComponentes.CreacionDeBotones.crearBotonTexto;
+import static entornoGrafico.creacionDeComponentes.CreacionDeEtiquetas.CrearEtiquetaStandard;
+import static entornoGrafico.AccionesBotones.CreacionDeListeners.addListener;
+import static entornoGrafico.creacionDeComponentes.CreacionDePaneles.*;
+import static entornoGrafico.creacionDeComponentes.CreacionDeTextArea.crearTextArea;
+import static entornoGrafico.creacionDeComponentes.CreacionDeTextField.crearTextFieldStandard;
+
 /**
  * Clase que crea la parte grafica del programa
  */
@@ -128,97 +136,91 @@ public class EntornoGrafico extends JFrame{
     private void crearPaneles(){
 
         entornoPelea = new JPanel();
-        CreacionDePaneles.crearPanelLayoutNullVisibleFalse(entornoPelea,(JPanel) this.getContentPane(),0,0,1880,900,null);
+        crearPanelLayoutNullVisibleFalse(entornoPelea,(JPanel) this.getContentPane(),0,0,1880,900,null);
 
         jugadorGanador = new JPanel();
-        CreacionDePaneles.crearPanelLayoutNullVisibleFalse(jugadorGanador, (JPanel) this.getContentPane(),0,0,1880,985,Color.pink);
+        crearPanelLayoutNullVisibleFalse(jugadorGanador, (JPanel) this.getContentPane(),0,0,1880,985,Color.pink);
 
         panelNombreJ1 = new JPanel();
-        CreacionDePaneles.crearPanelStandard(panelNombreJ1,entornoPelea,0,0,940,50,Color.magenta);
+        crearPanelStandard(panelNombreJ1,entornoPelea,0,0,940,50,Color.magenta);
 
         panelNombreJ2 = new JPanel();
-        CreacionDePaneles.crearPanelStandard(panelNombreJ2,entornoPelea,940,0,940,50,Color.cyan);
+        crearPanelStandard(panelNombreJ2,entornoPelea,940,0,940,50,Color.cyan);
 
         panelVidaJ1 = new JPanel();
-        CreacionDePaneles.crearPanelStandard(panelVidaJ1,entornoPelea,0,50,940,50,Color.red);
+        crearPanelStandard(panelVidaJ1,entornoPelea,0,50,940,50,Color.red);
 
         panelVidaJ2 = new JPanel();
-        CreacionDePaneles.crearPanelStandard(panelVidaJ2,entornoPelea,940,50,940,50,Color.green);
+        crearPanelStandard(panelVidaJ2,entornoPelea,940,50,940,50,Color.green);
 
         skinJ1 = new JPanel();
-        CreacionDePaneles.crearPanelStandard(skinJ1,entornoPelea,160,100,780,650,Color.blue);
+        crearPanelStandard(skinJ1,entornoPelea,160,100,780,650,Color.blue);
 
         skinJ2 = new JPanel();
-        CreacionDePaneles.crearPanelStandard(skinJ2,entornoPelea,940,100,780,650,Color.yellow);
+        crearPanelStandard(skinJ2,entornoPelea,940,100,780,650,Color.yellow);
 
         accionesJ1 = new JPanel();
-        CreacionDePaneles.crearPanelLayoutNull(accionesJ1,entornoPelea,0,750,940,90,Color.darkGray);
+        crearPanelLayoutNull(accionesJ1,entornoPelea,0,750,940,90,Color.darkGray);
 
         accionesJ2 = new JPanel();
-        CreacionDePaneles.crearPanelLayoutNull(accionesJ2,entornoPelea,940,750,940,90,Color.black);
+        crearPanelLayoutNull(accionesJ2,entornoPelea,940,750,940,90,Color.black);
 
         seleccionPersonajes = new JPanel();
-        CreacionDePaneles.crearPanelLayoutNull(seleccionPersonajes, (JPanel) this.getContentPane(),0,0,1880,1000,null);
+        crearPanelLayoutNull(seleccionPersonajes, (JPanel) this.getContentPane(),0,0,1880,1000,null);
 
         comenzarPelea = new JPanel();
-        CreacionDePaneles.crearPanelLayoutNull(comenzarPelea,seleccionPersonajes,0,750,1880,70,Color.black);
+        crearPanelLayoutNull(comenzarPelea,seleccionPersonajes,0,750,1880,70,Color.black);
 
         seleccionPersonajeJ1 = new JPanel();
-        CreacionDePaneles.crearPanelLayoutNull(seleccionPersonajeJ1,seleccionPersonajes,0,0,940,750,null);
+        crearPanelLayoutNull(seleccionPersonajeJ1,seleccionPersonajes,0,0,940,750,null);
 
         panelIntroducirNombreJ1 = new JPanel();
-        CreacionDePaneles.crearPanelLayoutNull(panelIntroducirNombreJ1,seleccionPersonajeJ1,0,0,940,115,Color.cyan);
+        crearPanelLayoutNull(panelIntroducirNombreJ1,seleccionPersonajeJ1,0,0,940,115,Color.cyan);
 
         seleccionClaseJ1 = new JPanel();
-        CreacionDePaneles.crearPanelLayoutNull(seleccionClaseJ1,seleccionPersonajeJ1,0,115,940,635,Color.red);
+        crearPanelLayoutNull(seleccionClaseJ1,seleccionPersonajeJ1,0,115,940,635,Color.red);
 
         panelCambiarArmaJ1 = new JPanel();
-        CreacionDePaneles.crearPanelLayoutNullVisibleFalse(panelCambiarArmaJ1,entornoPelea,160,100,780,650,Color.yellow);
+        crearPanelLayoutNullVisibleFalse(panelCambiarArmaJ1,entornoPelea,160,100,780,650,Color.yellow);
 
         panelCambiarEscudoJ1 = new JPanel();
-        CreacionDePaneles.crearPanelLayoutNullVisibleFalse(panelCambiarEscudoJ1,entornoPelea,160,100,780,650,Color.green);
+        crearPanelLayoutNullVisibleFalse(panelCambiarEscudoJ1,entornoPelea,160,100,780,650,Color.green);
 
         seleccionPersonajeJ2 = new JPanel();
-        CreacionDePaneles.crearPanelLayoutNull(seleccionPersonajeJ2,seleccionPersonajes,940,0,940,750,null);
+        crearPanelLayoutNull(seleccionPersonajeJ2,seleccionPersonajes,940,0,940,750,null);
 
         panelIntroducirNombreJ2 = new JPanel();
-        CreacionDePaneles.crearPanelLayoutNull(panelIntroducirNombreJ2,seleccionPersonajeJ2,0,0,940,115,Color.yellow);
+        crearPanelLayoutNull(panelIntroducirNombreJ2,seleccionPersonajeJ2,0,0,940,115,Color.yellow);
 
         seleccionClaseJ2 = new JPanel();
-        CreacionDePaneles.crearPanelLayoutNull(seleccionClaseJ2,seleccionPersonajeJ2,0,115,940,635,Color.green);
+        crearPanelLayoutNull(seleccionClaseJ2,seleccionPersonajeJ2,0,115,940,635,Color.green);
 
         panelCambiarArmaJ2 = new JPanel();
-        CreacionDePaneles.crearPanelLayoutNullVisibleFalse(panelCambiarArmaJ2,entornoPelea,940,100,780,650,Color.cyan);
+        crearPanelLayoutNullVisibleFalse(panelCambiarArmaJ2,entornoPelea,940,100,780,650,Color.cyan);
 
         panelCambiarEscudoJ2 = new JPanel();
-        CreacionDePaneles.crearPanelLayoutNullVisibleFalse(panelCambiarEscudoJ2,entornoPelea,940,100,780,650,Color.red);
+        crearPanelLayoutNullVisibleFalse(panelCambiarEscudoJ2,entornoPelea,940,100,780,650,Color.red);
 
         panelComentariosSeleccion = new JPanel();
-        CreacionDePaneles.crearPanelLayoutNull(panelComentariosSeleccion,seleccionPersonajes,0,820,1880,140,Color.blue);
+        crearPanelLayoutNull(panelComentariosSeleccion,seleccionPersonajes,0,820,1880,140,Color.blue);
 
         equipamientoJ1 = new JPanel();
-        CreacionDePaneles.crearPanelLayoutNull(equipamientoJ1,entornoPelea,0,100,160,650,Color.pink);
+        crearPanelLayoutNull(equipamientoJ1,entornoPelea,0,100,160,650,Color.pink);
 
         armaEquipadaJ1 = new JPanel();
-        CreacionDePaneles.crearPanelLayoutNull(armaEquipadaJ1,equipamientoJ1,45,40,70,70,Color.green);
+        crearPanelLayoutNull(armaEquipadaJ1,equipamientoJ1,45,40,70,70,Color.green);
 
         escudoEquipadoJ1 = new JPanel();
-        CreacionDePaneles.crearPanelLayoutNull(escudoEquipadoJ1,equipamientoJ1,45,160,70,70,Color.green);
+        crearPanelLayoutNull(escudoEquipadoJ1,equipamientoJ1,45,160,70,70,Color.green);
 
         equipamientoJ2 = new JPanel();
-        CreacionDePaneles.crearPanelLayoutNull(equipamientoJ2,entornoPelea,1720,100,160,650,Color.magenta);
+        crearPanelLayoutNull(equipamientoJ2,entornoPelea,1720,100,160,650,Color.magenta);
 
         armaEquipadaJ2 = new JPanel();
-        CreacionDePaneles.crearPanelLayoutNull(armaEquipadaJ2,equipamientoJ2,45,40,70,70,Color.green);
+        crearPanelLayoutNull(armaEquipadaJ2,equipamientoJ2,45,40,70,70,Color.green);
 
         escudoEquipadoJ2 = new JPanel();
-        CreacionDePaneles.crearPanelLayoutNull(escudoEquipadoJ2,equipamientoJ2,45,160,70,70,Color.green);
-
-    }
-
-    private void crearImagenes(){
-
-
+        crearPanelLayoutNull(escudoEquipadoJ2,equipamientoJ2,45,160,70,70,Color.green);
 
     }
 
@@ -234,55 +236,55 @@ public class EntornoGrafico extends JFrame{
         BufferedImage iconoSamurai = ImageIO.read(new File("src/imagenes/samurai.jpg"));
 
         cambiarArmaJ1 = new JButton(textoBoton[0]);
-        CreacionDeBotones.crearBotonTexto(cambiarArmaJ1,accionesJ1,545,20,230,38,23);
+        crearBotonTexto(cambiarArmaJ1,accionesJ1,545,20,230,38,23);
 
         cambiarEscudoJ1 = new JButton(textoBoton[1]);
-        CreacionDeBotones.crearBotonTexto(cambiarEscudoJ1,accionesJ1,70,20,260,38,23);
+        crearBotonTexto(cambiarEscudoJ1,accionesJ1,70,20,260,38,23);
 
         AtaqueJ1 = new JButton(textoBoton[2]);
-        CreacionDeBotones.crearBotonTexto(AtaqueJ1,accionesJ1,383,20,110,40,23);
+        crearBotonTexto(AtaqueJ1,accionesJ1,383,20,110,40,23);
 
         cambiarArmaJ2 = new JButton(textoBoton[0]);
-        CreacionDeBotones.crearBotonTexto(cambiarArmaJ2,accionesJ2,545,20,230,38,23);
+        crearBotonTexto(cambiarArmaJ2,accionesJ2,545,20,230,38,23);
 
         cambiarEscudoJ2 = new JButton(textoBoton[1]);
-        CreacionDeBotones.crearBotonTexto(cambiarEscudoJ2,accionesJ2,70,20,260,38,23);
+        crearBotonTexto(cambiarEscudoJ2,accionesJ2,70,20,260,38,23);
 
         AtaqueJ2 = new JButton(textoBoton[2]);
-        CreacionDeBotones.crearBotonTexto(AtaqueJ2,accionesJ2,383,20,110,38,23);
+        crearBotonTexto(AtaqueJ2,accionesJ2,383,20,110,38,23);
 
         seleccionarMagoJ1 = new JButton();
-        CreacionDeBotones.crearBotonImagen(seleccionarMagoJ1,seleccionClaseJ1,62,90,200,270,iconoMago);
+        crearBotonImagen(seleccionarMagoJ1,seleccionClaseJ1,62,90,200,270,iconoMago);
 
         seleccionarGuerreroJ1 = new JButton();
-        CreacionDeBotones.crearBotonImagen(seleccionarGuerreroJ1,seleccionClaseJ1,323,90,200,270,iconoGuerrero);
+        crearBotonImagen(seleccionarGuerreroJ1,seleccionClaseJ1,323,90,200,270,iconoGuerrero);
 
         seleccionarSamuraiJ1 = new JButton();
-        CreacionDeBotones.crearBotonImagen(seleccionarSamuraiJ1,seleccionClaseJ1,584,90,200,270,iconoSamurai);
+        crearBotonImagen(seleccionarSamuraiJ1,seleccionClaseJ1,584,90,200,270,iconoSamurai);
 
         seleccionarMagoJ2 = new JButton();
-        CreacionDeBotones.crearBotonImagen(seleccionarMagoJ2,seleccionClaseJ2,62,90,200,270,iconoMago);
+        crearBotonImagen(seleccionarMagoJ2,seleccionClaseJ2,62,90,200,270,iconoMago);
 
         seleccionarGuerreroJ2 = new JButton();
-        CreacionDeBotones.crearBotonImagen(seleccionarGuerreroJ2,seleccionClaseJ2,323,90,200,270,iconoGuerrero);
+        crearBotonImagen(seleccionarGuerreroJ2,seleccionClaseJ2,323,90,200,270,iconoGuerrero);
 
         seleccionarSamuraiJ2 = new JButton();
-        CreacionDeBotones.crearBotonImagen(seleccionarSamuraiJ2,seleccionClaseJ2,584,90,200,270,iconoSamurai);
+        crearBotonImagen(seleccionarSamuraiJ2,seleccionClaseJ2,584,90,200,270,iconoSamurai);
 
         empezarPelea = new JButton(textoBoton[3]);
-        CreacionDeBotones.crearBotonTexto(empezarPelea,comenzarPelea,710,10,280,50,28);
+        crearBotonTexto(empezarPelea,comenzarPelea,710,10,280,50,28);
 
         seleccionarArmaJ1 = new JButton(textoBoton[4]);
-        CreacionDeBotones.crearBotonTexto(seleccionarArmaJ1,panelCambiarArmaJ1,90,575,335,38,24);
+        crearBotonTexto(seleccionarArmaJ1,panelCambiarArmaJ1,90,575,335,38,24);
 
         seleccionarArmaJ2 = new JButton(textoBoton[4]);
-        CreacionDeBotones.crearBotonTexto(seleccionarArmaJ2,panelCambiarArmaJ2,350,575,335,38,24);
+        crearBotonTexto(seleccionarArmaJ2,panelCambiarArmaJ2,350,575,335,38,24);
 
         seleccionarEscudoJ1 = new JButton(textoBoton[5]);
-        CreacionDeBotones.crearBotonTexto(seleccionarEscudoJ1,panelCambiarEscudoJ1,120,575,355,38,24);
+        crearBotonTexto(seleccionarEscudoJ1,panelCambiarEscudoJ1,120,575,355,38,24);
 
         seleccionarEscudoJ2 = new JButton(textoBoton[5]);
-        CreacionDeBotones.crearBotonTexto(seleccionarEscudoJ2,panelCambiarEscudoJ2,300,575,355,38,24);
+        crearBotonTexto(seleccionarEscudoJ2,panelCambiarEscudoJ2,300,575,355,38,24);
     }
 
     /**
@@ -290,158 +292,24 @@ public class EntornoGrafico extends JFrame{
      */
     private void listenersBotones(){
 
-        AtaqueJ1.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
+        addListener(AtaqueJ1, e -> botonAtaqueJugador1ActionPerformed(e, jugador1, jugador2));
+        addListener(AtaqueJ2, e -> botonAtaqueJugador2ActionPerformed(e, jugador1, jugador2));
+        addListener(empezarPelea, e -> empezarALucharActionPerformed(e, jugador1, jugador2));
+        addListener(seleccionarMagoJ1, this::seleccionarMagoJ1ActionPerformed);
+        addListener(seleccionarGuerreroJ1, this::seleccionarGuerreroJ1ActionPerformed);
+        addListener(seleccionarSamuraiJ1, this::seleccionarSamuraiJ1ActionPerformed);
+        addListener(seleccionarMagoJ2, this::seleccionarMagoJ2ActionPerformed);
+        addListener(seleccionarGuerreroJ2, this::seleccionarGuerreroJ2ActionPerformed);
+        addListener(seleccionarSamuraiJ2, this::seleccionarSamuraiJ2ActionPerformed);
+        addListener(cambiarArmaJ1, this::cambiarArmaJ1ActionPerformed);
+        addListener(cambiarArmaJ2, this::cambiarArmaJ2ActionPerformed);
+        addListener(seleccionarArmaJ1, this::seleccionarArmaJ1ActionPerformed);
+        addListener(seleccionarArmaJ2, this::seleccionarArmaJ2ActionPerformed);
+        addListener(cambiarEscudoJ1, this::cambiarEscudoJ1ActionPerformed);
+        addListener(cambiarEscudoJ2, this::cambiarEscudoJ2ActionPerformed);
+        addListener(seleccionarEscudoJ1, this::seleccionarEscudoJ1ActionPerformed);
+        addListener(seleccionarEscudoJ2, this::seleccionarEscudoJ2ActionPerformed);
 
-                botonAtaqueJugador1ActionPerformed(e,jugador1,jugador2);
-
-            }
-        });
-
-        AtaqueJ2.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-                botonAtaqueJugador2ActionPerformed(e,jugador1,jugador2);
-
-            }
-        });
-
-        empezarPelea.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-                empezarALucharActionPerformed(e,jugador1,jugador2);
-
-            }
-        });
-
-        seleccionarMagoJ1.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-                seleccionarMagoJ1ActionPerformed(e);
-
-            }
-        });
-
-        seleccionarGuerreroJ1.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-                seleccionarGuerreroJ1ActionPerformed(e);
-
-            }
-        });
-
-        seleccionarSamuraiJ1.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-                seleccionarSamuraiJ1ActionPerformed(e);
-
-            }
-        });
-
-        seleccionarMagoJ2.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-                seleccionarMagoJ2ActionPerformed(e);
-
-            }
-        });
-
-        seleccionarGuerreroJ2.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-                seleccionarGuerreroJ2ActionPerformed(e);
-
-            }
-        });
-
-        seleccionarSamuraiJ2.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-                seleccionarSamuraiJ2ActionPerformed(e);
-
-            }
-        });
-
-        cambiarArmaJ1.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-                cambiarArmaJ1ActionPerformed(e);
-
-            }
-        });
-
-        cambiarArmaJ2.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-                cambiarArmaJ2ActionPerformed(e);
-
-            }
-        });
-
-        seleccionarArmaJ1.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-                seleccionarArmaJ1ActionPerformed(e);
-
-            }
-        });
-
-        seleccionarArmaJ2.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-                seleccionarArmaJ2ActionPerformed(e);
-
-            }
-        });
-
-        cambiarEscudoJ1.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-                cambiarEscudoJ1ActionPerformed(e);
-
-            }
-        });
-
-        cambiarEscudoJ2.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-                cambiarEscudoJ2ActionPerformed(e);
-
-            }
-        });
-
-        seleccionarEscudoJ1.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-                seleccionarEscudoJ1ActionPerformed(e);
-
-            }
-        });
-
-        seleccionarEscudoJ2.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-                seleccionarEscudoJ2ActionPerformed(e);
-
-            }
-        });
     }
 
     /**
@@ -451,20 +319,7 @@ public class EntornoGrafico extends JFrame{
      * @param luchador2
      */
     private void botonAtaqueJugador1ActionPerformed(ActionEvent e, Jugador luchador1, Jugador luchador2){
-
-        dañoJ1 = luchador1.atacar(1);
-        vigorFinalJ1 = luchador2.recibirGolpe(dañoJ1);
-        vidaJ1.setText("Vida Jugador 1: " +jugador1.getVigor());
-        vidaJ2.setText("Vida Jugador 2: " +jugador2.getVigor());
-
-        if (vigorFinalJ1<0){
-
-            ganador.setText("EL JUGADOR 1 HA GANADO");
-            jugadorGanador.setVisible(true);
-            entornoPelea.setVisible(false);
-
-        }
-
+        CreacionDeBotones.botonAtaqueJugador1ActionPerformed(e,luchador1,luchador2,dañoJ1,vigorFinalJ1,vidaJ1,vidaJ2,ganador,jugadorGanador,entornoPelea);
     }
 
     /**
@@ -814,10 +669,10 @@ public class EntornoGrafico extends JFrame{
     private void crearVidasJugadores(Jugador luchador1, Jugador luchador2){
 
         vidaJ1 = new JLabel("Vida Jugador 1: " +luchador1);
-        CreacionDeEtiquetas.CrearEtiquetaStandard(vidaJ1, panelVidaJ1,0,0,0,0,24);
+        CrearEtiquetaStandard(vidaJ1, panelVidaJ1,0,0,0,0,24);
 
         vidaJ2 = new JLabel("Vida Jugador 2: " +luchador2);
-        CreacionDeEtiquetas.CrearEtiquetaStandard(vidaJ2, panelVidaJ2,0,0,0,0,24);
+        CrearEtiquetaStandard(vidaJ2, panelVidaJ2,0,0,0,0,24);
     }
 
     /**
@@ -831,50 +686,50 @@ public class EntornoGrafico extends JFrame{
         jugadorGanador.add(ganador);
 
         introducirNombreJ1 = new JLabel(textoEtiqueta[0]);
-        CreacionDeEtiquetas.CrearEtiquetaStandard(introducirNombreJ1,panelIntroducirNombreJ1,290,8,300,36,26);
+        CrearEtiquetaStandard(introducirNombreJ1,panelIntroducirNombreJ1,290,8,300,36,26);
 
         introducirNombreJ2 = new JLabel(textoEtiqueta[1]);
-        CreacionDeEtiquetas.CrearEtiquetaStandard(introducirNombreJ2,panelIntroducirNombreJ2,290,8,300,36,26);
+        CrearEtiquetaStandard(introducirNombreJ2,panelIntroducirNombreJ2,290,8,300,36,26);
 
         seleccionarClaseJ1 = new JLabel(textoEtiqueta[2]);
-        CreacionDeEtiquetas.CrearEtiquetaStandard(seleccionarClaseJ1,seleccionClaseJ1,140,0,600,30,26);
+        CrearEtiquetaStandard(seleccionarClaseJ1,seleccionClaseJ1,140,0,600,30,26);
 
         seleccionarClaseJ2 = new JLabel(textoEtiqueta[2]);
-        CreacionDeEtiquetas.CrearEtiquetaStandard(seleccionarClaseJ2,seleccionClaseJ2,140,0,600,30,26);
+        CrearEtiquetaStandard(seleccionarClaseJ2,seleccionClaseJ2,140,0,600,30,26);
 
         magoJ1 = new JLabel(textoEtiqueta[3]);
-        CreacionDeEtiquetas.CrearEtiquetaStandard(magoJ1,seleccionClaseJ1,135,58,60,30,20);
+        CrearEtiquetaStandard(magoJ1,seleccionClaseJ1,135,58,60,30,20);
 
         guerreroJ1 = new JLabel(textoEtiqueta[4]);
-        CreacionDeEtiquetas.CrearEtiquetaStandard(guerreroJ1,seleccionClaseJ1,380,58,90,30,20);
+        CrearEtiquetaStandard(guerreroJ1,seleccionClaseJ1,380,58,90,30,20);
 
         samuraiJ1 = new JLabel(textoEtiqueta[5]);
-        CreacionDeEtiquetas.CrearEtiquetaStandard(samuraiJ1,seleccionClaseJ1,650,58,82,30,20);
+        CrearEtiquetaStandard(samuraiJ1,seleccionClaseJ1,650,58,82,30,20);
 
         magoJ2 = new JLabel(textoEtiqueta[3]);
-        CreacionDeEtiquetas.CrearEtiquetaStandard(magoJ2,seleccionClaseJ2,135,58,60,30,20);
+        CrearEtiquetaStandard(magoJ2,seleccionClaseJ2,135,58,60,30,20);
 
         guerreroJ2 = new JLabel(textoEtiqueta[4]);
-        CreacionDeEtiquetas.CrearEtiquetaStandard(guerreroJ2,seleccionClaseJ2,380,58,90,30,20);
+        CrearEtiquetaStandard(guerreroJ2,seleccionClaseJ2,380,58,90,30,20);
 
         samuraiJ2 = new JLabel(textoEtiqueta[5]);
-        CreacionDeEtiquetas.CrearEtiquetaStandard(samuraiJ2,seleccionClaseJ2,650,58,82,30,20);
+        CrearEtiquetaStandard(samuraiJ2,seleccionClaseJ2,650,58,82,30,20);
 
         mostrarNombreJ1 = new JLabel();
-        CreacionDeEtiquetas.CrearEtiquetaStandard(mostrarNombreJ1,panelNombreJ1,200,0,500,30,30);
+        CrearEtiquetaStandard(mostrarNombreJ1,panelNombreJ1,200,0,500,30,30);
 
         mostrarNombreJ2 = new JLabel();
-        CreacionDeEtiquetas.CrearEtiquetaStandard(mostrarNombreJ2,panelNombreJ2,200,0,500,30,30);
+        CrearEtiquetaStandard(mostrarNombreJ2,panelNombreJ2,200,0,500,30,30);
 
     }
 
     /**
      * Metodo que crea los JTextArea
      */
-    private void crearTextArea(){
+    private void crearTextAreas(){
 
         comentariosSeleccion = new JTextArea();
-        CreaccionDeTextArea.crearTextArea(comentariosSeleccion,panelComentariosSeleccion,0,0,1700,150,24);
+        crearTextArea(comentariosSeleccion,panelComentariosSeleccion,0,0,1700,150,24);
 
     }
 
@@ -884,10 +739,10 @@ public class EntornoGrafico extends JFrame{
     private void crearTextField(){
 
         nombreJ1 = new JTextField();
-        CreacionDeTextField.crearTextFieldStandard(nombreJ1,panelIntroducirNombreJ1,280,55,300,32,24);
+        crearTextFieldStandard(nombreJ1,panelIntroducirNombreJ1,280,55,300,32,24);
 
         nombreJ2 = new JTextField();
-        CreacionDeTextField.crearTextFieldStandard(nombreJ2,panelIntroducirNombreJ2,280,55,300,32,24);
+        crearTextFieldStandard(nombreJ2,panelIntroducirNombreJ2,280,55,300,32,24);
 
     }
 
@@ -904,7 +759,7 @@ public class EntornoGrafico extends JFrame{
         crearVidasJugadores(jugador1,jugador2);
         crearEtiquetas();
         crearTextField();
-        crearTextArea();
+        crearTextAreas();
 
     }
 }

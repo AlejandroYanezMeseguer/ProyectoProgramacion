@@ -2,9 +2,8 @@ package entornoGrafico.creacionDeComponentes;
 
 import javax.swing.*;
 import java.awt.*;
-import java.security.PublicKey;
 
-public class CreaccionDeTextArea {
+public class CreacionDeTextArea {
 
     public static void crearTextArea (JTextArea TextArea, JPanel PanelDondeAñadir, int x, int y, int width, int height, int TamañoFuente){
 
