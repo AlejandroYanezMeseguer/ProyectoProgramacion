@@ -1,8 +1,8 @@
 package entornoGrafico;
 
+import entornoGrafico.AccionesBotones.AccionBotonesDeAccion;
 import entornoGrafico.cambioDeEquipamiento.PanelCambiarArmas;
 import entornoGrafico.cambioDeEquipamiento.PanelCambiarEscudos;
-import entornoGrafico.creacionDeComponentes.*;
 import jugador.*;
 
 import javax.imageio.ImageIO;
@@ -319,7 +319,7 @@ public class EntornoGrafico extends JFrame{
      * @param luchador2
      */
     private void botonAtaqueJugador1ActionPerformed(ActionEvent e, Jugador luchador1, Jugador luchador2){
-        CreacionDeBotones.botonAtaqueJugador1ActionPerformed(e,luchador1,luchador2,dañoJ1,vigorFinalJ1,vidaJ1,vidaJ2,ganador,jugadorGanador,entornoPelea);
+        AccionBotonesDeAccion.botonAtaqueJ1(e,luchador1,luchador2,dañoJ1,vigorFinalJ1,vidaJ1,vidaJ2,jugadorGanador,entornoPelea);
     }
 
     /**
@@ -329,19 +329,7 @@ public class EntornoGrafico extends JFrame{
      * @param luchador2
      */
     private void botonAtaqueJugador2ActionPerformed(ActionEvent e, Jugador luchador1, Jugador luchador2){
-
-        dañoJ2 = luchador2.atacar(1);
-        vigorFinalJ2 = luchador1.recibirGolpe(dañoJ2);
-        vidaJ1.setText("Vida Jugador 1: " +jugador1.getVigor());
-        vidaJ2.setText("Vida Jugador 2: " +jugador2.getVigor());
-
-        if (vigorFinalJ2<0){
-
-            ganador.setText("EL JUGADOR 2 HA GANADO");
-            jugadorGanador.setVisible(true);
-            entornoPelea.setVisible(false);
-        }
-
+       AccionBotonesDeAccion.botonAtaqueJ2(e,luchador1,luchador2,dañoJ2,vigorFinalJ2,vidaJ1,vidaJ2,jugadorGanador,entornoPelea);
     }
 
     /**
@@ -473,26 +461,6 @@ public class EntornoGrafico extends JFrame{
 
     }
 
-    /**
-     * metodo que crea las acciones que ejecuta el boton cambiarArmaJ1
-     * @param e
-     */
-    private void cambiarArmaJ1ActionPerformed(ActionEvent e){
-
-       PanelCambiarArmas armas = new PanelCambiarArmas(panelCambiarArmaJ1,jugador1);
-        var listener = new ActionListener() {
-             @Override
-             public void actionPerformed(ActionEvent e) {
-
-                seleccionDeArmaJ1ActionPerformed(e);
-
-             }};
-       armas.añadirArmasJ1(listener);
-
-       armas.añadirNombresArmasJ1();
-       skinJ1.setVisible(false);
-       panelCambiarArmaJ1.setVisible(true);
-    }
 
     /**
      * metodo que crea las acciones que ejecuta el boton seleccionarArmaJ1
@@ -505,27 +473,6 @@ public class EntornoGrafico extends JFrame{
 
 
     /**
-     * metodo que crea las acciones que ejecuta el boton cambiarArmaJ1
-     * @param e
-     */
-    private void cambiarArmaJ2ActionPerformed(ActionEvent e){
-
-        PanelCambiarArmas armas = new PanelCambiarArmas(panelCambiarArmaJ2,jugador2);
-        var listener = new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-                seleccionDeArmaJ2ActionPerformed(e);
-
-            }};
-        armas.añadirArmasJ2(listener);
-
-        armas.añadirNombresArmasJ2();
-        skinJ2.setVisible(false);
-        panelCambiarArmaJ2.setVisible(true);
-    }
-
-    /**
      * metodo que crea las acciones que ejecuta el boton seleccionarArmaJ2
      * @param e
      */
@@ -533,6 +480,44 @@ public class EntornoGrafico extends JFrame{
         skinJ2.setVisible(true);
         panelCambiarArmaJ2.setVisible(false);
     }
+
+
+    /**
+     * metodo que crea las acciones que ejecuta el boton seleccionarEscudoJ1
+     * @param e
+     */
+    private void seleccionarEscudoJ1ActionPerformed(ActionEvent e){
+        skinJ1.setVisible(true);
+        panelCambiarEscudoJ1.setVisible(false);
+    }
+
+
+    /**
+     * metodo que crea las acciones que ejecuta el boton seleccionarEscudoJ2
+     * @param e
+     */
+    private void seleccionarEscudoJ2ActionPerformed(ActionEvent e){
+        skinJ2.setVisible(true);
+        panelCambiarEscudoJ2.setVisible(false);
+    }
+
+    /**
+     * metodo que crea las acciones que ejecuta el boton cambiarArmaJ1
+     * @param e
+     */
+    private void cambiarArmaJ1ActionPerformed(ActionEvent e){
+       AccionBotonesDeAccion.cambiarArmaJ1ActionPerformed(e,panelCambiarArmaJ1,jugador1,skinJ1);
+    }
+
+
+    /**
+     * metodo que crea las acciones que ejecuta el boton cambiarArmaJ1
+     * @param e
+     */
+    private void cambiarArmaJ2ActionPerformed(ActionEvent e){
+        AccionBotonesDeAccion.cambiarArmaJ2ActionPerformed(e,panelCambiarArmaJ2,jugador2,skinJ2);
+    }
+
 
     /**
      * metodo que crea las acciones que ejecuta el boton cambiarEscudoJ1
@@ -554,15 +539,6 @@ public class EntornoGrafico extends JFrame{
         panelCambiarEscudoJ1.setVisible(true);
     }
 
-    /**
-     * metodo que crea las acciones que ejecuta el boton seleccionarEscudoJ1
-     * @param e
-     */
-    private void seleccionarEscudoJ1ActionPerformed(ActionEvent e){
-        skinJ1.setVisible(true);
-        panelCambiarEscudoJ1.setVisible(false);
-    }
-
 
     /**
      * metodo que crea las acciones que ejecuta el boton cambiarEscudoJ2
@@ -582,32 +558,6 @@ public class EntornoGrafico extends JFrame{
         escudos.añadirNombresEscudosJ2();
         skinJ2.setVisible(false);
         panelCambiarEscudoJ2.setVisible(true);
-    }
-
-    /**
-     * metodo que crea las acciones que ejecuta el boton seleccionarEscudoJ2
-     * @param e
-     */
-    private void seleccionarEscudoJ2ActionPerformed(ActionEvent e){
-        skinJ2.setVisible(true);
-        panelCambiarEscudoJ2.setVisible(false);
-    }
-
-    /**
-     * metodo que crea las acciones que se le pasan al listener de seleccionDeArmaJ1 para el J1
-     * @param e
-     */
-    private void seleccionDeArmaJ1ActionPerformed(ActionEvent e){
-
-        var boton = (JButton)e.getSource();
-        String[] posicionArma = boton.getName().split("\\|");
-
-        int x = Integer.parseInt(posicionArma[0]);
-        int y = Integer.parseInt(posicionArma[1]);
-
-        Posicion posicion = new Posicion(x,y);
-
-        jugador1.cambiarArma(posicion);
     }
 
     /**
