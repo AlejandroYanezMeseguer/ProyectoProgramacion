@@ -1,15 +1,12 @@
 package entornoGrafico;
 
 import entornoGrafico.AccionesBotones.AccionBotonesDeAccion;
-import entornoGrafico.cambioDeEquipamiento.PanelCambiarArmas;
-import entornoGrafico.cambioDeEquipamiento.PanelCambiarEscudos;
 import jugador.*;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -369,16 +366,16 @@ public class EntornoGrafico extends JFrame{
         ArrayList<String> mensajes = new ArrayList<String>();
 
         if (jugador1 == null){
-            mensajes.add("Falta seleccionar clase del jugador 1 ");
+            mensajes.add("Falta seleccionar clase del jugador 1 ☹\uFE0F");
         }
         if (jugador2 == null){
-            mensajes.add("Falta seleccionar clase del jugador 2");
+            mensajes.add("Falta seleccionar clase del jugador 2 ☹\uFE0F");
         }
         if (nombreJ1.getText().isEmpty()){
-            mensajes.add("Falta nombre jugador 1");
+            mensajes.add("Falta nombre jugador 1 ☹\uFE0F");
         }
         if (nombreJ2.getText().isEmpty()){
-            mensajes.add("Falta nombre jugador 2");
+            mensajes.add("Falta nombre jugador 2 ☹\uFE0F");
         }
         return mensajes;
     }
@@ -506,109 +503,31 @@ public class EntornoGrafico extends JFrame{
      * @param e
      */
     private void cambiarArmaJ1ActionPerformed(ActionEvent e){
-       AccionBotonesDeAccion.cambiarArmaJ1ActionPerformed(e,panelCambiarArmaJ1,jugador1,skinJ1);
+       AccionBotonesDeAccion.cambiarArma(e,panelCambiarArmaJ1,jugador1,skinJ1,1);
     }
-
 
     /**
      * metodo que crea las acciones que ejecuta el boton cambiarArmaJ1
      * @param e
      */
     private void cambiarArmaJ2ActionPerformed(ActionEvent e){
-        AccionBotonesDeAccion.cambiarArmaJ2ActionPerformed(e,panelCambiarArmaJ2,jugador2,skinJ2);
+        AccionBotonesDeAccion.cambiarArma(e,panelCambiarArmaJ2,jugador2,skinJ2,2);
     }
-
 
     /**
      * metodo que crea las acciones que ejecuta el boton cambiarEscudoJ1
      * @param e
      */
     private void cambiarEscudoJ1ActionPerformed(ActionEvent e){
-        PanelCambiarEscudos escudos = new PanelCambiarEscudos(panelCambiarEscudoJ1,jugador1);
-        var listener = new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-                seleccionDeEscudoJ1ActionPerformed(e);
-
-            }};
-        escudos.añadirEscudosJ1(listener);
-
-        escudos.añadirNombresEscudosJ1();
-        skinJ1.setVisible(false);
-        panelCambiarEscudoJ1.setVisible(true);
+        AccionBotonesDeAccion.cambiarEscudo(e,panelCambiarEscudoJ1,jugador1,skinJ1,1);
     }
-
 
     /**
      * metodo que crea las acciones que ejecuta el boton cambiarEscudoJ2
      * @param e
      */
     private void cambiarEscudoJ2ActionPerformed(ActionEvent e){
-        PanelCambiarEscudos escudos = new PanelCambiarEscudos(panelCambiarEscudoJ2,jugador2);
-        var listener = new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-                seleccionDeEscudoJ2ActionPerformed(e);
-
-            }};
-        escudos.añadirEscudosJ2(listener);
-
-        escudos.añadirNombresEscudosJ2();
-        skinJ2.setVisible(false);
-        panelCambiarEscudoJ2.setVisible(true);
-    }
-
-    /**
-     * metodo que crea las acciones que se le pasan al listener de seleccionDeArmaJ2 para el J2
-     * @param e
-     */
-    private void seleccionDeArmaJ2ActionPerformed(ActionEvent e){
-
-        var boton = (JButton)e.getSource();
-        String[] posicionArma = boton.getName().split("\\|");
-
-        int x = Integer.parseInt(posicionArma[0]);
-        int y = Integer.parseInt(posicionArma[1]);
-
-        Posicion posicion = new Posicion(x,y);
-
-        jugador2.cambiarArma(posicion);
-    }
-
-    /**
-     * metodo que crea las acciones que se le pasan al listener de seleccionDeEscudoJ1 para el J1
-     * @param e
-     */
-    private void seleccionDeEscudoJ1ActionPerformed(ActionEvent e){
-
-        var boton = (JButton)e.getSource();
-        String[] posicionEscudo = boton.getName().split("\\|");
-
-        int x = Integer.parseInt(posicionEscudo[0]);
-        int y = Integer.parseInt(posicionEscudo[1]);
-
-        Posicion posicion = new Posicion(x,y);
-
-        jugador1.cambiarEscudo(posicion);
-    }
-
-    /**
-     * metodo que crea las acciones que se le pasan al listener de seleccionDeEscudoJ2 para el J2
-     * @param e
-     */
-    private void seleccionDeEscudoJ2ActionPerformed(ActionEvent e){
-
-        var boton = (JButton)e.getSource();
-        String[] posicionEscudo = boton.getName().split("\\|");
-
-        int x = Integer.parseInt(posicionEscudo[0]);
-        int y = Integer.parseInt(posicionEscudo[1]);
-
-        Posicion posicion = new Posicion(x,y);
-
-        jugador2.cambiarEscudo(posicion);
+        AccionBotonesDeAccion.cambiarEscudo(e,panelCambiarEscudoJ2,jugador2,skinJ2,2);
     }
 
     /**
