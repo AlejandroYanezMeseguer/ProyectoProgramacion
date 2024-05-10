@@ -11,26 +11,18 @@ import java.awt.event.ActionListener;
 
 public class AccionBotonesDeAccion {
 
-    public static void botonAtaqueJ1(ActionEvent e, Jugador luchador1, Jugador luchador2, int daño, int vigorFinal, JLabel vida1, JLabel vida2, JPanel panelGanador, JPanel entornoPelea) {
+    public static void botonAtaqueJ1(ActionEvent e, Jugador luchador1, Jugador luchador2, int daño, int vigorFinal, JLabel vida1, JLabel vida2, JPanel panelGanador, JPanel entornoPelea,int condicion) {
 
-        daño = luchador1.atacar(1);
-        vigorFinal = luchador2.recibirGolpe(daño);
-        vida1.setText("Vida Jugador 1: " + luchador1.getVigor());
-        vida2.setText("Vida Jugador 2: " + luchador2.getVigor());
-
-        if (vigorFinal < 0) {
-
-            panelGanador.setVisible(true);
-            entornoPelea.setVisible(false);
-
+        switch (condicion){
+            case 1:{
+                daño = luchador1.atacar(1);
+                vigorFinal = luchador2.recibirGolpe(daño);
+            }break;
+            case 2:{
+                daño = luchador2.atacar(1);
+                vigorFinal = luchador1.recibirGolpe(daño);
+            }break;
         }
-
-    }
-
-    public static void botonAtaqueJ2(ActionEvent e, Jugador luchador1, Jugador luchador2, int daño, int vigorFinal, JLabel vida1, JLabel vida2, JPanel panelGanador, JPanel entornoPelea) {
-
-        daño = luchador2.atacar(1);
-        vigorFinal = luchador1.recibirGolpe(daño);
         vida1.setText("Vida Jugador 1: " + luchador1.getVigor());
         vida2.setText("Vida Jugador 2: " + luchador2.getVigor());
 
@@ -112,7 +104,6 @@ public class AccionBotonesDeAccion {
         }
     }
 
-
     /**
      * metodo que crea las acciones que se le pasan al listener de seleccionDeArmaJ1 para el J1
      *
@@ -137,6 +128,11 @@ public class AccionBotonesDeAccion {
                 break;
         }
 
+    }
+
+    public static void seleccionarEquipo(ActionEvent e,JPanel Skin, JPanel panel){
+        Skin.setVisible(true);
+        panel.setVisible(false);
     }
 
 }

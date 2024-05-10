@@ -1,5 +1,6 @@
 package entornoGrafico;
 
+import entornoGrafico.AccionesBotones.AccionBotonElegirClase;
 import entornoGrafico.AccionesBotones.AccionBotonesDeAccion;
 import jugador.*;
 
@@ -316,7 +317,7 @@ public class EntornoGrafico extends JFrame{
      * @param luchador2
      */
     private void botonAtaqueJugador1ActionPerformed(ActionEvent e, Jugador luchador1, Jugador luchador2){
-        AccionBotonesDeAccion.botonAtaqueJ1(e,luchador1,luchador2,dañoJ1,vigorFinalJ1,vidaJ1,vidaJ2,jugadorGanador,entornoPelea);
+        AccionBotonesDeAccion.botonAtaqueJ1(e,luchador1,luchador2,dañoJ1,vigorFinalJ1,vidaJ1,vidaJ2,jugadorGanador,entornoPelea,1);
     }
 
     /**
@@ -326,7 +327,7 @@ public class EntornoGrafico extends JFrame{
      * @param luchador2
      */
     private void botonAtaqueJugador2ActionPerformed(ActionEvent e, Jugador luchador1, Jugador luchador2){
-       AccionBotonesDeAccion.botonAtaqueJ2(e,luchador1,luchador2,dañoJ2,vigorFinalJ2,vidaJ1,vidaJ2,jugadorGanador,entornoPelea);
+       AccionBotonesDeAccion.botonAtaqueJ1(e,luchador1,luchador2,dañoJ2,vigorFinalJ2,vidaJ1,vidaJ2,jugadorGanador,entornoPelea,2);
     }
 
     /**
@@ -334,50 +335,7 @@ public class EntornoGrafico extends JFrame{
      * @param e
      */
     private void empezarALucharActionPerformed(ActionEvent e,Jugador luchador1, Jugador luchador2){
-
-        ArrayList<String> validaciones = validarJugadores();
-
-        String mensajes = "";
-
-        for (String validar : validaciones) {
-            mensajes+=validar+"\n";
-        }
-        comentariosSeleccion.setText(mensajes);
-
-        if (!validaciones.isEmpty()) {
-            return;
-        }
-        
-        seleccionPersonajes.setVisible(false);
-        entornoPelea.setVisible(true);
-        mostrarNombreJ1.setText(nombreJ1.getText());
-        mostrarNombreJ2.setText(nombreJ2.getText());
-        vidaJ1.setText("Vida Jugador 1: " +luchador1);
-        vidaJ2.setText("Vida Jugador 2: " +luchador2);
-
-    }
-
-    /**
-     * metodo que añade a un arraylist mensajes de error al iniciar partida
-     * @return mensajes con los mensajes añadidos
-     */
-    private ArrayList<String> validarJugadores(){
-
-        ArrayList<String> mensajes = new ArrayList<String>();
-
-        if (jugador1 == null){
-            mensajes.add("Falta seleccionar clase del jugador 1 ☹\uFE0F");
-        }
-        if (jugador2 == null){
-            mensajes.add("Falta seleccionar clase del jugador 2 ☹\uFE0F");
-        }
-        if (nombreJ1.getText().isEmpty()){
-            mensajes.add("Falta nombre jugador 1 ☹\uFE0F");
-        }
-        if (nombreJ2.getText().isEmpty()){
-            mensajes.add("Falta nombre jugador 2 ☹\uFE0F");
-        }
-        return mensajes;
+        AccionBotonElegirClase.empezarALuchar(e,jugador1,jugador2,comentariosSeleccion,seleccionPersonajes,entornoPelea,mostrarNombreJ1,mostrarNombreJ2,nombreJ1,nombreJ2,vidaJ1,vidaJ2);
     }
 
     /**
@@ -385,12 +343,8 @@ public class EntornoGrafico extends JFrame{
      * @param e
      */
     private void seleccionarMagoJ1ActionPerformed(ActionEvent e){
-
         jugador1 = new Mago(nombreJ1.getText());
-        seleccionarMagoJ1.setEnabled(false);
-        seleccionarGuerreroJ1.setEnabled(true);
-        seleccionarSamuraiJ1.setEnabled(true);
-
+        AccionBotonElegirClase.seleccionarclase(e,seleccionarMagoJ1,seleccionarGuerreroJ1,seleccionarSamuraiJ1);
     }
 
     /**
@@ -398,12 +352,8 @@ public class EntornoGrafico extends JFrame{
      * @param e
      */
     private void seleccionarGuerreroJ1ActionPerformed(ActionEvent e){
-
         jugador1 = new Guerrero(nombreJ1.getText());
-        seleccionarGuerreroJ1.setEnabled(false);
-        seleccionarMagoJ1.setEnabled(true);
-        seleccionarSamuraiJ1.setEnabled(true);
-
+        AccionBotonElegirClase.seleccionarclase(e,seleccionarGuerreroJ1,seleccionarMagoJ1,seleccionarSamuraiJ1);
     }
 
     /**
@@ -411,12 +361,8 @@ public class EntornoGrafico extends JFrame{
      * @param e
      */
     private void seleccionarSamuraiJ1ActionPerformed(ActionEvent e){
-
         jugador1 = new Samurai(nombreJ1.getText());
-        seleccionarSamuraiJ1.setEnabled(false);
-        seleccionarGuerreroJ1.setEnabled(true);
-        seleccionarMagoJ1.setEnabled(true);
-
+        AccionBotonElegirClase.seleccionarclase(e,seleccionarSamuraiJ1,seleccionarGuerreroJ1,seleccionarMagoJ1);
     }
 
     /**
@@ -424,12 +370,8 @@ public class EntornoGrafico extends JFrame{
      * @param e
      */
     private void seleccionarMagoJ2ActionPerformed(ActionEvent e){
-
         jugador2 = new Mago(nombreJ2.getText());
-        seleccionarMagoJ2.setEnabled(false);
-        seleccionarGuerreroJ2.setEnabled(true);
-        seleccionarSamuraiJ2.setEnabled(true);
-
+        AccionBotonElegirClase.seleccionarclase(e,seleccionarMagoJ2,seleccionarGuerreroJ2,seleccionarSamuraiJ2);
     }
 
     /**
@@ -437,12 +379,8 @@ public class EntornoGrafico extends JFrame{
      * @param e
      */
     private void seleccionarGuerreroJ2ActionPerformed(ActionEvent e){
-
         jugador2 = new Guerrero(nombreJ2.getText());
-        seleccionarGuerreroJ2.setEnabled(false);
-        seleccionarMagoJ2.setEnabled(true);
-        seleccionarSamuraiJ2.setEnabled(true);
-
+        AccionBotonElegirClase.seleccionarclase(e,seleccionarGuerreroJ2,seleccionarMagoJ2,seleccionarSamuraiJ2);
     }
 
     /**
@@ -450,52 +388,40 @@ public class EntornoGrafico extends JFrame{
      * @param e
      */
     private void seleccionarSamuraiJ2ActionPerformed(ActionEvent e){
-
         jugador2 = new Samurai(nombreJ2.getText());
-        seleccionarSamuraiJ2.setEnabled(false);
-        seleccionarGuerreroJ2.setEnabled(true);
-        seleccionarMagoJ2.setEnabled(true);
-
+        AccionBotonElegirClase.seleccionarclase(e,seleccionarSamuraiJ2,seleccionarGuerreroJ2,seleccionarMagoJ2);
     }
-
 
     /**
      * metodo que crea las acciones que ejecuta el boton seleccionarArmaJ1
      * @param e
      */
     private void seleccionarArmaJ1ActionPerformed(ActionEvent e){
-        skinJ1.setVisible(true);
-        panelCambiarArmaJ1.setVisible(false);
+        AccionBotonesDeAccion.seleccionarEquipo(e,skinJ1,panelCambiarArmaJ1);
     }
-
 
     /**
      * metodo que crea las acciones que ejecuta el boton seleccionarArmaJ2
      * @param e
      */
     private void seleccionarArmaJ2ActionPerformed(ActionEvent e){
-        skinJ2.setVisible(true);
-        panelCambiarArmaJ2.setVisible(false);
+        AccionBotonesDeAccion.seleccionarEquipo(e,skinJ2,panelCambiarArmaJ2);
     }
-
 
     /**
      * metodo que crea las acciones que ejecuta el boton seleccionarEscudoJ1
      * @param e
      */
     private void seleccionarEscudoJ1ActionPerformed(ActionEvent e){
-        skinJ1.setVisible(true);
-        panelCambiarEscudoJ1.setVisible(false);
+        AccionBotonesDeAccion.seleccionarEquipo(e,skinJ1,panelCambiarEscudoJ1);
     }
-
 
     /**
      * metodo que crea las acciones que ejecuta el boton seleccionarEscudoJ2
      * @param e
      */
     private void seleccionarEscudoJ2ActionPerformed(ActionEvent e){
-        skinJ2.setVisible(true);
-        panelCambiarEscudoJ2.setVisible(false);
+        AccionBotonesDeAccion.seleccionarEquipo(e,skinJ2,panelCambiarEscudoJ2);
     }
 
     /**
@@ -599,7 +525,6 @@ public class EntornoGrafico extends JFrame{
 
         comentariosSeleccion = new JTextArea();
         crearTextArea(comentariosSeleccion,panelComentariosSeleccion,0,0,1700,150,24);
-
     }
 
     /**
