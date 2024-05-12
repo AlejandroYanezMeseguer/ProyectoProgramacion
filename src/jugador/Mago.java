@@ -2,6 +2,7 @@ package jugador;
 import armas_java.ContenedorArmas;
 
 import java.lang.*;
+import java.sql.SQLException;
 
 /**
  * Clase que crea la clase de jugador mago
@@ -19,7 +20,7 @@ public class Mago extends Jugador{
      * Constructor de la clase mago
      * @param nombre
      */
-    public Mago(String nombre) {
+    public Mago(String nombre){
         super(fuerza, destreza, vigor, aguante, fe, mente, nombre);
 
         baul =new ContenedorArmas(TipoGuerrero.Mago);
