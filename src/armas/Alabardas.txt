@@ -1,9 +1,0 @@
-15|10|b|normal|alabarda1
-20|12|c|rapido|alabarda2
-16|12|b|normal|alabarda3
-20|10|c|normal|alabarda4
-10|10|b|rapido|alabarda5
-22|9|c|normal|alabarda6
-18|13|b|normal|alabarda7
-11|12|c|normal|alabarda8
-0|0|n|n|n
