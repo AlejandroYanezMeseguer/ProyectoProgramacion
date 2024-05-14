@@ -6,3 +6,4 @@
 22|24|d|lento|baston6
 18|18|b|lento|baston7
 21|12|c|lento|baston8
+0|0|n|n|n

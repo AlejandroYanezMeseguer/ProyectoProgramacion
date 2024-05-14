@@ -1,8 +1,0 @@
-15|12|c|muy_rapido|katana1
-18|12|c|rapido|katana2
-12|22|b|muy_rapido|katana3
-20|14|c|rapido|katana4
-12|12|b|muy_rapido|katana5
-20|12|c|rapido|katana6
-14|12|b|rapido|katana7
-18|12|c|muy_rapido|katana7

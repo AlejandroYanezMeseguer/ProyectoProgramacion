@@ -2,6 +2,7 @@ package jugador;
 import armas_java.ContenedorArmas;
 
 import java.lang.*;
+import java.sql.SQLException;
 
 /**
  * Clase que crea la clase de jugador samurai
@@ -19,7 +20,7 @@ public class Samurai extends Jugador{
      * Constructor de la clase samurai
      * @param nombre
      */
-    public Samurai(String nombre) {
+    public Samurai(String nombre){
         super(fuerza, destreza, vigor, aguante, fe, mente, nombre);
 
         baul =new ContenedorArmas(TipoGuerrero.Samurai);

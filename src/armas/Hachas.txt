@@ -6,3 +6,4 @@
 18|9|c|normal|hacha6
 18|13|b|normal|hacha7
 14|14|c|normal|hacha8
+0|0|n|n|n

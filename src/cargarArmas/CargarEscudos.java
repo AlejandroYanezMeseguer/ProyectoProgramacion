@@ -17,7 +17,7 @@ public class CargarEscudos extends CargarArmas{
      * @param listaPropiedadesArmas
      */
     protected void leerLineas(String[] listaPropiedadesArmas){
-        Escudo escudo = new Escudo(Integer.parseInt(listaPropiedadesArmas[0]),Integer.parseInt(listaPropiedadesArmas[1]));
+        Escudo escudo = new Escudo(Integer.parseInt(listaPropiedadesArmas[0]), Integer.parseInt(listaPropiedadesArmas[1]), listaPropiedadesArmas[2]);
 
         listaEscudos.add(escudo);
     }
