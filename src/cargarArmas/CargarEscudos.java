@@ -1,37 +1,44 @@
 package cargarArmas;
 
-import armas_java.Escudo;
+import armas_java.Escudos;
+import interfaces.IAcciones;
+import jugador.TipoGuerrero;
 
+import java.sql.*;
 import java.util.ArrayList;
 
-/**
- * Clase que crea las escudos
- */
-public class CargarEscudos extends CargarArmas{
+public class CargarEscudos {
 
-    //Array que guarda las escudos
-    private ArrayList<Escudo> listaEscudos = new ArrayList<>();
+    public static ArrayList<IAcciones> cargar()  {
 
-    /**
-     * Metodo extendido de CargarArmas que lee las lineas del archivo y guarda los datos en las respectivas posiciones del array
-     * @param listaPropiedadesArmas
-     */
-    protected void leerLineas(String[] listaPropiedadesArmas){
-        Escudo escudo = new Escudo(Integer.parseInt(listaPropiedadesArmas[0]), Integer.parseInt(listaPropiedadesArmas[1]), listaPropiedadesArmas[2]);
+        ArrayList<IAcciones> escudos = new ArrayList<IAcciones>();
 
-        listaEscudos.add(escudo);
+        try( Connection connection = DriverManager.getConnection("jdbc:sqlite:DB/coia_ring.db");
+             Statement statement = connection.createStatement();
+             )
+        {
+
+            String consulta = "select * from Escudos";
+
+            ResultSet rs = statement.executeQuery(consulta);
+            while(rs.next())
+            {
+                escudos.add(crearEscudo(rs.getInt("Defensa"),
+                        rs.getInt("Peso"),
+                        rs.getString("Nombre")));
+            }
+
+            }catch(SQLException e)
+            {
+                e.printStackTrace(System.err);
+            }
+
+        return escudos;
     }
-
-    /**
-     * Metodo que carga el archivo donde se encuentran las escudos
-     * @return listaEscudos es el array que guarda las escudos
-     */
-    public ArrayList<Escudo> cargar(){
-
-        String rutaArchivo = "src/armas/Escudos.txt";
-
-        leerFicheros(rutaArchivo);
-
-        return listaEscudos;
+    public static IAcciones crearEscudo(int defensa, int peso, String nombre){
+           return new Escudos(defensa,peso,nombre);
     }
 }
+
+
+

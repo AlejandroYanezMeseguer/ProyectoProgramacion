@@ -43,7 +43,7 @@ public class PanelCambiarArmas {
 
             for(int j = 0;j < 8; j++){
 
-                JButton boton = new JButton(armas[i][j].getName());
+                JButton boton = new JButton(armas[i][j].getNombre());
                 boton.setName(i +"|" +j);
                 boton.addActionListener(e);
                 int y = VALOR_INICIAL_Y_BOTONES +j*INCREMENTO_EJE_Y;
@@ -80,7 +80,7 @@ public class PanelCambiarArmas {
 
             for(int j = 0;j < 8; j++){
 
-                JLabel nombreArma = new JLabel(armas[i][j].getName());
+                JLabel nombreArma = new JLabel(armas[i][j].getNombre());
                 nombreArma.setName(i +"|" +j);
                 int y = VALOR_INICIAL_Y_ETIQUETAS +j*INCREMENTO_EJE_Y;
                 if (j>3){

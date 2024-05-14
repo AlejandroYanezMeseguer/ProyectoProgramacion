@@ -17,6 +17,6 @@ public interface IAcciones {
      */
     int defender(int ValorD);
 
-    String getName();
+    String getNombre();
 
 }

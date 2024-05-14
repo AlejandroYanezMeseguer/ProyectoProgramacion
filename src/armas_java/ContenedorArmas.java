@@ -4,8 +4,6 @@ import cargarArmas.*;
 import jugador.TipoGuerrero;
 import interfaces.IAcciones;
 
-import java.sql.SQLException;
-
 /**
  * clase que crea el contenedor de las armas
  */
@@ -20,15 +18,13 @@ public class ContenedorArmas {
      */
     public ContenedorArmas(TipoGuerrero tipoGuerrero) {
 
-        var Escudo = new CargarEscudos().cargar();
-
         //if que crea las armas de la clase guerrero
         if(tipoGuerrero == TipoGuerrero.Guerrero) {
 
             var armasGuerrero = CargarArmasGuerrero.cargar(TipoGuerrero.Guerrero);
 
 
-            //for que recorre el array listaArmas creando las armas
+            //for que recorre el array listaArmas creando las armas de los guerreros
             for (int i = 0; i < 3; i++) {
 
                 for (int j = 0; j < 8; j++) {
@@ -40,9 +36,6 @@ public class ContenedorArmas {
                     if (i == 1) {
                         listaArmas[i][j] = armasGuerrero.get(j+8);
                     }
-                    if (i == 2) {
-                        listaArmas[i][j] = Escudo.get(j);
-                    }
                 }
             }
         }
@@ -52,7 +45,7 @@ public class ContenedorArmas {
 
             var armasSamurai = CargarArmasSamurai.cargar(TipoGuerrero.Samurai);
 
-            //for que recorre el array listaArmas creando las armas
+            //for que recorre el array listaArmas creando las armas de los samurais
             for (int i = 0; i < 3; i++) {
 
                 for (int j = 0; j < 8; j++) {
@@ -64,9 +57,6 @@ public class ContenedorArmas {
                     if (i == 1) {
                         listaArmas[i][j] = armasSamurai.get(j+8);
                     }
-                    if (i == 2) {
-                        listaArmas[i][j] = Escudo.get(j);
-                    }
                 }
             }
         }
@@ -76,7 +66,7 @@ public class ContenedorArmas {
 
             var armasMago = CargarArmasMago.cargar(TipoGuerrero.Mago);
 
-            //for que recorre el array listaArmas creando las armas
+            //for que recorre el array listaArmas creando las armas de los magos
             for (int i = 0; i < 3; i++) {
 
                 for (int j = 0; j < 8; j++) {
@@ -88,9 +78,20 @@ public class ContenedorArmas {
                     if (i == 1) {
                         listaArmas[i][j] = armasMago.get(j+8);
                     }
-                    if (i == 2) {
-                        listaArmas[i][j] = Escudo.get(j);
-                    }
+                }
+            }
+        }
+
+        var escudos = CargarEscudos.cargar();
+
+        //for que recorre el array listaArmas creando los escudos
+        for (int i = 0; i < 3; i++) {
+
+            for (int j = 0; j < 9; j++) {
+
+                if (i == 2) {
+
+                    listaArmas[i][j] = escudos.get(j);
                 }
             }
         }

@@ -55,7 +55,7 @@ public abstract class Armas {
     }
 
 
-    public String getName() {
+    public String getNombre() {
         return nombre;
     }
 }

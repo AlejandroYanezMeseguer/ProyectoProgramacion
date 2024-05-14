@@ -44,7 +44,7 @@ public class PanelCambiarEscudos{
 
             for(int j = 0;j < 9; j++){
 
-                JButton boton = new JButton(escudos[i][j].getName());
+                JButton boton = new JButton(escudos[i][j].getNombre());
                 boton.setName(i +"|" +j);
                 boton.addActionListener(e);
                 int y = VALOR_INICIAL_Y_BOTONES +j*INCREMENTO_EJE_Y;
@@ -84,7 +84,7 @@ public class PanelCambiarEscudos{
 
             for(int j = 0;j < 9; j++){
 
-                JButton boton = new JButton(escudos[i][j].getName());
+                JButton boton = new JButton(escudos[i][j].getNombre());
                 boton.setName(i +"|" +j);
                 boton.addActionListener(e);
                 int y = VALOR_INICIAL_Y_BOTONES +j*INCREMENTO_EJE_Y;
@@ -123,7 +123,7 @@ public class PanelCambiarEscudos{
 
             for(int j = 0;j < 9; j++){
 
-                JLabel nombreEscudo = new JLabel(escudos[i][j].getName());
+                JLabel nombreEscudo = new JLabel(escudos[i][j].getNombre());
                 nombreEscudo.setName(i +"|" +j);
                 int y = VALOR_INICIAL_Y_ETIQUETAS +j*INCREMENTO_EJE_Y;
                 if (j==6){
@@ -162,7 +162,7 @@ public class PanelCambiarEscudos{
 
             for(int j = 0;j < 9; j++){
 
-                JLabel nombreEscudo = new JLabel(escudos[i][j].getName());
+                JLabel nombreEscudo = new JLabel(escudos[i][j].getNombre());
                 nombreEscudo.setName(i +"|" +j);
                 int y = VALOR_INICIAL_Y_ETIQUETAS +j*INCREMENTO_EJE_Y;
                 if (j==6){
