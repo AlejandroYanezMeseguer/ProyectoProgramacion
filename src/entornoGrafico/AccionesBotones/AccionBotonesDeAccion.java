@@ -53,17 +53,17 @@ public class AccionBotonesDeAccion {
         };
         switch (condicion) {
             case 1: {
-                armas.añadirArmasJ1(listener);
+                armas.añadirArmas(listener);
 
-                armas.añadirNombresArmasJ1();
+                armas.añadirNombresArmas();
                 skin.setVisible(false);
                 panelCambiarArma.setVisible(true);
             }
             break;
             case 2: {
-                armas.añadirArmasJ2(listener);
+                armas.añadirArmas(listener);
 
-                armas.añadirNombresArmasJ2();
+                armas.añadirNombresArmas();
                 skin.setVisible(false);
                 panelCambiarArma.setVisible(true);
             }

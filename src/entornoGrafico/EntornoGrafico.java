@@ -152,10 +152,10 @@ public class EntornoGrafico extends JFrame{
         crearPanelStandard(panelVidaJ2,entornoPelea,940,50,940,50,Color.green);
 
         skinJ1 = new JPanel();
-        crearPanelStandard(skinJ1,entornoPelea,160,100,780,650,Color.blue);
+        crearPanelStandard(skinJ1,entornoPelea,130,100,810,650,Color.blue);
 
         skinJ2 = new JPanel();
-        crearPanelStandard(skinJ2,entornoPelea,940,100,780,650,Color.yellow);
+        crearPanelStandard(skinJ2,entornoPelea,940,100,810,650,Color.yellow);
 
         accionesJ1 = new JPanel();
         crearPanelLayoutNull(accionesJ1,entornoPelea,0,750,940,90,Color.darkGray);
@@ -179,10 +179,10 @@ public class EntornoGrafico extends JFrame{
         crearPanelLayoutNull(seleccionClaseJ1,seleccionPersonajeJ1,0,115,940,635,Color.red);
 
         panelCambiarArmaJ1 = new JPanel();
-        crearPanelLayoutNullVisibleFalse(panelCambiarArmaJ1,entornoPelea,160,100,780,650,Color.yellow);
+        crearPanelLayoutNullVisibleFalse(panelCambiarArmaJ1,entornoPelea,130,100,810,650,Color.yellow);
 
         panelCambiarEscudoJ1 = new JPanel();
-        crearPanelLayoutNullVisibleFalse(panelCambiarEscudoJ1,entornoPelea,160,100,780,650,Color.green);
+        crearPanelLayoutNullVisibleFalse(panelCambiarEscudoJ1,entornoPelea,130,100,810,650,Color.green);
 
         seleccionPersonajeJ2 = new JPanel();
         crearPanelLayoutNull(seleccionPersonajeJ2,seleccionPersonajes,940,0,940,750,null);
@@ -194,31 +194,31 @@ public class EntornoGrafico extends JFrame{
         crearPanelLayoutNull(seleccionClaseJ2,seleccionPersonajeJ2,0,115,940,635,Color.green);
 
         panelCambiarArmaJ2 = new JPanel();
-        crearPanelLayoutNullVisibleFalse(panelCambiarArmaJ2,entornoPelea,940,100,780,650,Color.cyan);
+        crearPanelLayoutNullVisibleFalse(panelCambiarArmaJ2,entornoPelea,940,100,810,650,Color.cyan);
 
         panelCambiarEscudoJ2 = new JPanel();
-        crearPanelLayoutNullVisibleFalse(panelCambiarEscudoJ2,entornoPelea,940,100,780,650,Color.red);
+        crearPanelLayoutNullVisibleFalse(panelCambiarEscudoJ2,entornoPelea,940,100,810,650,Color.red);
 
         panelComentariosSeleccion = new JPanel();
         crearPanelLayoutNull(panelComentariosSeleccion,seleccionPersonajes,0,820,1880,140,Color.blue);
 
         equipamientoJ1 = new JPanel();
-        crearPanelLayoutNull(equipamientoJ1,entornoPelea,0,100,160,650,Color.pink);
+        crearPanelLayoutNull(equipamientoJ1,entornoPelea,0,100,130,650,Color.pink);
 
         armaEquipadaJ1 = new JPanel();
-        crearPanelLayoutNull(armaEquipadaJ1,equipamientoJ1,45,40,70,70,Color.green);
+        crearPanelLayoutNull(armaEquipadaJ1,equipamientoJ1,35,40,60,60,Color.green);
 
         escudoEquipadoJ1 = new JPanel();
-        crearPanelLayoutNull(escudoEquipadoJ1,equipamientoJ1,45,160,70,70,Color.green);
+        crearPanelLayoutNull(escudoEquipadoJ1,equipamientoJ1,35,160,60,60,Color.green);
 
         equipamientoJ2 = new JPanel();
-        crearPanelLayoutNull(equipamientoJ2,entornoPelea,1720,100,160,650,Color.magenta);
+        crearPanelLayoutNull(equipamientoJ2,entornoPelea,1750,100,130,650,Color.magenta);
 
         armaEquipadaJ2 = new JPanel();
-        crearPanelLayoutNull(armaEquipadaJ2,equipamientoJ2,45,40,70,70,Color.green);
+        crearPanelLayoutNull(armaEquipadaJ2,equipamientoJ2,35,40,60,60,Color.green);
 
         escudoEquipadoJ2 = new JPanel();
-        crearPanelLayoutNull(escudoEquipadoJ2,equipamientoJ2,45,160,70,70,Color.green);
+        crearPanelLayoutNull(escudoEquipadoJ2,equipamientoJ2,35,160,60,60,Color.green);
 
     }
 
@@ -273,10 +273,10 @@ public class EntornoGrafico extends JFrame{
         crearBotonTexto(empezarPelea,comenzarPelea,710,10,280,50,28);
 
         seleccionarArmaJ1 = new JButton(textoBoton[4]);
-        crearBotonTexto(seleccionarArmaJ1,panelCambiarArmaJ1,90,575,335,38,24);
+        crearBotonTexto(seleccionarArmaJ1,panelCambiarArmaJ1,185,575,335,38,24);
 
         seleccionarArmaJ2 = new JButton(textoBoton[4]);
-        crearBotonTexto(seleccionarArmaJ2,panelCambiarArmaJ2,350,575,335,38,24);
+        crearBotonTexto(seleccionarArmaJ2,panelCambiarArmaJ2,185,575,335,38,24);
 
         seleccionarEscudoJ1 = new JButton(textoBoton[5]);
         crearBotonTexto(seleccionarEscudoJ1,panelCambiarEscudoJ1,120,575,355,38,24);
