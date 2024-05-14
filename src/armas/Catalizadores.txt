@@ -1,9 +1,0 @@
-25|20|d|muy_lento|catalazador1
-22|20|d|muy_lento|catalazador2
-23|19|e|muy_lento|catalazador3
-20|22|c|muy_lento|catalazador4
-22|23|d|muy_lento|catalazador5
-25|26|d|muy_lento|catalazador6
-26|28|e|muy_lento|catalazador7
-24|18|d|muy_lento|catalazador8
-0|0|n|n|n
