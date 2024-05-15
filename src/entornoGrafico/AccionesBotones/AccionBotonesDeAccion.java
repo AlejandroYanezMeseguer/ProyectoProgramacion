@@ -8,21 +8,37 @@ import jugador.Posicion;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Random;
 
 public class AccionBotonesDeAccion {
-
+    Random rand = new Random();
     public static void botonAtaque(ActionEvent e, Jugador luchador1, Jugador luchador2, int daño, int vigorFinal, JLabel vida1, JLabel vida2, JPanel panelGanador, JPanel entornoPelea, int condicion) {
+
+        Random rand = new Random();
 
         switch (condicion){
             case 1:{
-                daño = luchador1.atacar(1);
-                vigorFinal = luchador2.recibirGolpe(daño);
+                int condicionAleatoria = rand.nextInt(15) + 1;
+                if (condicionAleatoria == 1) {
+                    daño = luchador1.atacar(10);
+                    vigorFinal = luchador2.recibirGolpe(daño);
+                } else {
+                    daño = luchador1.atacar(1);
+                    vigorFinal = luchador2.recibirGolpe(daño);
+                }
             }break;
             case 2:{
-                daño = luchador2.atacar(1);
-                vigorFinal = luchador1.recibirGolpe(daño);
+                int condicionAleatoria = rand.nextInt(15) + 1;
+                if (condicionAleatoria == 1) {
+                    daño = luchador2.atacar(10);
+                    vigorFinal = luchador1.recibirGolpe(daño);
+                } else {
+                    daño = luchador2.atacar(1);
+                    vigorFinal = luchador1.recibirGolpe(daño);
+                }
             }break;
         }
+
         vida1.setText("Vida Jugador 1: " + luchador1.getVigor());
         vida2.setText("Vida Jugador 2: " + luchador2.getVigor());
 
@@ -32,7 +48,6 @@ public class AccionBotonesDeAccion {
             entornoPelea.setVisible(false);
 
         }
-
     }
 
     /**
