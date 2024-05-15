@@ -11,7 +11,6 @@ import java.awt.event.ActionEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 
 import static entornoGrafico.creacionDeComponentes.CreacionDeBotones.crearBotonImagen;
 import static entornoGrafico.creacionDeComponentes.CreacionDeBotones.crearBotonTexto;
@@ -279,10 +278,10 @@ public class EntornoGrafico extends JFrame{
         crearBotonTexto(seleccionarArmaJ2,panelCambiarArmaJ2,185,575,335,38,24);
 
         seleccionarEscudoJ1 = new JButton(textoBoton[5]);
-        crearBotonTexto(seleccionarEscudoJ1,panelCambiarEscudoJ1,120,575,355,38,24);
+        crearBotonTexto(seleccionarEscudoJ1,panelCambiarEscudoJ1,178,575,360,38,24);
 
         seleccionarEscudoJ2 = new JButton(textoBoton[5]);
-        crearBotonTexto(seleccionarEscudoJ2,panelCambiarEscudoJ2,300,575,355,38,24);
+        crearBotonTexto(seleccionarEscudoJ2,panelCambiarEscudoJ2,178,575,360,38,24);
     }
 
     /**
@@ -317,7 +316,7 @@ public class EntornoGrafico extends JFrame{
      * @param luchador2
      */
     private void botonAtaqueJugador1ActionPerformed(ActionEvent e, Jugador luchador1, Jugador luchador2){
-        AccionBotonesDeAccion.botonAtaqueJ1(e,luchador1,luchador2,dañoJ1,vigorFinalJ1,vidaJ1,vidaJ2,jugadorGanador,entornoPelea,1);
+        AccionBotonesDeAccion.botonAtaque(e,luchador1,luchador2,dañoJ1,vigorFinalJ1,vidaJ1,vidaJ2,jugadorGanador,entornoPelea,1);
     }
 
     /**
@@ -327,7 +326,7 @@ public class EntornoGrafico extends JFrame{
      * @param luchador2
      */
     private void botonAtaqueJugador2ActionPerformed(ActionEvent e, Jugador luchador1, Jugador luchador2){
-       AccionBotonesDeAccion.botonAtaqueJ1(e,luchador1,luchador2,dañoJ2,vigorFinalJ2,vidaJ1,vidaJ2,jugadorGanador,entornoPelea,2);
+       AccionBotonesDeAccion.botonAtaque(e,luchador1,luchador2,dañoJ2,vigorFinalJ2,vidaJ1,vidaJ2,jugadorGanador,entornoPelea,2);
     }
 
     /**

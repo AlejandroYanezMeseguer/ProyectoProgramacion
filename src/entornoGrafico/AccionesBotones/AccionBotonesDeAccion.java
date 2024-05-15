@@ -11,7 +11,7 @@ import java.awt.event.ActionListener;
 
 public class AccionBotonesDeAccion {
 
-    public static void botonAtaqueJ1(ActionEvent e, Jugador luchador1, Jugador luchador2, int daño, int vigorFinal, JLabel vida1, JLabel vida2, JPanel panelGanador, JPanel entornoPelea,int condicion) {
+    public static void botonAtaque(ActionEvent e, Jugador luchador1, Jugador luchador2, int daño, int vigorFinal, JLabel vida1, JLabel vida2, JPanel panelGanador, JPanel entornoPelea, int condicion) {
 
         switch (condicion){
             case 1:{
@@ -87,17 +87,17 @@ public class AccionBotonesDeAccion {
         };
         switch (condicion) {
             case 1: {
-                escudos.añadirEscudosJ1(listener);
+                escudos.añadirEscudos(listener);
 
-                escudos.añadirNombresEscudosJ1();
+                escudos.añadirNombresEscudos();
                 skin.setVisible(false);
                 panelCambiarEscudo.setVisible(true);
             }
             break;
             case 2: {
-                escudos.añadirEscudosJ2(listener);
+                escudos.añadirEscudos(listener);
 
-                escudos.añadirNombresEscudosJ2();
+                escudos.añadirNombresEscudos();
                 skin.setVisible(false);
                 panelCambiarEscudo.setVisible(true);
             }
