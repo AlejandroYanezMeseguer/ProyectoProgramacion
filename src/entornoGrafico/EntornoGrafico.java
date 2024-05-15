@@ -63,9 +63,9 @@ public class EntornoGrafico extends JFrame{
     public JPanel escudoEquipadoJ1;
     public JPanel escudoEquipadoJ2;
 
-    public JButton AtaqueJ1;
+    public JButton ataqueJ1;
     public JButton cambiarArmaJ1;
-    public JButton AtaqueJ2;
+    public JButton ataqueJ2;
     public JButton cambiarArmaJ2;
     public JButton seleccionarMagoJ1;
     public JButton seleccionarGuerreroJ1;
@@ -238,8 +238,8 @@ public class EntornoGrafico extends JFrame{
         cambiarEscudoJ1 = new JButton(textoBoton[1]);
         crearBotonTexto(cambiarEscudoJ1,accionesJ1,70,20,260,38,23);
 
-        AtaqueJ1 = new JButton(textoBoton[2]);
-        crearBotonTexto(AtaqueJ1,accionesJ1,383,20,110,40,23);
+        ataqueJ1 = new JButton(textoBoton[2]);
+        crearBotonTexto(ataqueJ1,accionesJ1,383,20,110,40,23);
 
         cambiarArmaJ2 = new JButton(textoBoton[0]);
         crearBotonTexto(cambiarArmaJ2,accionesJ2,545,20,230,38,23);
@@ -247,8 +247,8 @@ public class EntornoGrafico extends JFrame{
         cambiarEscudoJ2 = new JButton(textoBoton[1]);
         crearBotonTexto(cambiarEscudoJ2,accionesJ2,70,20,260,38,23);
 
-        AtaqueJ2 = new JButton(textoBoton[2]);
-        crearBotonTexto(AtaqueJ2,accionesJ2,383,20,110,38,23);
+        ataqueJ2 = new JButton(textoBoton[2]);
+        crearBotonTexto(ataqueJ2,accionesJ2,383,20,110,38,23);
 
         seleccionarMagoJ1 = new JButton();
         crearBotonImagen(seleccionarMagoJ1,seleccionClaseJ1,62,90,200,270,iconoMago);
@@ -289,8 +289,8 @@ public class EntornoGrafico extends JFrame{
      */
     private void listenersBotones(){
 
-        addListener(AtaqueJ1, e -> botonAtaqueJugador1ActionPerformed(e, jugador1, jugador2));
-        addListener(AtaqueJ2, e -> botonAtaqueJugador2ActionPerformed(e, jugador1, jugador2));
+        addListener(ataqueJ1, e -> botonAtaqueJugador1ActionPerformed(e, jugador1, jugador2));
+        addListener(ataqueJ2, e -> botonAtaqueJugador2ActionPerformed(e, jugador1, jugador2));
         addListener(empezarPelea, e -> empezarALucharActionPerformed(e, jugador1, jugador2));
         addListener(seleccionarMagoJ1, this::seleccionarMagoJ1ActionPerformed);
         addListener(seleccionarGuerreroJ1, this::seleccionarGuerreroJ1ActionPerformed);
@@ -396,7 +396,7 @@ public class EntornoGrafico extends JFrame{
      * @param e
      */
     private void seleccionarArmaJ1ActionPerformed(ActionEvent e){
-        AccionBotonesDeAccion.seleccionarEquipo(e,skinJ1,panelCambiarArmaJ1);
+        AccionBotonesDeAccion.seleccionarEquipo(e,skinJ1,panelCambiarArmaJ1, ataqueJ1,cambiarArmaJ1,cambiarEscudoJ1);
     }
 
     /**
@@ -404,7 +404,7 @@ public class EntornoGrafico extends JFrame{
      * @param e
      */
     private void seleccionarArmaJ2ActionPerformed(ActionEvent e){
-        AccionBotonesDeAccion.seleccionarEquipo(e,skinJ2,panelCambiarArmaJ2);
+        AccionBotonesDeAccion.seleccionarEquipo(e,skinJ2,panelCambiarArmaJ2, ataqueJ2,cambiarArmaJ2,cambiarEscudoJ2);
     }
 
     /**
@@ -412,7 +412,7 @@ public class EntornoGrafico extends JFrame{
      * @param e
      */
     private void seleccionarEscudoJ1ActionPerformed(ActionEvent e){
-        AccionBotonesDeAccion.seleccionarEquipo(e,skinJ1,panelCambiarEscudoJ1);
+        AccionBotonesDeAccion.seleccionarEquipo(e,skinJ1,panelCambiarEscudoJ1, ataqueJ1,cambiarArmaJ1,cambiarEscudoJ1);
     }
 
     /**
@@ -420,7 +420,7 @@ public class EntornoGrafico extends JFrame{
      * @param e
      */
     private void seleccionarEscudoJ2ActionPerformed(ActionEvent e){
-        AccionBotonesDeAccion.seleccionarEquipo(e,skinJ2,panelCambiarEscudoJ2);
+        AccionBotonesDeAccion.seleccionarEquipo(e,skinJ2,panelCambiarEscudoJ2, ataqueJ2,cambiarArmaJ2,cambiarEscudoJ2);
     }
 
     /**
@@ -428,7 +428,7 @@ public class EntornoGrafico extends JFrame{
      * @param e
      */
     private void cambiarArmaJ1ActionPerformed(ActionEvent e){
-       AccionBotonesDeAccion.cambiarArma(e,panelCambiarArmaJ1,jugador1,skinJ1,1);
+       AccionBotonesDeAccion.cambiarArma(e,panelCambiarArmaJ1,jugador1,skinJ1,1,cambiarArmaJ1,cambiarEscudoJ1, ataqueJ1);
     }
 
     /**
@@ -436,7 +436,7 @@ public class EntornoGrafico extends JFrame{
      * @param e
      */
     private void cambiarArmaJ2ActionPerformed(ActionEvent e){
-        AccionBotonesDeAccion.cambiarArma(e,panelCambiarArmaJ2,jugador2,skinJ2,2);
+        AccionBotonesDeAccion.cambiarArma(e,panelCambiarArmaJ2,jugador2,skinJ2,2,cambiarArmaJ2,cambiarEscudoJ2, ataqueJ2);
     }
 
     /**
@@ -444,7 +444,7 @@ public class EntornoGrafico extends JFrame{
      * @param e
      */
     private void cambiarEscudoJ1ActionPerformed(ActionEvent e){
-        AccionBotonesDeAccion.cambiarEscudo(e,panelCambiarEscudoJ1,jugador1,skinJ1,1);
+        AccionBotonesDeAccion.cambiarEscudo(e,panelCambiarEscudoJ1,jugador1,skinJ1,1,cambiarArmaJ1,cambiarEscudoJ1, ataqueJ1);
     }
 
     /**
@@ -452,7 +452,7 @@ public class EntornoGrafico extends JFrame{
      * @param e
      */
     private void cambiarEscudoJ2ActionPerformed(ActionEvent e){
-        AccionBotonesDeAccion.cambiarEscudo(e,panelCambiarEscudoJ2,jugador2,skinJ2,2);
+        AccionBotonesDeAccion.cambiarEscudo(e,panelCambiarEscudoJ2,jugador2,skinJ2,2,cambiarArmaJ2,cambiarEscudoJ2, ataqueJ2);
     }
 
     /**

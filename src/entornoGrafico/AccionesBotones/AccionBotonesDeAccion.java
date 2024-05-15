@@ -40,7 +40,7 @@ public class AccionBotonesDeAccion {
      *
      * @param e
      */
-    public static void cambiarArma(ActionEvent e, JPanel panelCambiarArma, Jugador jugador, JPanel skin, int condicion) {
+    public static void cambiarArma(ActionEvent e, JPanel panelCambiarArma, Jugador jugador, JPanel skin, int condicion,JButton botonDesactivar1,JButton botonDesactivar2,JButton botonDesactivar3) {
 
         PanelCambiarArmas armas = new PanelCambiarArmas(panelCambiarArma, jugador);
         var listener = new ActionListener() {
@@ -68,6 +68,9 @@ public class AccionBotonesDeAccion {
                 panelCambiarArma.setVisible(true);
             }
         }
+        botonDesactivar1.setEnabled(false);
+        botonDesactivar2.setEnabled(false);
+        botonDesactivar3.setEnabled(false);
     }
 
     /**
@@ -75,7 +78,7 @@ public class AccionBotonesDeAccion {
      *
      * @param e
      */
-    public static void cambiarEscudo(ActionEvent e, JPanel panelCambiarEscudo, Jugador jugador, JPanel skin, int condicion) {
+    public static void cambiarEscudo(ActionEvent e, JPanel panelCambiarEscudo, Jugador jugador, JPanel skin, int condicion,JButton botonDesactivar1,JButton botonDesactivar2,JButton botonDesactivar3) {
         PanelCambiarEscudos escudos = new PanelCambiarEscudos(panelCambiarEscudo, jugador);
         var listener = new ActionListener() {
             @Override
@@ -102,6 +105,9 @@ public class AccionBotonesDeAccion {
                 panelCambiarEscudo.setVisible(true);
             }
         }
+        botonDesactivar1.setEnabled(false);
+        botonDesactivar2.setEnabled(false);
+        botonDesactivar3.setEnabled(false);
     }
 
     /**
@@ -130,9 +136,14 @@ public class AccionBotonesDeAccion {
 
     }
 
-    public static void seleccionarEquipo(ActionEvent e,JPanel Skin, JPanel panel){
+    public static void seleccionarEquipo(ActionEvent e,JPanel Skin, JPanel panel,JButton botonactivar1,JButton botonactivar2,JButton botonactivar3){
         Skin.setVisible(true);
         panel.setVisible(false);
+
+        botonactivar1.setEnabled(true);
+        botonactivar2.setEnabled(true);
+        botonactivar3.setEnabled(true);
+
     }
 
 }
