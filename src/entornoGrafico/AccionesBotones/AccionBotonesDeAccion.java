@@ -1,5 +1,7 @@
 package entornoGrafico.AccionesBotones;
 
+import entornoGrafico.PanelesInformacion.PanelesInformacionArmas;
+import entornoGrafico.PanelesInformacion.PanelesInformacionEscudos;
 import entornoGrafico.cambioDeEquipamiento.PanelCambiarArmas;
 import entornoGrafico.cambioDeEquipamiento.PanelCambiarEscudos;
 import jugador.Jugador;
@@ -72,6 +74,7 @@ public class AccionBotonesDeAccion {
     public static void cambiarArma(ActionEvent e, JPanel panelCambiarArma, Jugador jugador, JPanel skin, int condicion,JButton botonDesactivar1,JButton botonDesactivar2,JButton botonDesactivar3) {
 
         PanelCambiarArmas armas = new PanelCambiarArmas(panelCambiarArma, jugador);
+        PanelesInformacionArmas stats = new PanelesInformacionArmas(panelCambiarArma, jugador);
         var listener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -85,6 +88,7 @@ public class AccionBotonesDeAccion {
                 armas.añadirArmas(listener);
 
                 armas.añadirNombresArmas();
+                stats.statsArmas(jugador.getTipoGuerrero());
                 skin.setVisible(false);
                 panelCambiarArma.setVisible(true);
             }
@@ -92,6 +96,7 @@ public class AccionBotonesDeAccion {
             case 2: {
                 armas.añadirArmas(listener);
 
+                stats.statsArmas(jugador.getTipoGuerrero());
                 armas.añadirNombresArmas();
                 skin.setVisible(false);
                 panelCambiarArma.setVisible(true);
@@ -109,6 +114,7 @@ public class AccionBotonesDeAccion {
      */
     public static void cambiarEscudo(ActionEvent e, JPanel panelCambiarEscudo, Jugador jugador, JPanel skin, int condicion,JButton botonDesactivar1,JButton botonDesactivar2,JButton botonDesactivar3) {
         PanelCambiarEscudos escudos = new PanelCambiarEscudos(panelCambiarEscudo, jugador);
+        PanelesInformacionEscudos stats = new PanelesInformacionEscudos(panelCambiarEscudo, jugador);
         var listener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -120,7 +126,7 @@ public class AccionBotonesDeAccion {
         switch (condicion) {
             case 1: {
                 escudos.añadirEscudos(listener);
-
+                stats.statsEscudos();
                 escudos.añadirNombresEscudos();
                 skin.setVisible(false);
                 panelCambiarEscudo.setVisible(true);
@@ -128,7 +134,7 @@ public class AccionBotonesDeAccion {
             break;
             case 2: {
                 escudos.añadirEscudos(listener);
-
+                stats.statsEscudos();
                 escudos.añadirNombresEscudos();
                 skin.setVisible(false);
                 panelCambiarEscudo.setVisible(true);

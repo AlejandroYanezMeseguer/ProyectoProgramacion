@@ -10,8 +10,8 @@ public class PanelCambiarArmas {
 
     private JPanel panel;
     private Jugador jugador;
-    final int VALOR_INICIAL_X = 20;
-    final int INCREMENTO_EJE_X = 194;
+    final int VALOR_INICIAL_X = 10;
+    final int INCREMENTO_EJE_X = 200;
     final int VALOR_INICIAL_Y_BOTONES = 44;
     final int VALOR_INICIAL_Y_ETIQUETAS = 22;
     final int INCREMENTO_EJE_Y = 132;

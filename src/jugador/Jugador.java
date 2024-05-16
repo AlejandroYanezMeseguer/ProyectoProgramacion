@@ -110,4 +110,8 @@ public abstract class Jugador {
 
         return vigor;
     }
+
+    public TipoGuerrero getTipoGuerrero(){
+        return TipoGuerrero.valueOf(this.getClass().getSimpleName());
+    }
 }

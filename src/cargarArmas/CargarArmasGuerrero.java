@@ -33,7 +33,8 @@ public class CargarArmasGuerrero {
                         rs.getString("Escalabilidad"),
                         rs.getString("VelocidadAtaque"),
                         rs.getString("Nombre"),
-                        rs.getInt("TipoDeArma")));
+                        rs.getInt("TipoDeArma"))
+                );
             }
 
             }catch(SQLException e)
