@@ -12,6 +12,20 @@ import java.util.Random;
 
 public class AccionBotonesDeAccion {
     Random rand = new Random();
+
+    /**
+     * metodo que crea las acciones que ejecuta el boton ataqueJ1
+     * @param e
+     * @param luchador1
+     * @param luchador2
+     * @param daño
+     * @param vigorFinal
+     * @param vida1
+     * @param vida2
+     * @param panelGanador
+     * @param entornoPelea
+     * @param condicion
+     */
     public static void botonAtaque(ActionEvent e, Jugador luchador1, Jugador luchador2, int daño, int vigorFinal, JLabel vida1, JLabel vida2, JPanel panelGanador, JPanel entornoPelea, int condicion) {
 
         Random rand = new Random();

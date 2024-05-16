@@ -2,16 +2,21 @@ package entornoGrafico;
 
 import entornoGrafico.AccionesBotones.AccionBotonElegirClase;
 import entornoGrafico.AccionesBotones.AccionBotonesDeAccion;
+import entornoGrafico.AccionesBotones.CreacionDeListeners;
 import jugador.*;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.function.Supplier;
 
+import static entornoGrafico.AccionesBotones.CreacionDeListeners.addMouseListenerToButton;
+import static entornoGrafico.PanelesInformacion.PanelesInformacionClases.crearPanelesInformacionClases;
 import static entornoGrafico.creacionDeComponentes.CreacionDeBotones.crearBotonImagen;
 import static entornoGrafico.creacionDeComponentes.CreacionDeBotones.crearBotonTexto;
 import static entornoGrafico.creacionDeComponentes.CreacionDeEtiquetas.CrearEtiquetaStandard;
@@ -96,6 +101,13 @@ public class EntornoGrafico extends JFrame{
     public JLabel samuraiJ2;
     public JLabel mostrarNombreJ1;
     public JLabel mostrarNombreJ2;
+    public JLabel informacionMagoJ1;
+    public JLabel informacionGuerreroJ1;
+    public JLabel informacionSamuraiJ1;
+    public JLabel informacionMagoJ2;
+    public JLabel informacionGuerreroJ2;
+    public JLabel informacionSamuraiJ2;
+
     public JTextArea comentariosSeleccion;
 
     public JTextField nombreJ1;
@@ -287,7 +299,7 @@ public class EntornoGrafico extends JFrame{
     /**
      * Metodo que crea los listeners de todos los JButton
      */
-    private void listenersBotones(){
+    private void actionListenersBotones(){
 
         addListener(ataqueJ1, e -> botonAtaqueJugador1ActionPerformed(e, jugador1, jugador2));
         addListener(ataqueJ2, e -> botonAtaqueJugador2ActionPerformed(e, jugador1, jugador2));
@@ -308,6 +320,16 @@ public class EntornoGrafico extends JFrame{
         addListener(seleccionarEscudoJ2, this::seleccionarEscudoJ2ActionPerformed);
 
     }
+
+    private void mouseListenersBotones() {
+        addMouseListenerToButton(seleccionarMagoJ1, informacionMagoJ1, Mago::getStats);
+        addMouseListenerToButton(seleccionarGuerreroJ1, informacionGuerreroJ1, Guerrero::getStats);
+        addMouseListenerToButton(seleccionarSamuraiJ1, informacionSamuraiJ1, Samurai::getStats);
+        addMouseListenerToButton(seleccionarMagoJ2, informacionMagoJ2, Mago::getStats);
+        addMouseListenerToButton(seleccionarGuerreroJ2, informacionGuerreroJ2, Guerrero::getStats);
+        addMouseListenerToButton(seleccionarSamuraiJ2, informacionSamuraiJ2, Samurai::getStats);
+    }
+
 
     /**
      * metodo que crea las acciones que ejecuta el boton ataqueJugador1
@@ -515,6 +537,24 @@ public class EntornoGrafico extends JFrame{
         mostrarNombreJ2 = new JLabel();
         CrearEtiquetaStandard(mostrarNombreJ2,panelNombreJ2,200,0,500,30,30);
 
+        informacionMagoJ1 = new JLabel();
+        crearPanelesInformacionClases(informacionMagoJ1,seleccionClaseJ1,62,360,200,170,Color.pink,20);
+
+        informacionGuerreroJ1 = new JLabel();
+        crearPanelesInformacionClases(informacionGuerreroJ1,seleccionClaseJ1,323,360,200,170,Color.pink,20);
+
+        informacionSamuraiJ1 = new JLabel();
+        crearPanelesInformacionClases(informacionSamuraiJ1,seleccionClaseJ1,584,360,200,170,Color.pink,20);
+
+        informacionMagoJ2 = new JLabel();
+        crearPanelesInformacionClases(informacionMagoJ2,seleccionClaseJ2,62,360,200,170,Color.pink,20);
+
+        informacionGuerreroJ2 = new JLabel();
+        crearPanelesInformacionClases(informacionGuerreroJ2,seleccionClaseJ2,323,360,200,170,Color.pink,20);
+
+        informacionSamuraiJ2 = new JLabel();
+        crearPanelesInformacionClases(informacionSamuraiJ2,seleccionClaseJ2,584,360,200,170,Color.pink,20);
+
     }
 
     /**
@@ -548,11 +588,11 @@ public class EntornoGrafico extends JFrame{
 
         crearPaneles();
         crearBotones();
-        listenersBotones();
+        actionListenersBotones();
         crearVidasJugadores(jugador1,jugador2);
         crearEtiquetas();
         crearTextField();
         crearTextAreas();
-
+        mouseListenersBotones();
     }
 }
