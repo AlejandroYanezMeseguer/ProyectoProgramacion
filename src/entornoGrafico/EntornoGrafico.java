@@ -13,6 +13,7 @@ import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 import java.util.function.Supplier;
 
 import static entornoGrafico.AccionesBotones.CreacionDeListeners.addMouseListenerToButton;
@@ -240,9 +241,9 @@ public class EntornoGrafico extends JFrame{
     private void crearBotones() throws IOException {
 
         String[] textoBoton = {"Cambiar de arma","Cambiar de escudo","Atacar","Empezar la pelea","Utilizar arma seleccionada","Utilizar escudo seleccionado"};
-        BufferedImage iconoMago = ImageIO.read(new File("src/imagenes/mago.png"));
-        BufferedImage iconoGuerrero = ImageIO.read(new File("src/imagenes/guerrero.png"));
-        BufferedImage iconoSamurai = ImageIO.read(new File("src/imagenes/samurai.jpg"));
+        BufferedImage iconoMago = ImageIO.read(new URL("https://eldenring-es.wiki.fextralife.com/file/Elden-Ring---es/confessor_class_elden_ring_wiki_guide_200px-min.png"));
+        BufferedImage iconoGuerrero = ImageIO.read(new URL("https://eldenring-es.wiki.fextralife.com/file/Elden-Ring---es/warrior_class_elden_ring_wiki_guide_200px-min.png"));
+        BufferedImage iconoSamurai = ImageIO.read(new URL("https://eldenring.fanapis.com/images/classes/17f699f7f4cl0i32huaj53vkdxeh7b.png"));
 
         cambiarArmaJ1 = new JButton(textoBoton[0]);
         crearBotonTexto(cambiarArmaJ1,accionesJ1,545,20,230,38,23);
@@ -496,7 +497,7 @@ public class EntornoGrafico extends JFrame{
      */
     private void crearEtiquetas(){
 
-        String[] textoEtiqueta = {"Nombre del jugador 1:","Nombre del Jugador 2:","Selecciona la clase con la que quieres combatir","Mago","Guerrero","Samurai"};
+        String[] textoEtiqueta = {"Nombre del jugador 1:","Nombre del Jugador 2:","Selecciona la clase con la que quieres combatir","Confesor","Guerrero","Samurai"};
 
         ganador = new JLabel();
         jugadorGanador.add(ganador);
