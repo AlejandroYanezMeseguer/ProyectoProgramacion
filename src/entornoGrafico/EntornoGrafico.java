@@ -267,19 +267,19 @@ public class EntornoGrafico extends JFrame{
         crearBotonImagen(seleccionarMagoJ1,seleccionClaseJ1,62,90,200,270,iconoMago);
 
         seleccionarGuerreroJ1 = new JButton();
-        crearBotonImagen(seleccionarGuerreroJ1,seleccionClaseJ1,323,90,200,270,iconoGuerrero);
+        crearBotonImagen(seleccionarGuerreroJ1,seleccionClaseJ1,584,90,200,270,iconoGuerrero);
 
         seleccionarSamuraiJ1 = new JButton();
-        crearBotonImagen(seleccionarSamuraiJ1,seleccionClaseJ1,584,90,200,270,iconoSamurai);
+        crearBotonImagen(seleccionarSamuraiJ1,seleccionClaseJ1,323,90,200,270,iconoSamurai);
 
         seleccionarMagoJ2 = new JButton();
         crearBotonImagen(seleccionarMagoJ2,seleccionClaseJ2,62,90,200,270,iconoMago);
 
         seleccionarGuerreroJ2 = new JButton();
-        crearBotonImagen(seleccionarGuerreroJ2,seleccionClaseJ2,323,90,200,270,iconoGuerrero);
+        crearBotonImagen(seleccionarGuerreroJ2,seleccionClaseJ2,584,90,200,270,iconoGuerrero);
 
         seleccionarSamuraiJ2 = new JButton();
-        crearBotonImagen(seleccionarSamuraiJ2,seleccionClaseJ2,584,90,200,270,iconoSamurai);
+        crearBotonImagen(seleccionarSamuraiJ2,seleccionClaseJ2,323,90,200,270,iconoSamurai);
 
         empezarPelea = new JButton(textoBoton[3]);
         crearBotonTexto(empezarPelea,comenzarPelea,710,10,280,50,28);
@@ -515,7 +515,7 @@ public class EntornoGrafico extends JFrame{
         CrearEtiquetaStandard(seleccionarClaseJ2,seleccionClaseJ2,140,0,600,30,26);
 
         magoJ1 = new JLabel(textoEtiqueta[3]);
-        CrearEtiquetaStandard(magoJ1,seleccionClaseJ1,135,58,60,30,20);
+        CrearEtiquetaStandard(magoJ1,seleccionClaseJ1,120,58,80,30,20);
 
         guerreroJ1 = new JLabel(textoEtiqueta[4]);
         CrearEtiquetaStandard(guerreroJ1,seleccionClaseJ1,380,58,90,30,20);
@@ -524,7 +524,7 @@ public class EntornoGrafico extends JFrame{
         CrearEtiquetaStandard(samuraiJ1,seleccionClaseJ1,650,58,82,30,20);
 
         magoJ2 = new JLabel(textoEtiqueta[3]);
-        CrearEtiquetaStandard(magoJ2,seleccionClaseJ2,135,58,60,30,20);
+        CrearEtiquetaStandard(magoJ2,seleccionClaseJ2,120,58,80,30,20);
 
         guerreroJ2 = new JLabel(textoEtiqueta[4]);
         CrearEtiquetaStandard(guerreroJ2,seleccionClaseJ2,380,58,90,30,20);
@@ -542,19 +542,19 @@ public class EntornoGrafico extends JFrame{
         crearPanelesInformacionClases(informacionMagoJ1,seleccionClaseJ1,62,360,200,170,Color.pink,20);
 
         informacionGuerreroJ1 = new JLabel();
-        crearPanelesInformacionClases(informacionGuerreroJ1,seleccionClaseJ1,323,360,200,170,Color.pink,20);
+        crearPanelesInformacionClases(informacionGuerreroJ1,seleccionClaseJ1,584,360,200,170,Color.pink,20);
 
         informacionSamuraiJ1 = new JLabel();
-        crearPanelesInformacionClases(informacionSamuraiJ1,seleccionClaseJ1,584,360,200,170,Color.pink,20);
+        crearPanelesInformacionClases(informacionSamuraiJ1,seleccionClaseJ1,323,360,200,170,Color.pink,20);
 
         informacionMagoJ2 = new JLabel();
         crearPanelesInformacionClases(informacionMagoJ2,seleccionClaseJ2,62,360,200,170,Color.pink,20);
 
         informacionGuerreroJ2 = new JLabel();
-        crearPanelesInformacionClases(informacionGuerreroJ2,seleccionClaseJ2,323,360,200,170,Color.pink,20);
+        crearPanelesInformacionClases(informacionGuerreroJ2,seleccionClaseJ2,584,360,200,170,Color.pink,20);
 
         informacionSamuraiJ2 = new JLabel();
-        crearPanelesInformacionClases(informacionSamuraiJ2,seleccionClaseJ2,584,360,200,170,Color.pink,20);
+        crearPanelesInformacionClases(informacionSamuraiJ2,seleccionClaseJ2,323,360,200,170,Color.pink,20);
 
     }
 
