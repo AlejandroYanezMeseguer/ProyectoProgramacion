@@ -2,19 +2,16 @@ package entornoGrafico;
 
 import entornoGrafico.AccionesBotones.AccionBotonElegirClase;
 import entornoGrafico.AccionesBotones.AccionBotonesDeAccion;
-import entornoGrafico.AccionesBotones.CreacionDeListeners;
 import jugador.*;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
-import java.util.function.Supplier;
 
 import static entornoGrafico.AccionesBotones.CreacionDeListeners.addMouseListenerToButton;
 import static entornoGrafico.PanelesInformacion.PanelesInformacionClases.crearPanelesInformacionClases;
@@ -68,6 +65,12 @@ public class EntornoGrafico extends JFrame{
     public JPanel armaEquipadaJ2;
     public JPanel escudoEquipadoJ1;
     public JPanel escudoEquipadoJ2;
+    public JPanel panelinformacionMagoJ1;
+    public JPanel panelinformacionGuerreroJ1;
+    public JPanel panelinformacionSamuraiJ1;
+    public JPanel panelinformacionMagoJ2;
+    public JPanel panelinformacionGuerreroJ2;
+    public JPanel panelinformacionSamuraiJ2;
 
     public JButton ataqueJ1;
     public JButton cambiarArmaJ1;
@@ -143,10 +146,15 @@ public class EntornoGrafico extends JFrame{
     /**
      * Metodo que crea los Jpanel
      */
-    private void crearPaneles(){
+    private void crearPaneles() throws IOException {
+        BufferedImage fondoSeleccion = ImageIO.read(new File("src/imagenes/fondo.png"));
+        BufferedImage fondoInfoClases = ImageIO.read(new File("src/imagenes/infoClases.png"));
 
-        entornoPelea = new JPanel();
-        crearPanelLayoutNullVisibleFalse(entornoPelea,(JPanel) this.getContentPane(),0,0,1880,900,null);
+        entornoPelea = new JPanel(){protected void paintComponent(Graphics g) {
+            super.paintComponent(g);
+            g.drawImage(fondoSeleccion, 0, 0, this.getWidth(), this.getHeight(), this);
+        }};
+        crearPanelLayoutNullVisibleFalse(entornoPelea,(JPanel) this.getContentPane(),0,0,1880,1000,null);
 
         jugadorGanador = new JPanel();
         crearPanelLayoutNullVisibleFalse(jugadorGanador, (JPanel) this.getContentPane(),0,0,1880,985,Color.pink);
@@ -170,12 +178,15 @@ public class EntornoGrafico extends JFrame{
         crearPanelStandard(skinJ2,entornoPelea,940,100,810,650,Color.yellow);
 
         accionesJ1 = new JPanel();
-        crearPanelLayoutNull(accionesJ1,entornoPelea,0,750,940,90,Color.darkGray);
+        crearPanelLayoutNull(accionesJ1,entornoPelea,0,750,940,130,Color.darkGray);
 
         accionesJ2 = new JPanel();
-        crearPanelLayoutNull(accionesJ2,entornoPelea,940,750,940,90,Color.black);
+        crearPanelLayoutNull(accionesJ2,entornoPelea,940,750,940,130,Color.black);
 
-        seleccionPersonajes = new JPanel();
+        seleccionPersonajes = new JPanel(){protected void paintComponent(Graphics g) {
+            super.paintComponent(g);
+            g.drawImage(fondoSeleccion, 0, 0, this.getWidth(), this.getHeight(), this);
+        }};
         crearPanelLayoutNull(seleccionPersonajes, (JPanel) this.getContentPane(),0,0,1880,1000,null);
 
         comenzarPelea = new JPanel();
@@ -232,6 +243,41 @@ public class EntornoGrafico extends JFrame{
         escudoEquipadoJ2 = new JPanel();
         crearPanelLayoutNull(escudoEquipadoJ2,equipamientoJ2,35,160,60,60,Color.green);
 
+        panelinformacionMagoJ1 = new JPanel(){protected void paintComponent(Graphics g) {
+            super.paintComponent(g);
+            g.drawImage(fondoInfoClases, 0, 0, this.getWidth(), this.getHeight(), this);
+        }};
+        crearPanelLayoutNullVisibleFalse(panelinformacionMagoJ1,seleccionClaseJ1,124,405,200,230,Color.green);
+
+        panelinformacionGuerreroJ1 = new JPanel(){protected void paintComponent(Graphics g) {
+            super.paintComponent(g);
+            g.drawImage(fondoInfoClases, 0, 0, this.getWidth(), this.getHeight(), this);
+        }};
+        crearPanelLayoutNullVisibleFalse(panelinformacionGuerreroJ1,seleccionClaseJ1,646,405,200,230,Color.green);
+
+        panelinformacionSamuraiJ1 = new JPanel(){protected void paintComponent(Graphics g) {
+            super.paintComponent(g);
+            g.drawImage(fondoInfoClases, 0, 0, this.getWidth(), this.getHeight(), this);
+        }};
+        crearPanelLayoutNullVisibleFalse(panelinformacionSamuraiJ1,seleccionClaseJ1,385,405,200,230,Color.green);
+
+        panelinformacionMagoJ2 = new JPanel(){protected void paintComponent(Graphics g) {
+            super.paintComponent(g);
+            g.drawImage(fondoInfoClases, 0, 0, this.getWidth(), this.getHeight(), this);
+        }};
+        crearPanelLayoutNullVisibleFalse(panelinformacionMagoJ2,seleccionClaseJ2,124,405,200,230,Color.green);
+
+        panelinformacionGuerreroJ2 = new JPanel(){protected void paintComponent(Graphics g) {
+            super.paintComponent(g);
+            g.drawImage(fondoInfoClases, 0, 0, this.getWidth(), this.getHeight(), this);
+        }};
+        crearPanelLayoutNullVisibleFalse(panelinformacionGuerreroJ2,seleccionClaseJ2,646,405,200,230,Color.green);
+
+        panelinformacionSamuraiJ2= new JPanel(){protected void paintComponent(Graphics g) {
+            super.paintComponent(g);
+            g.drawImage(fondoInfoClases, 0, 0, this.getWidth(), this.getHeight(), this);
+        }};
+        crearPanelLayoutNullVisibleFalse(panelinformacionSamuraiJ2,seleccionClaseJ2,385,405,200,230,Color.green);
     }
 
     /**
@@ -241,60 +287,64 @@ public class EntornoGrafico extends JFrame{
     private void crearBotones() throws IOException {
 
         String[] textoBoton = {"Cambiar de arma","Cambiar de escudo","Atacar","Empezar la pelea","Utilizar arma seleccionada","Utilizar escudo seleccionado"};
-        BufferedImage iconoMago = ImageIO.read(new URL("https://eldenring-es.wiki.fextralife.com/file/Elden-Ring---es/confessor_class_elden_ring_wiki_guide_200px-min.png"));
-        BufferedImage iconoGuerrero = ImageIO.read(new URL("https://eldenring-es.wiki.fextralife.com/file/Elden-Ring---es/warrior_class_elden_ring_wiki_guide_200px-min.png"));
-        BufferedImage iconoSamurai = ImageIO.read(new URL("https://eldenring.fanapis.com/images/classes/17f699f7f4cl0i32huaj53vkdxeh7b.png"));
+        BufferedImage iconoMago = ImageIO.read(new File("src/imagenes/confesor.png"));
+        BufferedImage iconoGuerrero = ImageIO.read(new File("src/imagenes/guerrero.png"));
+        BufferedImage iconoSamurai = ImageIO.read(new File("src/imagenes/samurai.png"));
+        BufferedImage iconoEmpezarPelea = ImageIO.read(new File("src/imagenes/Empezar Pelea.png"));
+        BufferedImage atacar = ImageIO.read(new File("src/imagenes/Atacar.png"));
+        BufferedImage cambiarArma = ImageIO.read(new File("src/imagenes/Cambiar Arma.png"));
+        BufferedImage cambiarEscudo = ImageIO.read(new File("src/imagenes/Cambiar Escudo.png"));
 
         cambiarArmaJ1 = new JButton(textoBoton[0]);
-        crearBotonTexto(cambiarArmaJ1,accionesJ1,545,20,230,38,23);
+        crearBotonImagen(cambiarArmaJ1,accionesJ1,616,59,250,60,cambiarArma);
 
         cambiarEscudoJ1 = new JButton(textoBoton[1]);
-        crearBotonTexto(cambiarEscudoJ1,accionesJ1,70,20,260,38,23);
+        crearBotonImagen(cambiarEscudoJ1,accionesJ1,0,48,360,85,cambiarEscudo);
 
         ataqueJ1 = new JButton(textoBoton[2]);
-        crearBotonTexto(ataqueJ1,accionesJ1,383,20,110,40,23);
+        crearBotonImagen(ataqueJ1,accionesJ1,385,65,170,52,atacar);
 
         cambiarArmaJ2 = new JButton(textoBoton[0]);
-        crearBotonTexto(cambiarArmaJ2,accionesJ2,545,20,230,38,23);
+        crearBotonImagen(cambiarArmaJ2,accionesJ2,616,59,250,60,cambiarArma);
 
         cambiarEscudoJ2 = new JButton(textoBoton[1]);
-        crearBotonTexto(cambiarEscudoJ2,accionesJ2,70,20,260,38,23);
+        crearBotonImagen(cambiarEscudoJ2,accionesJ2,0,48,360,85,cambiarEscudo);
 
         ataqueJ2 = new JButton(textoBoton[2]);
-        crearBotonTexto(ataqueJ2,accionesJ2,383,20,110,38,23);
+        crearBotonImagen(ataqueJ2,accionesJ2,385,65,170,52,atacar);
 
         seleccionarMagoJ1 = new JButton();
-        crearBotonImagen(seleccionarMagoJ1,seleccionClaseJ1,62,90,200,270,iconoMago);
+        crearBotonImagen(seleccionarMagoJ1,seleccionClaseJ1,109,130,200,270,iconoMago);
 
         seleccionarGuerreroJ1 = new JButton();
-        crearBotonImagen(seleccionarGuerreroJ1,seleccionClaseJ1,584,90,200,270,iconoGuerrero);
+        crearBotonImagen(seleccionarGuerreroJ1,seleccionClaseJ1,631,130,200,270,iconoGuerrero);
 
         seleccionarSamuraiJ1 = new JButton();
-        crearBotonImagen(seleccionarSamuraiJ1,seleccionClaseJ1,323,90,200,270,iconoSamurai);
+        crearBotonImagen(seleccionarSamuraiJ1,seleccionClaseJ1,370,130,200,270,iconoSamurai);
 
         seleccionarMagoJ2 = new JButton();
-        crearBotonImagen(seleccionarMagoJ2,seleccionClaseJ2,62,90,200,270,iconoMago);
+        crearBotonImagen(seleccionarMagoJ2,seleccionClaseJ2,109,130,200,270,iconoMago);
 
         seleccionarGuerreroJ2 = new JButton();
-        crearBotonImagen(seleccionarGuerreroJ2,seleccionClaseJ2,584,90,200,270,iconoGuerrero);
+        crearBotonImagen(seleccionarGuerreroJ2,seleccionClaseJ2,631,130,200,270,iconoGuerrero);
 
         seleccionarSamuraiJ2 = new JButton();
-        crearBotonImagen(seleccionarSamuraiJ2,seleccionClaseJ2,323,90,200,270,iconoSamurai);
+        crearBotonImagen(seleccionarSamuraiJ2,seleccionClaseJ2,370,130,200,270,iconoSamurai);
 
-        empezarPelea = new JButton(textoBoton[3]);
-        crearBotonTexto(empezarPelea,comenzarPelea,710,10,280,50,28);
+        empezarPelea = new JButton();
+        crearBotonImagen(empezarPelea,comenzarPelea,800,0,270,70,iconoEmpezarPelea);
 
         seleccionarArmaJ1 = new JButton(textoBoton[4]);
-        crearBotonTexto(seleccionarArmaJ1,panelCambiarArmaJ1,185,575,335,38,24);
+        crearBotonTexto(seleccionarArmaJ1,panelCambiarArmaJ1,185,615,335,38,24);
 
         seleccionarArmaJ2 = new JButton(textoBoton[4]);
-        crearBotonTexto(seleccionarArmaJ2,panelCambiarArmaJ2,185,575,335,38,24);
+        crearBotonTexto(seleccionarArmaJ2,panelCambiarArmaJ2,185,615,335,38,24);
 
         seleccionarEscudoJ1 = new JButton(textoBoton[5]);
-        crearBotonTexto(seleccionarEscudoJ1,panelCambiarEscudoJ1,178,575,360,38,24);
+        crearBotonTexto(seleccionarEscudoJ1,panelCambiarEscudoJ1,178,590,360,38,24);
 
         seleccionarEscudoJ2 = new JButton(textoBoton[5]);
-        crearBotonTexto(seleccionarEscudoJ2,panelCambiarEscudoJ2,178,575,360,38,24);
+        crearBotonTexto(seleccionarEscudoJ2,panelCambiarEscudoJ2,178,590,360,38,24);
     }
 
     /**
@@ -323,12 +373,12 @@ public class EntornoGrafico extends JFrame{
     }
 
     private void mouseListenersBotones() {
-        addMouseListenerToButton(seleccionarMagoJ1, informacionMagoJ1, Mago::getStats);
-        addMouseListenerToButton(seleccionarGuerreroJ1, informacionGuerreroJ1, Guerrero::getStats);
-        addMouseListenerToButton(seleccionarSamuraiJ1, informacionSamuraiJ1, Samurai::getStats);
-        addMouseListenerToButton(seleccionarMagoJ2, informacionMagoJ2, Mago::getStats);
-        addMouseListenerToButton(seleccionarGuerreroJ2, informacionGuerreroJ2, Guerrero::getStats);
-        addMouseListenerToButton(seleccionarSamuraiJ2, informacionSamuraiJ2, Samurai::getStats);
+        addMouseListenerToButton(seleccionarMagoJ1, panelinformacionMagoJ1,informacionMagoJ1 ,Mago::getStats);
+        addMouseListenerToButton(seleccionarGuerreroJ1, panelinformacionGuerreroJ1, informacionGuerreroJ1,Guerrero::getStats);
+        addMouseListenerToButton(seleccionarSamuraiJ1, panelinformacionSamuraiJ1, informacionSamuraiJ1,Samurai::getStats);
+        addMouseListenerToButton(seleccionarMagoJ2, panelinformacionMagoJ2, informacionMagoJ2,Mago::getStats);
+        addMouseListenerToButton(seleccionarGuerreroJ2, panelinformacionGuerreroJ2, informacionGuerreroJ2,Guerrero::getStats);
+        addMouseListenerToButton(seleccionarSamuraiJ2, panelinformacionSamuraiJ2, informacionSamuraiJ2,Samurai::getStats);
     }
 
 
@@ -503,34 +553,34 @@ public class EntornoGrafico extends JFrame{
         jugadorGanador.add(ganador);
 
         introducirNombreJ1 = new JLabel(textoEtiqueta[0]);
-        CrearEtiquetaStandard(introducirNombreJ1,panelIntroducirNombreJ1,290,8,300,36,26);
+        CrearEtiquetaStandard(introducirNombreJ1,panelIntroducirNombreJ1,340,8,300,36,26);
 
         introducirNombreJ2 = new JLabel(textoEtiqueta[1]);
-        CrearEtiquetaStandard(introducirNombreJ2,panelIntroducirNombreJ2,290,8,300,36,26);
+        CrearEtiquetaStandard(introducirNombreJ2,panelIntroducirNombreJ2,340,8,300,36,26);
 
         seleccionarClaseJ1 = new JLabel(textoEtiqueta[2]);
-        CrearEtiquetaStandard(seleccionarClaseJ1,seleccionClaseJ1,140,0,600,30,26);
+        CrearEtiquetaStandard(seleccionarClaseJ1,seleccionClaseJ1,195,45,600,30,26);
 
         seleccionarClaseJ2 = new JLabel(textoEtiqueta[2]);
-        CrearEtiquetaStandard(seleccionarClaseJ2,seleccionClaseJ2,140,0,600,30,26);
+        CrearEtiquetaStandard(seleccionarClaseJ2,seleccionClaseJ2,195,45,600,30,26);
 
         magoJ1 = new JLabel(textoEtiqueta[3]);
-        CrearEtiquetaStandard(magoJ1,seleccionClaseJ1,120,58,80,30,20);
+        CrearEtiquetaStandard(magoJ1,seleccionClaseJ1,168,98,80,30,20);
 
         guerreroJ1 = new JLabel(textoEtiqueta[4]);
-        CrearEtiquetaStandard(guerreroJ1,seleccionClaseJ1,380,58,90,30,20);
+        CrearEtiquetaStandard(guerreroJ1,seleccionClaseJ1,692,98,90,30,20);
 
         samuraiJ1 = new JLabel(textoEtiqueta[5]);
-        CrearEtiquetaStandard(samuraiJ1,seleccionClaseJ1,650,58,82,30,20);
+        CrearEtiquetaStandard(samuraiJ1,seleccionClaseJ1,429,98,82,30,20);
 
         magoJ2 = new JLabel(textoEtiqueta[3]);
-        CrearEtiquetaStandard(magoJ2,seleccionClaseJ2,120,58,80,30,20);
+        CrearEtiquetaStandard(magoJ2,seleccionClaseJ2,168,98,80,30,20);
 
         guerreroJ2 = new JLabel(textoEtiqueta[4]);
-        CrearEtiquetaStandard(guerreroJ2,seleccionClaseJ2,380,58,90,30,20);
+        CrearEtiquetaStandard(guerreroJ2,seleccionClaseJ2,692,98,90,30,20);
 
         samuraiJ2 = new JLabel(textoEtiqueta[5]);
-        CrearEtiquetaStandard(samuraiJ2,seleccionClaseJ2,650,58,82,30,20);
+        CrearEtiquetaStandard(samuraiJ2,seleccionClaseJ2,429,98,82,30,20);
 
         mostrarNombreJ1 = new JLabel();
         CrearEtiquetaStandard(mostrarNombreJ1,panelNombreJ1,200,0,500,30,30);
@@ -539,22 +589,22 @@ public class EntornoGrafico extends JFrame{
         CrearEtiquetaStandard(mostrarNombreJ2,panelNombreJ2,200,0,500,30,30);
 
         informacionMagoJ1 = new JLabel();
-        crearPanelesInformacionClases(informacionMagoJ1,seleccionClaseJ1,62,360,200,170,Color.pink,20);
+        crearPanelesInformacionClases(informacionMagoJ1,panelinformacionMagoJ1,25,0,200,230,Color.pink,20);
 
         informacionGuerreroJ1 = new JLabel();
-        crearPanelesInformacionClases(informacionGuerreroJ1,seleccionClaseJ1,584,360,200,170,Color.pink,20);
+        crearPanelesInformacionClases(informacionGuerreroJ1,panelinformacionGuerreroJ1,25,0,200,230,Color.pink,20);
 
         informacionSamuraiJ1 = new JLabel();
-        crearPanelesInformacionClases(informacionSamuraiJ1,seleccionClaseJ1,323,360,200,170,Color.pink,20);
+        crearPanelesInformacionClases(informacionSamuraiJ1,panelinformacionSamuraiJ1,25,0,200,230,Color.pink,20);
 
         informacionMagoJ2 = new JLabel();
-        crearPanelesInformacionClases(informacionMagoJ2,seleccionClaseJ2,62,360,200,170,Color.pink,20);
+        crearPanelesInformacionClases(informacionMagoJ2,panelinformacionMagoJ2,25,0,200,230,Color.pink,20);
 
         informacionGuerreroJ2 = new JLabel();
-        crearPanelesInformacionClases(informacionGuerreroJ2,seleccionClaseJ2,584,360,200,170,Color.pink,20);
+        crearPanelesInformacionClases(informacionGuerreroJ2,panelinformacionGuerreroJ2,25,0,200,230,Color.pink,20);
 
         informacionSamuraiJ2 = new JLabel();
-        crearPanelesInformacionClases(informacionSamuraiJ2,seleccionClaseJ2,323,360,200,170,Color.pink,20);
+        crearPanelesInformacionClases(informacionSamuraiJ2,panelinformacionSamuraiJ2,15,0,200,230,Color.pink,20);
 
     }
 
@@ -573,10 +623,10 @@ public class EntornoGrafico extends JFrame{
     private void crearTextField(){
 
         nombreJ1 = new JTextField();
-        crearTextFieldStandard(nombreJ1,panelIntroducirNombreJ1,280,55,300,32,24);
+        crearTextFieldStandard(nombreJ1,panelIntroducirNombreJ1,320,55,300,32,24);
 
         nombreJ2 = new JTextField();
-        crearTextFieldStandard(nombreJ2,panelIntroducirNombreJ2,280,55,300,32,24);
+        crearTextFieldStandard(nombreJ2,panelIntroducirNombreJ2,320,55,300,32,24);
 
     }
 

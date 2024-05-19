@@ -12,9 +12,9 @@ public class PanelesInformacionArmas {
 
     private JPanel panel;
     private Jugador jugador;
-    final int VALOR_INICIAL_X = 97;
+    final int VALOR_INICIAL_X = 100;
     final int INCREMENTO_EJE_X = 200;
-    final int VALOR_INICIAL_Y = 46;
+    final int VALOR_INICIAL_Y = 72;
     final int INCREMENTO_EJE_Y = 132;
 
     public static ArrayList<String> cargarStats(TipoGuerrero tipoGuerrero)  {
@@ -93,6 +93,7 @@ public class PanelesInformacionArmas {
                         int x = VALOR_INICIAL_X + (i + incrementoColumna) * INCREMENTO_EJE_X;
                         estadisticasArmas.setBounds(x, y, 85, 80);
                         estadisticasArmas.setFont(new Font(null, Font.PLAIN, 12));
+                        estadisticasArmas.setForeground(Color.BLACK);
                         panel.add(estadisticasArmas);
                     }
                     case 1 -> {
@@ -113,6 +114,7 @@ public class PanelesInformacionArmas {
                         int x = VALOR_INICIAL_X + (i + incrementoColumna) * INCREMENTO_EJE_X;
                         estadisticasArmas.setBounds(x, y, 100, 80);
                         estadisticasArmas.setFont(new Font(null, Font.PLAIN, 12));
+                        estadisticasArmas.setForeground(Color.BLACK);
                         panel.add(estadisticasArmas);
                     }
                 }

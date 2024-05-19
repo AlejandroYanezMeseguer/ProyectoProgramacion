@@ -8,6 +8,7 @@ public class CreacionDePaneles {
 
         Panel.setBounds(x,y,width,height);
         Panel.setBackground(color);
+        Panel.setOpaque(false);
         PanelAlQueAñadir.add(Panel);
 
     }
@@ -17,6 +18,7 @@ public class CreacionDePaneles {
         Panel.setBounds(x,y,width,height);
         Panel.setBackground(color);
         Panel.setLayout(null);
+        Panel.setOpaque(false);
         PanelAlQueAñadir.add(Panel);
 
     }
@@ -26,6 +28,7 @@ public class CreacionDePaneles {
         Panel.setBounds(x,y,width,height);
         Panel.setBackground(color);
         Panel.setLayout(null);
+        Panel.setOpaque(false);
         PanelAlQueAñadir.add(Panel);
         Panel.setVisible(false);
 

@@ -14,16 +14,16 @@ public class CreacionDeListeners{
         button.addActionListener(listener);
     }
 
-    public static void addMouseListenerToButton(JButton button, JLabel label, Supplier<String> statsSupplier) {
+    public static void addMouseListenerToButton(JButton button, JPanel panel,JLabel etiqueta, Supplier<String> statsSupplier) {
         button.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(MouseEvent evt) {
-                label.setText(statsSupplier.get());
-                label.setOpaque(true);
+                etiqueta.setText(statsSupplier.get());
+                panel.setVisible(true);
             }
 
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                label.setText("");
-                label.setOpaque(false);
+                etiqueta.setText("");
+                panel.setVisible(false);
             }
         });
     }

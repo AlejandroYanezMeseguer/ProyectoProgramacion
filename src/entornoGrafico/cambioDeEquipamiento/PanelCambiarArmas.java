@@ -10,10 +10,10 @@ public class PanelCambiarArmas {
 
     private JPanel panel;
     private Jugador jugador;
-    final int VALOR_INICIAL_X = 10;
+    final int VALOR_INICIAL_X = 13;
     final int INCREMENTO_EJE_X = 200;
-    final int VALOR_INICIAL_Y_BOTONES = 44;
-    final int VALOR_INICIAL_Y_ETIQUETAS = 22;
+    final int VALOR_INICIAL_Y_BOTONES = 70;
+    final int VALOR_INICIAL_Y_ETIQUETAS = 48;
     final int INCREMENTO_EJE_Y = 132;
     final int LADO_BOTON = 85;
 
@@ -97,6 +97,7 @@ public class PanelCambiarArmas {
                 int x = VALOR_INICIAL_X +(i+incrementoColumna)*INCREMENTO_EJE_X;
                 nombreArma.setBounds(x,y,250,21);
                 nombreArma.setFont(new Font(null,Font.PLAIN,15));
+                nombreArma.setForeground(Color.BLACK);
                 panel.add(nombreArma);
             }
         }

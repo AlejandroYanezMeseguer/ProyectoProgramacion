@@ -11,7 +11,9 @@ public class PanelesInformacionClases {
 
         etiqueta.setBounds(x,y,width,height);
         etiqueta.setBackground(color);
+        etiqueta.setOpaque(false);
         etiqueta.setFont(new Font(null,Font.PLAIN,tamañoFuente));
+        etiqueta.setForeground(Color.BLACK);
         PanelAlQueAñadir.add(etiqueta);
 
     }

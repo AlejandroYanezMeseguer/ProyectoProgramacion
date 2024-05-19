@@ -21,7 +21,8 @@ public class CreacionDeBotones {
 
         Boton.setBounds(x,y,width,height);
         Boton.setIcon(new ImageIcon(imagen.getScaledInstance(Boton.getWidth(),Boton.getHeight(), Image.SCALE_SMOOTH)));
-        Boton.setBackground(Color.DARK_GRAY);
+        Boton.setBorder(null);
+        Boton.setContentAreaFilled(false);
         PanelDondeAñadir.add(Boton);
 
     }

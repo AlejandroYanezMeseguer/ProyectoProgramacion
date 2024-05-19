@@ -8,6 +8,9 @@ public class CreacionDeTextField {
 
         TexField.setBounds(x,y,width,height);
         TexField.setFont(new Font(null,Font.PLAIN,TamañoFuente));
+        TexField.setOpaque(false);
+        TexField.setForeground(Color.BLACK);
+        TexField.setBorder(null);
         PanelDondeAñadir.add(TexField);
 
     }

@@ -85,6 +85,7 @@ public static ArrayList<String> cargarStatsEscudos()  {
                 int x = VALOR_INICIAL_X +(i+incrementoColumna)*INCREMENTO_EJE_X;
                 estadisticasEscudos.setBounds(x,y,LADO_BOTON,LADO_BOTON);
                 estadisticasEscudos.setFont(new Font(null, Font.PLAIN, 15));
+                estadisticasEscudos.setForeground(Color.BLACK);
                 panel.add(estadisticasEscudos);
             }
         }
