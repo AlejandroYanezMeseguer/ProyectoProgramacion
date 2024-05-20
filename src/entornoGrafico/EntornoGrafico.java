@@ -162,136 +162,136 @@ public class EntornoGrafico extends JFrame{
             super.paintComponent(g);
             g.drawImage(fondoSeleccion, 0, 0, this.getWidth(), this.getHeight(), this);
         }};
-        crearPanelLayoutNullVisibleFalse(entornoPelea,(JPanel) this.getContentPane(),0,0,1880,1000,null);
+        crearPanelLayoutNullVisibleFalse(entornoPelea,(JPanel) this.getContentPane(),0,0,1880,1000);
 
         jugadorGanador = new JPanel();
-        crearPanelLayoutNullVisibleFalse(jugadorGanador, (JPanel) this.getContentPane(),0,0,1880,985,Color.pink);
+        crearPanelLayoutNullVisibleFalse(jugadorGanador, (JPanel) this.getContentPane(),0,0,1880,985);
 
         panelNombreJ1 = new JPanel();
-        crearPanelStandard(panelNombreJ1,entornoPelea,0,0,940,50,Color.magenta);
+        crearPanelStandard(panelNombreJ1,entornoPelea,0,0,940,50);
 
         panelNombreJ2 = new JPanel();
-        crearPanelStandard(panelNombreJ2,entornoPelea,940,0,940,50,Color.cyan);
+        crearPanelStandard(panelNombreJ2,entornoPelea,940,0,940,50);
 
         panelVidaJ1 = new JPanel();
-        crearPanelStandard(panelVidaJ1,entornoPelea,0,50,940,50,Color.red);
+        crearPanelStandard(panelVidaJ1,entornoPelea,0,50,940,50);
 
         panelVidaJ2 = new JPanel();
-        crearPanelStandard(panelVidaJ2,entornoPelea,940,50,940,50,Color.green);
+        crearPanelStandard(panelVidaJ2,entornoPelea,940,50,940,50);
 
         accionesJ1 = new JPanel();
-        crearPanelLayoutNull(accionesJ1,entornoPelea,0,750,940,130,Color.darkGray);
+        crearPanelLayoutNull(accionesJ1,entornoPelea,0,750,940,130);
 
         accionesJ2 = new JPanel();
-        crearPanelLayoutNull(accionesJ2,entornoPelea,940,750,940,130,Color.black);
+        crearPanelLayoutNull(accionesJ2,entornoPelea,940,750,940,130);
 
         seleccionPersonajes = new JPanel(){protected void paintComponent(Graphics g) {
             super.paintComponent(g);
             g.drawImage(fondoSeleccion, 0, 0, this.getWidth(), this.getHeight(), this);
         }};
-        crearPanelLayoutNull(seleccionPersonajes, (JPanel) this.getContentPane(),0,0,1880,1000,null);
+        crearPanelLayoutNull(seleccionPersonajes, (JPanel) this.getContentPane(),0,0,1880,1000);
 
         comenzarPelea = new JPanel();
-        crearPanelLayoutNull(comenzarPelea,seleccionPersonajes,0,750,1880,70,Color.black);
+        crearPanelLayoutNull(comenzarPelea,seleccionPersonajes,0,750,1880,70);
 
         seleccionPersonajeJ1 = new JPanel();
-        crearPanelLayoutNull(seleccionPersonajeJ1,seleccionPersonajes,0,0,940,750,null);
+        crearPanelLayoutNull(seleccionPersonajeJ1,seleccionPersonajes,0,0,940,750);
 
         panelIntroducirNombreJ1 = new JPanel();
-        crearPanelLayoutNull(panelIntroducirNombreJ1,seleccionPersonajeJ1,0,0,940,115,Color.cyan);
+        crearPanelLayoutNull(panelIntroducirNombreJ1,seleccionPersonajeJ1,0,0,940,115);
 
         seleccionClaseJ1 = new JPanel();
-        crearPanelLayoutNull(seleccionClaseJ1,seleccionPersonajeJ1,0,115,940,635,Color.red);
+        crearPanelLayoutNull(seleccionClaseJ1,seleccionPersonajeJ1,0,115,940,635);
 
         panelCambiarArmaJ1 = new JPanel();
-        crearPanelLayoutNullVisibleFalse(panelCambiarArmaJ1,entornoPelea,130,100,810,650,Color.yellow);
+        crearPanelLayoutNullVisibleFalse(panelCambiarArmaJ1,entornoPelea,130,100,810,650);
 
         panelCambiarEscudoJ1 = new JPanel();
-        crearPanelLayoutNullVisibleFalse(panelCambiarEscudoJ1,entornoPelea,130,100,810,650,Color.green);
+        crearPanelLayoutNullVisibleFalse(panelCambiarEscudoJ1,entornoPelea,130,100,810,650);
 
         seleccionPersonajeJ2 = new JPanel();
-        crearPanelLayoutNull(seleccionPersonajeJ2,seleccionPersonajes,940,0,940,750,null);
+        crearPanelLayoutNull(seleccionPersonajeJ2,seleccionPersonajes,940,0,940,750);
 
         panelIntroducirNombreJ2 = new JPanel();
-        crearPanelLayoutNull(panelIntroducirNombreJ2,seleccionPersonajeJ2,0,0,940,115,Color.yellow);
+        crearPanelLayoutNull(panelIntroducirNombreJ2,seleccionPersonajeJ2,0,0,940,115);
 
         seleccionClaseJ2 = new JPanel();
-        crearPanelLayoutNull(seleccionClaseJ2,seleccionPersonajeJ2,0,115,940,635,Color.green);
+        crearPanelLayoutNull(seleccionClaseJ2,seleccionPersonajeJ2,0,115,940,635);
 
         panelCambiarArmaJ2 = new JPanel();
-        crearPanelLayoutNullVisibleFalse(panelCambiarArmaJ2,entornoPelea,940,100,810,650,Color.cyan);
+        crearPanelLayoutNullVisibleFalse(panelCambiarArmaJ2,entornoPelea,940,100,810,650);
 
         panelCambiarEscudoJ2 = new JPanel();
-        crearPanelLayoutNullVisibleFalse(panelCambiarEscudoJ2,entornoPelea,940,100,810,650,Color.red);
+        crearPanelLayoutNullVisibleFalse(panelCambiarEscudoJ2,entornoPelea,940,100,810,650);
 
         panelComentariosSeleccion = new JPanel();
-        crearPanelLayoutNull(panelComentariosSeleccion,seleccionPersonajes,0,820,1880,140,Color.blue);
+        crearPanelLayoutNull(panelComentariosSeleccion,seleccionPersonajes,0,820,1880,140);
 
         equipamientoJ1 = new JPanel();
-        crearPanelLayoutNull(equipamientoJ1,entornoPelea,0,100,130,650,Color.pink);
+        crearPanelLayoutNull(equipamientoJ1,entornoPelea,0,100,130,650);
 
         armaEquipadaJ1 = new JPanel(){protected void paintComponent(Graphics g) {
             super.paintComponent(g);
             g.drawImage(equipamiento, 0, 0,  this.getWidth(), this.getHeight(), this);
         }};
-        crearPanelLayoutNull(armaEquipadaJ1,equipamientoJ1,20,80,90,90,Color.green);
+        crearPanelLayoutNull(armaEquipadaJ1,equipamientoJ1,20,80,90,90);
 
         escudoEquipadoJ1 = new JPanel(){protected void paintComponent(Graphics g) {
             super.paintComponent(g);
             g.drawImage(equipamiento, 0, 0,  this.getWidth(), this.getHeight(), this);
         }};
-        crearPanelLayoutNull(escudoEquipadoJ1,equipamientoJ1,20,200,90,90,Color.green);
+        crearPanelLayoutNull(escudoEquipadoJ1,equipamientoJ1,20,200,90,90);
 
         equipamientoJ2 = new JPanel();
-        crearPanelLayoutNull(equipamientoJ2,entornoPelea,1750,100,130,650,Color.magenta);
+        crearPanelLayoutNull(equipamientoJ2,entornoPelea,1750,100,130,650);
 
         armaEquipadaJ2 = new JPanel(){protected void paintComponent(Graphics g) {
             super.paintComponent(g);
             g.drawImage(equipamiento, 0, 0,  this.getWidth(), this.getHeight(), this);
         }};
-        crearPanelLayoutNull(armaEquipadaJ2,equipamientoJ2,10,80,90,90,Color.green);
+        crearPanelLayoutNull(armaEquipadaJ2,equipamientoJ2,10,80,90,90);
 
         escudoEquipadoJ2 = new JPanel(){protected void paintComponent(Graphics g) {
             super.paintComponent(g);
             g.drawImage(equipamiento, 0, 0, this.getWidth(), this.getHeight(), this);
         }};
-        crearPanelLayoutNull(escudoEquipadoJ2,equipamientoJ2,10,200,90,90,Color.green);
+        crearPanelLayoutNull(escudoEquipadoJ2,equipamientoJ2,10,200,90,90);
 
         panelinformacionMagoJ1 = new JPanel(){protected void paintComponent(Graphics g) {
             super.paintComponent(g);
             g.drawImage(fondoInfoClases, 0, 0, this.getWidth(), this.getHeight(), this);
         }};
-        crearPanelLayoutNullVisibleFalse(panelinformacionMagoJ1,seleccionClaseJ1,124,405,200,230,Color.green);
+        crearPanelLayoutNullVisibleFalse(panelinformacionMagoJ1,seleccionClaseJ1,124,405,200,230);
 
         panelinformacionGuerreroJ1 = new JPanel(){protected void paintComponent(Graphics g) {
             super.paintComponent(g);
             g.drawImage(fondoInfoClases, 0, 0, this.getWidth(), this.getHeight(), this);
         }};
-        crearPanelLayoutNullVisibleFalse(panelinformacionGuerreroJ1,seleccionClaseJ1,646,405,200,230,Color.green);
+        crearPanelLayoutNullVisibleFalse(panelinformacionGuerreroJ1,seleccionClaseJ1,646,405,200,230);
 
         panelinformacionSamuraiJ1 = new JPanel(){protected void paintComponent(Graphics g) {
             super.paintComponent(g);
             g.drawImage(fondoInfoClases, 0, 0, this.getWidth(), this.getHeight(), this);
         }};
-        crearPanelLayoutNullVisibleFalse(panelinformacionSamuraiJ1,seleccionClaseJ1,385,405,200,230,Color.green);
+        crearPanelLayoutNullVisibleFalse(panelinformacionSamuraiJ1,seleccionClaseJ1,385,405,200,230);
 
         panelinformacionMagoJ2 = new JPanel(){protected void paintComponent(Graphics g) {
             super.paintComponent(g);
             g.drawImage(fondoInfoClases, 0, 0, this.getWidth(), this.getHeight(), this);
         }};
-        crearPanelLayoutNullVisibleFalse(panelinformacionMagoJ2,seleccionClaseJ2,124,405,200,230,Color.green);
+        crearPanelLayoutNullVisibleFalse(panelinformacionMagoJ2,seleccionClaseJ2,124,405,200,230);
 
         panelinformacionGuerreroJ2 = new JPanel(){protected void paintComponent(Graphics g) {
             super.paintComponent(g);
             g.drawImage(fondoInfoClases, 0, 0, this.getWidth(), this.getHeight(), this);
         }};
-        crearPanelLayoutNullVisibleFalse(panelinformacionGuerreroJ2,seleccionClaseJ2,646,405,200,230,Color.green);
+        crearPanelLayoutNullVisibleFalse(panelinformacionGuerreroJ2,seleccionClaseJ2,646,405,200,230);
 
         panelinformacionSamuraiJ2= new JPanel(){protected void paintComponent(Graphics g) {
             super.paintComponent(g);
             g.drawImage(fondoInfoClases, 0, 0, this.getWidth(), this.getHeight(), this);
         }};
-        crearPanelLayoutNullVisibleFalse(panelinformacionSamuraiJ2,seleccionClaseJ2,385,405,200,230,Color.green);
+        crearPanelLayoutNullVisibleFalse(panelinformacionSamuraiJ2,seleccionClaseJ2,385,405,200,230);
     }
 
     /**
@@ -427,7 +427,7 @@ public class EntornoGrafico extends JFrame{
             super.paintComponent(g);
             g.drawImage(iconoMago, 260, 100, 350, 490, this);
         }};
-        crearPanelStandard(skinJ1,entornoPelea,130,100,810,650,Color.blue);
+        crearPanelStandard(skinJ1,entornoPelea,130,100,810,650);
         AccionBotonElegirClase.seleccionarclase(e,seleccionarMagoJ1,seleccionarGuerreroJ1,seleccionarSamuraiJ1);
     }
 
@@ -441,7 +441,7 @@ public class EntornoGrafico extends JFrame{
             super.paintComponent(g);
             g.drawImage(iconoGuerrero, 260, 100, 350, 490, this);
         }};
-        crearPanelStandard(skinJ1,entornoPelea,130,100,810,650,Color.blue);
+        crearPanelStandard(skinJ1,entornoPelea,130,100,810,650);
         AccionBotonElegirClase.seleccionarclase(e,seleccionarGuerreroJ1,seleccionarMagoJ1,seleccionarSamuraiJ1);
     }
 
@@ -455,7 +455,7 @@ public class EntornoGrafico extends JFrame{
             super.paintComponent(g);
             g.drawImage(iconoSamurai, 260, 100, 350, 490, this);
         }};
-        crearPanelStandard(skinJ1,entornoPelea,130,100,810,650,Color.blue);
+        crearPanelStandard(skinJ1,entornoPelea,130,100,810,650);
         AccionBotonElegirClase.seleccionarclase(e,seleccionarSamuraiJ1,seleccionarGuerreroJ1,seleccionarMagoJ1);
     }
 
@@ -469,7 +469,7 @@ public class EntornoGrafico extends JFrame{
             super.paintComponent(g);
             g.drawImage(iconoMago, 200, 100, 350, 490, this);
         }};
-        crearPanelStandard(skinJ2,entornoPelea,940,100,810,650,Color.yellow);
+        crearPanelStandard(skinJ2,entornoPelea,940,100,810,650);
         AccionBotonElegirClase.seleccionarclase(e,seleccionarMagoJ2,seleccionarGuerreroJ2,seleccionarSamuraiJ2);
     }
 
@@ -483,7 +483,7 @@ public class EntornoGrafico extends JFrame{
             super.paintComponent(g);
             g.drawImage(iconoGuerrero, 200, 100, 350, 490, this);
         }};
-        crearPanelStandard(skinJ2,entornoPelea,940,100,810,650,Color.yellow);
+        crearPanelStandard(skinJ2,entornoPelea,940,100,810,650);
         AccionBotonElegirClase.seleccionarclase(e,seleccionarGuerreroJ2,seleccionarMagoJ2,seleccionarSamuraiJ2);
     }
 
@@ -497,7 +497,7 @@ public class EntornoGrafico extends JFrame{
             super.paintComponent(g);
             g.drawImage(iconoSamurai, 200, 100, 350, 490, this);
         }};
-        crearPanelStandard(skinJ2,entornoPelea,940,100,810,650,Color.yellow);
+        crearPanelStandard(skinJ2,entornoPelea,940,100,810,650);
         AccionBotonElegirClase.seleccionarclase(e,seleccionarSamuraiJ2,seleccionarGuerreroJ2,seleccionarMagoJ2);
     }
 
