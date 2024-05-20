@@ -124,6 +124,7 @@ public class EntornoGrafico extends JFrame{
     BufferedImage atacar = ImageIO.read(new File("src/imagenes/Atacar.png"));
     BufferedImage cambiarArma = ImageIO.read(new File("src/imagenes/Cambiar Arma.png"));
     BufferedImage cambiarEscudo = ImageIO.read(new File("src/imagenes/Cambiar Escudo.png"));
+    BufferedImage equipamiento = ImageIO.read(new File("src/imagenes/equipoSeleccionado.png"));
 
     /**
      * Constructor de la clase donde se crea la ventana
@@ -229,20 +230,32 @@ public class EntornoGrafico extends JFrame{
         equipamientoJ1 = new JPanel();
         crearPanelLayoutNull(equipamientoJ1,entornoPelea,0,100,130,650,Color.pink);
 
-        armaEquipadaJ1 = new JPanel();
-        crearPanelLayoutNull(armaEquipadaJ1,equipamientoJ1,35,40,60,60,Color.green);
+        armaEquipadaJ1 = new JPanel(){protected void paintComponent(Graphics g) {
+            super.paintComponent(g);
+            g.drawImage(equipamiento, 0, 0,  this.getWidth(), this.getHeight(), this);
+        }};
+        crearPanelLayoutNull(armaEquipadaJ1,equipamientoJ1,20,80,90,90,Color.green);
 
-        escudoEquipadoJ1 = new JPanel();
-        crearPanelLayoutNull(escudoEquipadoJ1,equipamientoJ1,35,160,60,60,Color.green);
+        escudoEquipadoJ1 = new JPanel(){protected void paintComponent(Graphics g) {
+            super.paintComponent(g);
+            g.drawImage(equipamiento, 0, 0,  this.getWidth(), this.getHeight(), this);
+        }};
+        crearPanelLayoutNull(escudoEquipadoJ1,equipamientoJ1,20,200,90,90,Color.green);
 
         equipamientoJ2 = new JPanel();
         crearPanelLayoutNull(equipamientoJ2,entornoPelea,1750,100,130,650,Color.magenta);
 
-        armaEquipadaJ2 = new JPanel();
-        crearPanelLayoutNull(armaEquipadaJ2,equipamientoJ2,35,40,60,60,Color.green);
+        armaEquipadaJ2 = new JPanel(){protected void paintComponent(Graphics g) {
+            super.paintComponent(g);
+            g.drawImage(equipamiento, 0, 0,  this.getWidth(), this.getHeight(), this);
+        }};
+        crearPanelLayoutNull(armaEquipadaJ2,equipamientoJ2,10,80,90,90,Color.green);
 
-        escudoEquipadoJ2 = new JPanel();
-        crearPanelLayoutNull(escudoEquipadoJ2,equipamientoJ2,35,160,60,60,Color.green);
+        escudoEquipadoJ2 = new JPanel(){protected void paintComponent(Graphics g) {
+            super.paintComponent(g);
+            g.drawImage(equipamiento, 0, 0, this.getWidth(), this.getHeight(), this);
+        }};
+        crearPanelLayoutNull(escudoEquipadoJ2,equipamientoJ2,10,200,90,90,Color.green);
 
         panelinformacionMagoJ1 = new JPanel(){protected void paintComponent(Graphics g) {
             super.paintComponent(g);

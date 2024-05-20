@@ -96,8 +96,8 @@ public class PanelCambiarArmas {
                 }
                 int x = VALOR_INICIAL_X +(i+incrementoColumna)*INCREMENTO_EJE_X;
                 nombreArma.setBounds(x,y,250,21);
-                nombreArma.setFont(new Font(null,Font.PLAIN,15));
-                nombreArma.setForeground(new Color(255,211,97,200));
+                nombreArma.setFont(new Font(null,Font.PLAIN,16));
+                nombreArma.setForeground(new Color(255,211,97,230));
                 panel.add(nombreArma);
             }
         }
