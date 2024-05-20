@@ -117,6 +117,13 @@ public class EntornoGrafico extends JFrame{
     public JTextField nombreJ1;
     public JTextField nombreJ2;
 
+    BufferedImage iconoMago = ImageIO.read(new File("src/imagenes/confesor.png"));
+    BufferedImage iconoGuerrero = ImageIO.read(new File("src/imagenes/guerrero.png"));
+    BufferedImage iconoSamurai = ImageIO.read(new File("src/imagenes/samurai.png"));
+    BufferedImage iconoEmpezarPelea = ImageIO.read(new File("src/imagenes/Empezar Pelea.png"));
+    BufferedImage atacar = ImageIO.read(new File("src/imagenes/Atacar.png"));
+    BufferedImage cambiarArma = ImageIO.read(new File("src/imagenes/Cambiar Arma.png"));
+    BufferedImage cambiarEscudo = ImageIO.read(new File("src/imagenes/Cambiar Escudo.png"));
 
     /**
      * Constructor de la clase donde se crea la ventana
@@ -170,12 +177,6 @@ public class EntornoGrafico extends JFrame{
 
         panelVidaJ2 = new JPanel();
         crearPanelStandard(panelVidaJ2,entornoPelea,940,50,940,50,Color.green);
-
-        skinJ1 = new JPanel();
-        crearPanelStandard(skinJ1,entornoPelea,130,100,810,650,Color.blue);
-
-        skinJ2 = new JPanel();
-        crearPanelStandard(skinJ2,entornoPelea,940,100,810,650,Color.yellow);
 
         accionesJ1 = new JPanel();
         crearPanelLayoutNull(accionesJ1,entornoPelea,0,750,940,130,Color.darkGray);
@@ -287,13 +288,6 @@ public class EntornoGrafico extends JFrame{
     private void crearBotones() throws IOException {
 
         String[] textoBoton = {"Cambiar de arma","Cambiar de escudo","Atacar","Empezar la pelea","Utilizar arma seleccionada","Utilizar escudo seleccionado"};
-        BufferedImage iconoMago = ImageIO.read(new File("src/imagenes/confesor.png"));
-        BufferedImage iconoGuerrero = ImageIO.read(new File("src/imagenes/guerrero.png"));
-        BufferedImage iconoSamurai = ImageIO.read(new File("src/imagenes/samurai.png"));
-        BufferedImage iconoEmpezarPelea = ImageIO.read(new File("src/imagenes/Empezar Pelea.png"));
-        BufferedImage atacar = ImageIO.read(new File("src/imagenes/Atacar.png"));
-        BufferedImage cambiarArma = ImageIO.read(new File("src/imagenes/Cambiar Arma.png"));
-        BufferedImage cambiarEscudo = ImageIO.read(new File("src/imagenes/Cambiar Escudo.png"));
 
         cambiarArmaJ1 = new JButton(textoBoton[0]);
         crearBotonImagen(cambiarArmaJ1,accionesJ1,616,59,250,60,cambiarArma);
@@ -416,6 +410,11 @@ public class EntornoGrafico extends JFrame{
      */
     private void seleccionarMagoJ1ActionPerformed(ActionEvent e){
         jugador1 = new Mago(nombreJ1.getText());
+        skinJ1 = new JPanel(){protected void paintComponent(Graphics g) {
+            super.paintComponent(g);
+            g.drawImage(iconoMago, 260, 100, 350, 490, this);
+        }};
+        crearPanelStandard(skinJ1,entornoPelea,130,100,810,650,Color.blue);
         AccionBotonElegirClase.seleccionarclase(e,seleccionarMagoJ1,seleccionarGuerreroJ1,seleccionarSamuraiJ1);
     }
 
@@ -425,6 +424,11 @@ public class EntornoGrafico extends JFrame{
      */
     private void seleccionarGuerreroJ1ActionPerformed(ActionEvent e){
         jugador1 = new Guerrero(nombreJ1.getText());
+        skinJ1 = new JPanel(){protected void paintComponent(Graphics g) {
+            super.paintComponent(g);
+            g.drawImage(iconoGuerrero, 260, 100, 350, 490, this);
+        }};
+        crearPanelStandard(skinJ1,entornoPelea,130,100,810,650,Color.blue);
         AccionBotonElegirClase.seleccionarclase(e,seleccionarGuerreroJ1,seleccionarMagoJ1,seleccionarSamuraiJ1);
     }
 
@@ -434,6 +438,11 @@ public class EntornoGrafico extends JFrame{
      */
     private void seleccionarSamuraiJ1ActionPerformed(ActionEvent e){
         jugador1 = new Samurai(nombreJ1.getText());
+        skinJ1 = new JPanel(){protected void paintComponent(Graphics g) {
+            super.paintComponent(g);
+            g.drawImage(iconoSamurai, 260, 100, 350, 490, this);
+        }};
+        crearPanelStandard(skinJ1,entornoPelea,130,100,810,650,Color.blue);
         AccionBotonElegirClase.seleccionarclase(e,seleccionarSamuraiJ1,seleccionarGuerreroJ1,seleccionarMagoJ1);
     }
 
@@ -443,6 +452,11 @@ public class EntornoGrafico extends JFrame{
      */
     private void seleccionarMagoJ2ActionPerformed(ActionEvent e){
         jugador2 = new Mago(nombreJ2.getText());
+        skinJ2 = new JPanel(){protected void paintComponent(Graphics g) {
+            super.paintComponent(g);
+            g.drawImage(iconoMago, 200, 100, 350, 490, this);
+        }};
+        crearPanelStandard(skinJ2,entornoPelea,940,100,810,650,Color.yellow);
         AccionBotonElegirClase.seleccionarclase(e,seleccionarMagoJ2,seleccionarGuerreroJ2,seleccionarSamuraiJ2);
     }
 
@@ -452,6 +466,11 @@ public class EntornoGrafico extends JFrame{
      */
     private void seleccionarGuerreroJ2ActionPerformed(ActionEvent e){
         jugador2 = new Guerrero(nombreJ2.getText());
+        skinJ2 = new JPanel(){protected void paintComponent(Graphics g) {
+            super.paintComponent(g);
+            g.drawImage(iconoGuerrero, 200, 100, 350, 490, this);
+        }};
+        crearPanelStandard(skinJ2,entornoPelea,940,100,810,650,Color.yellow);
         AccionBotonElegirClase.seleccionarclase(e,seleccionarGuerreroJ2,seleccionarMagoJ2,seleccionarSamuraiJ2);
     }
 
@@ -461,6 +480,11 @@ public class EntornoGrafico extends JFrame{
      */
     private void seleccionarSamuraiJ2ActionPerformed(ActionEvent e){
         jugador2 = new Samurai(nombreJ2.getText());
+        skinJ2 = new JPanel(){protected void paintComponent(Graphics g) {
+            super.paintComponent(g);
+            g.drawImage(iconoSamurai, 200, 100, 350, 490, this);
+        }};
+        crearPanelStandard(skinJ2,entornoPelea,940,100,810,650,Color.yellow);
         AccionBotonElegirClase.seleccionarclase(e,seleccionarSamuraiJ2,seleccionarGuerreroJ2,seleccionarMagoJ2);
     }
 
