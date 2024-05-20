@@ -55,8 +55,8 @@ public class AccionBotonesDeAccion {
             }break;
         }
 
-        vida1.setText("Vida Jugador 1: " + luchador1.getVigor());
-        vida2.setText("Vida Jugador 2: " + luchador2.getVigor());
+        vida1.setText(""+luchador1.getVigor());
+        vida2.setText(""+luchador2.getVigor());
 
         if (vigorFinal < 0) {
 

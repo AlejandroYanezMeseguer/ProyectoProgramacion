@@ -9,6 +9,16 @@ import java.awt.image.BufferedImage;
 
 public class CreacionDeBotones {
 
+    /**
+     * Metodo que crea un boton con un texto y lo añade a un panel
+     * @param Boton
+     * @param PanelDondeAñadir
+     * @param x
+     * @param y
+     * @param width
+     * @param height
+     * @param TamañoFuente
+     */
     public static void crearBotonTexto(JButton Boton, JPanel PanelDondeAñadir, int x, int y, int width, int height, int TamañoFuente){
 
         Boton.setBounds(x,y,width,height);

@@ -535,11 +535,11 @@ public class EntornoGrafico extends JFrame{
      */
     private void crearVidasJugadores(Jugador luchador1, Jugador luchador2){
 
-        vidaJ1 = new JLabel("Vida Jugador 1: " +luchador1);
-        CrearEtiquetaStandard(vidaJ1, panelVidaJ1,0,0,0,0,24);
+        vidaJ1 = new JLabel(""+luchador1);
+        CrearEtiquetaStandard(vidaJ1, panelVidaJ1,0,0,0,0,28);
 
-        vidaJ2 = new JLabel("Vida Jugador 2: " +luchador2);
-        CrearEtiquetaStandard(vidaJ2, panelVidaJ2,0,0,0,0,24);
+        vidaJ2 = new JLabel(""+luchador2);
+        CrearEtiquetaStandard(vidaJ2, panelVidaJ2,0,0,0,0,28);
     }
 
     /**
@@ -565,7 +565,7 @@ public class EntornoGrafico extends JFrame{
         CrearEtiquetaStandard(seleccionarClaseJ2,seleccionClaseJ2,195,45,600,30,26);
 
         magoJ1 = new JLabel(textoEtiqueta[3]);
-        CrearEtiquetaStandard(magoJ1,seleccionClaseJ1,168,98,80,30,20);
+        CrearEtiquetaStandard(magoJ1,seleccionClaseJ1,165,98,90,30,20);
 
         guerreroJ1 = new JLabel(textoEtiqueta[4]);
         CrearEtiquetaStandard(guerreroJ1,seleccionClaseJ1,692,98,90,30,20);
@@ -574,7 +574,7 @@ public class EntornoGrafico extends JFrame{
         CrearEtiquetaStandard(samuraiJ1,seleccionClaseJ1,429,98,82,30,20);
 
         magoJ2 = new JLabel(textoEtiqueta[3]);
-        CrearEtiquetaStandard(magoJ2,seleccionClaseJ2,168,98,80,30,20);
+        CrearEtiquetaStandard(magoJ2,seleccionClaseJ2,165,98,90,30,20);
 
         guerreroJ2 = new JLabel(textoEtiqueta[4]);
         CrearEtiquetaStandard(guerreroJ2,seleccionClaseJ2,692,98,90,30,20);
@@ -583,10 +583,10 @@ public class EntornoGrafico extends JFrame{
         CrearEtiquetaStandard(samuraiJ2,seleccionClaseJ2,429,98,82,30,20);
 
         mostrarNombreJ1 = new JLabel();
-        CrearEtiquetaStandard(mostrarNombreJ1,panelNombreJ1,200,0,500,30,30);
+        CrearEtiquetaStandard(mostrarNombreJ1,panelNombreJ1,200,0,500,20,28);
 
         mostrarNombreJ2 = new JLabel();
-        CrearEtiquetaStandard(mostrarNombreJ2,panelNombreJ2,200,0,500,30,30);
+        CrearEtiquetaStandard(mostrarNombreJ2,panelNombreJ2,200,0,500,20,28);
 
         informacionMagoJ1 = new JLabel();
         crearPanelesInformacionClases(informacionMagoJ1,panelinformacionMagoJ1,25,0,200,230,Color.pink,20);
