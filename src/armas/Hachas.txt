@@ -1,9 +1,0 @@
-14|11|b|normal|hacha1
-21|12|c|normal|hacha2
-19|12|b|normal|hacha3
-20|10|c|normal|hacha4
-12|10|b|rapido|hacha5
-18|9|c|normal|hacha6
-18|13|b|normal|hacha7
-14|14|c|normal|hacha8
-0|0|n|n|n

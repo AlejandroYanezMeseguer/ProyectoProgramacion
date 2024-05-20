@@ -9,6 +9,7 @@ public class CreacionDeEtiquetas {
 
         Etiqueta.setBounds(x,y,width,height);
         Etiqueta.setFont(new Font(null,Font.PLAIN,TamañoFuente));
+        Etiqueta.setForeground(Color.BLACK);
         PanelDondeAñadir.add(Etiqueta);
 
     }

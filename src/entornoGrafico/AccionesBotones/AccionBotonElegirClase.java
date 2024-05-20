@@ -3,17 +3,18 @@ package entornoGrafico.AccionesBotones;
 import jugador.Jugador;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;
+
+import static entornoGrafico.PanelesInformacion.PanelesInformacionClases.crearPanelesInformacionClases;
 
 public class AccionBotonElegirClase {
 
     public static void seleccionarclase(ActionEvent e, JButton botonSeleccionado,JButton botondDeseleccionado1,JButton botondDeseleccionado2){
-
         botonSeleccionado.setEnabled(false);
         botondDeseleccionado1.setEnabled(true);
         botondDeseleccionado2.setEnabled(true);
-
     }
 
     /**
@@ -39,8 +40,8 @@ public class AccionBotonElegirClase {
         entorno.setVisible(true);
         mostrarnombre1.setText(nombre1.getText());
         mostrarnombre2.setText(nombre2.getText());
-        vida1.setText("Vida Jugador 1: " +luchador1);
-        vida2.setText("Vida Jugador 2: " +luchador2);
+        vida1.setText(""+luchador1.getVigor());
+        vida2.setText(""+luchador2.getVigor());
 
     }
 

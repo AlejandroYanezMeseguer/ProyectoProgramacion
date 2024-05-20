@@ -4,7 +4,7 @@ import interfaces.IAcciones;
 /**
  * Clase que crea las escudo con sus variables extendidas de la superclase Armas y metodos implementados de la interfaz IAcciones
  */
-public class Escudo implements IAcciones {
+public class Escudos implements IAcciones {
 
     protected int defensa;
     protected int peso;
@@ -15,7 +15,7 @@ public class Escudo implements IAcciones {
      * @param defensa
      * @param peso
      */
-    public Escudo(int defensa, int peso, String nombre) {
+    public Escudos(int defensa, int peso, String nombre) {
         this.defensa = defensa;
         this.peso = peso;
         this.nombre = nombre;
@@ -40,7 +40,8 @@ public class Escudo implements IAcciones {
     }
 
     @Override
-    public String getName() {
+    public String getNombre() {
         return nombre;
     }
+
 }

@@ -4,8 +4,6 @@ import cargarArmas.*;
 import jugador.TipoGuerrero;
 import interfaces.IAcciones;
 
-import java.sql.SQLException;
-
 /**
  * clase que crea el contenedor de las armas
  */
@@ -20,29 +18,23 @@ public class ContenedorArmas {
      */
     public ContenedorArmas(TipoGuerrero tipoGuerrero) {
 
-        var Escudo = new CargarEscudos().cargar();
-
         //if que crea las armas de la clase guerrero
         if(tipoGuerrero == TipoGuerrero.Guerrero) {
 
-            var espadas = new CargarEspadas().cargar();
-            var hachas = new CargarHachas().cargar();
+            var armasGuerrero = CargarArmasGuerrero.cargar(TipoGuerrero.Guerrero);
 
 
-            //for que recorre el array listaArmas creando las armas
+            //for que recorre el array listaArmas creando las armas de los guerreros
             for (int i = 0; i < 3; i++) {
 
-                for (int j = 0; j < 9; j++) {
+                for (int j = 0; j < 8; j++) {
 
                     if (i == 0) {
 
-                        listaArmas[i][j] = espadas.get(j);
+                        listaArmas[i][j] = armasGuerrero.get(j);
                     }
                     if (i == 1) {
-                        listaArmas[i][j] = hachas.get(j);
-                    }
-                    if (i == 2) {
-                        listaArmas[i][j] = Escudo.get(j);
+                        listaArmas[i][j] = armasGuerrero.get(j+8);
                     }
                 }
             }
@@ -51,22 +43,19 @@ public class ContenedorArmas {
         //if que crea las armas de la clase Samurai
         if(tipoGuerrero == TipoGuerrero.Samurai) {
 
-            var armas = CargarArmasSamurai.cargar(TipoGuerrero.Samurai);
+            var armasSamurai = CargarArmasSamurai.cargar(TipoGuerrero.Samurai);
 
-            //for que recorre el array listaArmas creando las armas
+            //for que recorre el array listaArmas creando las armas de los samurais
             for (int i = 0; i < 3; i++) {
 
                 for (int j = 0; j < 8; j++) {
 
                     if (i == 0) {
 
-                        listaArmas[i][j] = armas.get(j);
+                        listaArmas[i][j] = armasSamurai.get(j);
                     }
                     if (i == 1) {
-                        listaArmas[i][j] = armas.get(j+8);
-                    }
-                    if (i == 2) {
-                        listaArmas[i][j] = Escudo.get(j);
+                        listaArmas[i][j] = armasSamurai.get(j+8);
                     }
                 }
             }
@@ -75,24 +64,34 @@ public class ContenedorArmas {
         //if que crea las armas de la clase Mago
         if(tipoGuerrero == TipoGuerrero.Mago) {
 
-            var Bastones = new CargarBastones().cargar();
-            var Catalizadores = new CargarCatalizadores().cargar();
+            var armasMago = CargarArmasMago.cargar(TipoGuerrero.Mago);
 
-            //for que recorre el array listaArmas creando las armas
+            //for que recorre el array listaArmas creando las armas de los magos
             for (int i = 0; i < 3; i++) {
 
-                for (int j = 0; j < 9; j++) {
+                for (int j = 0; j < 8; j++) {
 
                     if (i == 0) {
 
-                        listaArmas[i][j] = Bastones.get(j);
+                        listaArmas[i][j] = armasMago.get(j);
                     }
                     if (i == 1) {
-                        listaArmas[i][j] = Catalizadores.get(j);
+                        listaArmas[i][j] = armasMago.get(j+8);
                     }
-                    if (i == 2) {
-                        listaArmas[i][j] = Escudo.get(j);
-                    }
+                }
+            }
+        }
+
+        var escudos = CargarEscudos.cargar();
+
+        //for que recorre el array listaArmas creando los escudos
+        for (int i = 0; i < 3; i++) {
+
+            for (int j = 0; j < 9; j++) {
+
+                if (i == 2) {
+
+                    listaArmas[i][j] = escudos.get(j);
                 }
             }
         }

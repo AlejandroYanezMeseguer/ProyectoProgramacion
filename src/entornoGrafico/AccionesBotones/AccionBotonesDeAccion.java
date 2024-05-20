@@ -1,5 +1,7 @@
 package entornoGrafico.AccionesBotones;
 
+import entornoGrafico.PanelesInformacion.PanelesInformacionArmas;
+import entornoGrafico.PanelesInformacion.PanelesInformacionEscudos;
 import entornoGrafico.cambioDeEquipamiento.PanelCambiarArmas;
 import entornoGrafico.cambioDeEquipamiento.PanelCambiarEscudos;
 import jugador.Jugador;
@@ -8,23 +10,53 @@ import jugador.Posicion;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Random;
 
 public class AccionBotonesDeAccion {
+    Random rand = new Random();
 
-    public static void botonAtaqueJ1(ActionEvent e, Jugador luchador1, Jugador luchador2, int daño, int vigorFinal, JLabel vida1, JLabel vida2, JPanel panelGanador, JPanel entornoPelea,int condicion) {
+    /**
+     * metodo que crea las acciones que ejecuta el boton ataqueJ1
+     * @param e
+     * @param luchador1
+     * @param luchador2
+     * @param daño
+     * @param vigorFinal
+     * @param vida1
+     * @param vida2
+     * @param panelGanador
+     * @param entornoPelea
+     * @param condicion
+     */
+    public static void botonAtaque(ActionEvent e, Jugador luchador1, Jugador luchador2, int daño, int vigorFinal, JLabel vida1, JLabel vida2, JPanel panelGanador, JPanel entornoPelea, int condicion) {
+
+        Random rand = new Random();
 
         switch (condicion){
             case 1:{
-                daño = luchador1.atacar(1);
-                vigorFinal = luchador2.recibirGolpe(daño);
+                int condicionAleatoria = rand.nextInt(15) + 1;
+                if (condicionAleatoria == 1) {
+                    daño = luchador1.atacar(10);
+                    vigorFinal = luchador2.recibirGolpe(daño);
+                } else {
+                    daño = luchador1.atacar(1);
+                    vigorFinal = luchador2.recibirGolpe(daño);
+                }
             }break;
             case 2:{
-                daño = luchador2.atacar(1);
-                vigorFinal = luchador1.recibirGolpe(daño);
+                int condicionAleatoria = rand.nextInt(15) + 1;
+                if (condicionAleatoria == 1) {
+                    daño = luchador2.atacar(10);
+                    vigorFinal = luchador1.recibirGolpe(daño);
+                } else {
+                    daño = luchador2.atacar(1);
+                    vigorFinal = luchador1.recibirGolpe(daño);
+                }
             }break;
         }
-        vida1.setText("Vida Jugador 1: " + luchador1.getVigor());
-        vida2.setText("Vida Jugador 2: " + luchador2.getVigor());
+
+        vida1.setText(""+luchador1.getVigor());
+        vida2.setText(""+luchador2.getVigor());
 
         if (vigorFinal < 0) {
 
@@ -32,7 +64,6 @@ public class AccionBotonesDeAccion {
             entornoPelea.setVisible(false);
 
         }
-
     }
 
     /**
@@ -40,9 +71,10 @@ public class AccionBotonesDeAccion {
      *
      * @param e
      */
-    public static void cambiarArma(ActionEvent e, JPanel panelCambiarArma, Jugador jugador, JPanel skin, int condicion) {
+    public static void cambiarArma(ActionEvent e, JPanel panelCambiarArma, Jugador jugador, JPanel skin, int condicion,JButton botonDesactivar1,JButton botonDesactivar2,JButton botonDesactivar3) {
 
         PanelCambiarArmas armas = new PanelCambiarArmas(panelCambiarArma, jugador);
+        PanelesInformacionArmas stats = new PanelesInformacionArmas(panelCambiarArma, jugador);
         var listener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -53,21 +85,26 @@ public class AccionBotonesDeAccion {
         };
         switch (condicion) {
             case 1: {
-                armas.añadirArmasJ1(listener);
+                armas.añadirArmas(listener);
 
-                armas.añadirNombresArmasJ1();
+                armas.añadirNombresArmas();
+                stats.statsArmas(jugador.getTipoGuerrero());
                 skin.setVisible(false);
                 panelCambiarArma.setVisible(true);
             }
             break;
             case 2: {
-                armas.añadirArmasJ2(listener);
+                armas.añadirArmas(listener);
 
-                armas.añadirNombresArmasJ2();
+                stats.statsArmas(jugador.getTipoGuerrero());
+                armas.añadirNombresArmas();
                 skin.setVisible(false);
                 panelCambiarArma.setVisible(true);
             }
         }
+        botonDesactivar1.setEnabled(false);
+        botonDesactivar2.setEnabled(false);
+        botonDesactivar3.setEnabled(false);
     }
 
     /**
@@ -75,8 +112,9 @@ public class AccionBotonesDeAccion {
      *
      * @param e
      */
-    public static void cambiarEscudo(ActionEvent e, JPanel panelCambiarEscudo, Jugador jugador, JPanel skin, int condicion) {
+    public static void cambiarEscudo(ActionEvent e, JPanel panelCambiarEscudo, Jugador jugador, JPanel skin, int condicion,JButton botonDesactivar1,JButton botonDesactivar2,JButton botonDesactivar3) {
         PanelCambiarEscudos escudos = new PanelCambiarEscudos(panelCambiarEscudo, jugador);
+        PanelesInformacionEscudos stats = new PanelesInformacionEscudos(panelCambiarEscudo, jugador);
         var listener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -87,21 +125,24 @@ public class AccionBotonesDeAccion {
         };
         switch (condicion) {
             case 1: {
-                escudos.añadirEscudosJ1(listener);
-
-                escudos.añadirNombresEscudosJ1();
+                escudos.añadirEscudos(listener);
+                stats.statsEscudos();
+                escudos.añadirNombresEscudos();
                 skin.setVisible(false);
                 panelCambiarEscudo.setVisible(true);
             }
             break;
             case 2: {
-                escudos.añadirEscudosJ2(listener);
-
-                escudos.añadirNombresEscudosJ2();
+                escudos.añadirEscudos(listener);
+                stats.statsEscudos();
+                escudos.añadirNombresEscudos();
                 skin.setVisible(false);
                 panelCambiarEscudo.setVisible(true);
             }
         }
+        botonDesactivar1.setEnabled(false);
+        botonDesactivar2.setEnabled(false);
+        botonDesactivar3.setEnabled(false);
     }
 
     /**
@@ -130,9 +171,14 @@ public class AccionBotonesDeAccion {
 
     }
 
-    public static void seleccionarEquipo(ActionEvent e,JPanel Skin, JPanel panel){
+    public static void seleccionarEquipo(ActionEvent e,JPanel Skin, JPanel panel,JButton botonactivar1,JButton botonactivar2,JButton botonactivar3){
         Skin.setVisible(true);
         panel.setVisible(false);
+
+        botonactivar1.setEnabled(true);
+        botonactivar2.setEnabled(true);
+        botonactivar3.setEnabled(true);
+
     }
 
 }
