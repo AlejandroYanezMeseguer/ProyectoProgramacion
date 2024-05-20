@@ -93,7 +93,7 @@ public class PanelesInformacionArmas {
                         int x = VALOR_INICIAL_X + (i + incrementoColumna) * INCREMENTO_EJE_X;
                         estadisticasArmas.setBounds(x, y, 85, 80);
                         estadisticasArmas.setFont(new Font(null, Font.PLAIN, 12));
-                        estadisticasArmas.setForeground(Color.BLACK);
+                        estadisticasArmas.setForeground(new Color(255,228,152,100));
                         panel.add(estadisticasArmas);
                     }
                     case 1 -> {
@@ -114,7 +114,7 @@ public class PanelesInformacionArmas {
                         int x = VALOR_INICIAL_X + (i + incrementoColumna) * INCREMENTO_EJE_X;
                         estadisticasArmas.setBounds(x, y, 100, 80);
                         estadisticasArmas.setFont(new Font(null, Font.PLAIN, 12));
-                        estadisticasArmas.setForeground(Color.BLACK);
+                        estadisticasArmas.setForeground(new Color(255,228,152,100));
                         panel.add(estadisticasArmas);
                     }
                 }

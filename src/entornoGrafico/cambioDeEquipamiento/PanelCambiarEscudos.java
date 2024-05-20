@@ -102,7 +102,7 @@ public class PanelCambiarEscudos{
                 }
                 int x = VALOR_INICIAL_X +(i+incrementoColumna)*INCREMENTO_EJE_X;
                 nombreEscudo.setBounds(x,y,250,21);
-                nombreEscudo.setForeground(Color.BLACK);
+                nombreEscudo.setForeground(new Color(255,211,97,200));
                 nombreEscudo.setFont(new Font(null,Font.PLAIN,20));
                 panel.add(nombreEscudo);
             }
