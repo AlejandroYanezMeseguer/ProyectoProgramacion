@@ -2,9 +2,13 @@ package entornoGrafico.cambioDeEquipamiento;
 
 import jugador.Jugador;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
 public class PanelCambiarEscudos{
 
@@ -108,5 +112,41 @@ public class PanelCambiarEscudos{
             }
         }
     }
+    public void fondoEscudos() throws IOException {
+        BufferedImage fondo = ImageIO.read(new File("src/imagenes/equipoSeleccionado.png"));
+        int incrementoColumna = 0;
+        boolean cambioColumna = true;
+        var escudos = jugador.baul.listaArmas;
 
+        for(int i = 2;i < 3; i++){
+
+            for(int j = 0;j < 9; j++){
+
+                JPanel fondoEscudo = new JPanel(){protected void paintComponent(Graphics g) {
+                    super.paintComponent(g);
+                    g.drawImage(fondo, 200, 100, LADO_BOTON, LADO_BOTON, this);
+                }};
+                fondoEscudo.setName(i +"|" +j);
+                int y = VALOR_INICIAL_Y_ETIQUETAS +j*INCREMENTO_EJE_Y;
+                if (j==6){
+                    cambioColumna=true;
+                    etiquetasPorColumna = 6;
+                }
+                if (j>2){
+
+                    if(cambioColumna){
+
+                        incrementoColumna++;
+                        cambioColumna=false;
+
+                    }
+                    y = VALOR_INICIAL_Y_ETIQUETAS +(j- etiquetasPorColumna)*INCREMENTO_EJE_Y;
+
+                }
+                int x = VALOR_INICIAL_X +(i+incrementoColumna)*INCREMENTO_EJE_X;
+                fondoEscudo.setBounds(x,y,LADO_BOTON,LADO_BOTON);
+                panel.add(fondoEscudo);
+            }
+        }
+    }
 }
