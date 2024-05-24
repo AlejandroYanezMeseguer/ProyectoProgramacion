@@ -28,7 +28,7 @@ public class AccionBotonesDeAccion {
      * @param entornoPelea
      * @param condicion
      */
-    public static void botonAtaque(ActionEvent e, Jugador luchador1, Jugador luchador2, int daño, int vigorFinal, JLabel vida1, JLabel vida2, JPanel panelGanador, JPanel entornoPelea, int condicion) {
+    public static void botonAtaque(ActionEvent e, Jugador luchador1, Jugador luchador2, int daño, int vigorFinal, JLabel vida1, JLabel vida2, JPanel panelGanador, JPanel entornoPelea, int condicion, JProgressBar vidaBar1,JProgressBar vidaBar2) {
 
         Random rand = new Random();
 
@@ -54,9 +54,8 @@ public class AccionBotonesDeAccion {
                 }
             }break;
         }
-
-        vida1.setText(""+luchador1.getVigor());
-        vida2.setText(""+luchador2.getVigor());
+        vidaBar1.setValue(luchador1.getVigor());
+        vidaBar2.setValue(luchador2.getVigor());
 
         if (vigorFinal < 0) {
 

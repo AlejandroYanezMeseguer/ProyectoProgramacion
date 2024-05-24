@@ -6,12 +6,13 @@ import jugador.*;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
+import javax.swing.border.BevelBorder;
+import javax.swing.border.MatteBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.net.URL;
 
 import static entornoGrafico.AccionesBotones.CreacionDeListeners.addMouseListenerToButton;
 import static entornoGrafico.PanelesInformacion.PanelesInformacionClases.crearPanelesInformacionClases;
@@ -117,6 +118,9 @@ public class EntornoGrafico extends JFrame{
     public JTextField nombreJ1;
     public JTextField nombreJ2;
 
+    public JProgressBar vidaBar1;
+    public JProgressBar vidaBar2;
+
     BufferedImage iconoMago = ImageIO.read(new File("src/imagenes/confesor.png"));
     BufferedImage iconoGuerrero = ImageIO.read(new File("src/imagenes/guerrero.png"));
     BufferedImage iconoSamurai = ImageIO.read(new File("src/imagenes/samurai.png"));
@@ -174,10 +178,10 @@ public class EntornoGrafico extends JFrame{
         crearPanelStandard(panelNombreJ2,entornoPelea,940,0,940,50);
 
         panelVidaJ1 = new JPanel();
-        crearPanelStandard(panelVidaJ1,entornoPelea,0,50,940,50);
+        crearPanelStandard(panelVidaJ1,entornoPelea,0,70,940,50);
 
         panelVidaJ2 = new JPanel();
-        crearPanelStandard(panelVidaJ2,entornoPelea,940,50,940,50);
+        crearPanelStandard(panelVidaJ2,entornoPelea,940,70,940,50);
 
         accionesJ1 = new JPanel();
         crearPanelLayoutNull(accionesJ1,entornoPelea,0,750,940,130);
@@ -396,7 +400,7 @@ public class EntornoGrafico extends JFrame{
      * @param luchador2
      */
     private void botonAtaqueJugador1ActionPerformed(ActionEvent e, Jugador luchador1, Jugador luchador2){
-        AccionBotonesDeAccion.botonAtaque(e,luchador1,luchador2,dañoJ1,vigorFinalJ1,vidaJ1,vidaJ2,jugadorGanador,entornoPelea,1);
+        AccionBotonesDeAccion.botonAtaque(e,luchador1,luchador2,dañoJ1,vigorFinalJ1,vidaJ1,vidaJ2,jugadorGanador,entornoPelea,1, vidaBar1,vidaBar2);
     }
 
     /**
@@ -406,7 +410,7 @@ public class EntornoGrafico extends JFrame{
      * @param luchador2
      */
     private void botonAtaqueJugador2ActionPerformed(ActionEvent e, Jugador luchador1, Jugador luchador2){
-       AccionBotonesDeAccion.botonAtaque(e,luchador1,luchador2,dañoJ2,vigorFinalJ2,vidaJ1,vidaJ2,jugadorGanador,entornoPelea,2);
+       AccionBotonesDeAccion.botonAtaque(e,luchador1,luchador2,dañoJ2,vigorFinalJ2,vidaJ1,vidaJ2,jugadorGanador,entornoPelea,2, vidaBar1,vidaBar2);
     }
 
     /**
@@ -429,6 +433,7 @@ public class EntornoGrafico extends JFrame{
         }};
         crearPanelStandard(skinJ1,entornoPelea,130,100,810,650);
         AccionBotonElegirClase.seleccionarclase(e,seleccionarMagoJ1,seleccionarGuerreroJ1,seleccionarSamuraiJ1);
+        crearVidaJ1(jugador1,panelVidaJ1);
     }
 
     /**
@@ -443,6 +448,7 @@ public class EntornoGrafico extends JFrame{
         }};
         crearPanelStandard(skinJ1,entornoPelea,130,100,810,650);
         AccionBotonElegirClase.seleccionarclase(e,seleccionarGuerreroJ1,seleccionarMagoJ1,seleccionarSamuraiJ1);
+        crearVidaJ1(jugador1,panelVidaJ1);
     }
 
     /**
@@ -457,6 +463,7 @@ public class EntornoGrafico extends JFrame{
         }};
         crearPanelStandard(skinJ1,entornoPelea,130,100,810,650);
         AccionBotonElegirClase.seleccionarclase(e,seleccionarSamuraiJ1,seleccionarGuerreroJ1,seleccionarMagoJ1);
+        crearVidaJ1(jugador1,panelVidaJ1);
     }
 
     /**
@@ -471,6 +478,7 @@ public class EntornoGrafico extends JFrame{
         }};
         crearPanelStandard(skinJ2,entornoPelea,940,100,810,650);
         AccionBotonElegirClase.seleccionarclase(e,seleccionarMagoJ2,seleccionarGuerreroJ2,seleccionarSamuraiJ2);
+        crearVidaJ2(jugador2,panelVidaJ2);
     }
 
     /**
@@ -485,6 +493,7 @@ public class EntornoGrafico extends JFrame{
         }};
         crearPanelStandard(skinJ2,entornoPelea,940,100,810,650);
         AccionBotonElegirClase.seleccionarclase(e,seleccionarGuerreroJ2,seleccionarMagoJ2,seleccionarSamuraiJ2);
+        crearVidaJ2(jugador2,panelVidaJ2);
     }
 
     /**
@@ -499,6 +508,7 @@ public class EntornoGrafico extends JFrame{
         }};
         crearPanelStandard(skinJ2,entornoPelea,940,100,810,650);
         AccionBotonElegirClase.seleccionarclase(e,seleccionarSamuraiJ2,seleccionarGuerreroJ2,seleccionarMagoJ2);
+        crearVidaJ2(jugador2,panelVidaJ2);
     }
 
     /**
@@ -567,16 +577,32 @@ public class EntornoGrafico extends JFrame{
 
     /**
      * Metodo que crea las JLabel con las vidas de los jugadores
-     * @param luchador1
-     * @param luchador2
+     * @param luchador
      */
-    private void crearVidasJugadores(Jugador luchador1, Jugador luchador2){
+    private void crearVidaJ1(Jugador luchador, JPanel panelAñadirVida){
 
-        vidaJ1 = new JLabel(""+luchador1);
-        CrearEtiquetaStandard(vidaJ1, panelVidaJ1,0,0,0,0,28);
+        vidaBar1 = new JProgressBar(0, luchador.getVigor());
+        vidaBar1.setValue(luchador.getVigor());
+        vidaBar1.setStringPainted(true);
+        vidaBar1.setPreferredSize(new Dimension(500,18));
+        vidaBar1.setForeground(new Color(105, 0, 0));
+        vidaBar1.setBackground(new Color(42, 42, 42, 207));
+        vidaBar1.setBorder(new BevelBorder(5, Color.black, Color.black, Color.black, Color.black));
+        vidaBar1.setStringPainted(false);
+        panelAñadirVida.add(vidaBar1);
+    }
 
-        vidaJ2 = new JLabel(""+luchador2);
-        CrearEtiquetaStandard(vidaJ2, panelVidaJ2,0,0,0,0,28);
+    private void crearVidaJ2(Jugador luchador,JPanel panelAñadirVida){
+
+        vidaBar2 = new JProgressBar(0, luchador.getVigor());
+        vidaBar2.setValue(luchador.getVigor());
+        vidaBar2.setStringPainted(true);
+        vidaBar2.setForeground(new Color(105, 0, 0));
+        vidaBar2.setPreferredSize(new Dimension(500,18));
+        vidaBar2.setBackground(new Color(42, 42, 42, 207));
+        vidaBar2.setBorder(new BevelBorder(5, Color.black, Color.black, Color.black, Color.black));
+        vidaBar2.setStringPainted(false);
+        panelAñadirVida.add(vidaBar2);
     }
 
     /**
@@ -588,6 +614,9 @@ public class EntornoGrafico extends JFrame{
 
         ganador = new JLabel();
         jugadorGanador.add(ganador);
+
+        vidaJ1 = new JLabel();
+        vidaJ2 = new JLabel();
 
         introducirNombreJ1 = new JLabel(textoEtiqueta[0]);
         CrearEtiquetaStandard(introducirNombreJ1,panelIntroducirNombreJ1,340,8,300,36,26);
@@ -677,7 +706,6 @@ public class EntornoGrafico extends JFrame{
         crearPaneles();
         crearBotones();
         actionListenersBotones();
-        crearVidasJugadores(jugador1,jugador2);
         crearEtiquetas();
         crearTextField();
         crearTextAreas();
