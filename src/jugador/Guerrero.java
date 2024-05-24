@@ -9,10 +9,10 @@ import java.lang.*;
  */
 public class Guerrero extends Jugador{
 
-    private static final int FUERZA = 10;
-    private static final int DESTREZA = 12;
-    private static final int VIGOR = 400;
-    private static final int AGUANTE = 16;
+    private static final int FUERZA = 18;
+    private static final int DESTREZA = 21;
+    private static final int VIGOR = 2600;
+    private static final int AGUANTE = 21;
     private static final int FE = 10;
     private static final int MENTE = 12;
 

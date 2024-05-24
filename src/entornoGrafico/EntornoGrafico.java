@@ -8,6 +8,7 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.MatteBorder;
+import javax.swing.plaf.basic.BasicProgressBarUI;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.image.BufferedImage;
@@ -584,11 +585,15 @@ public class EntornoGrafico extends JFrame{
         vidaBar1 = new JProgressBar(0, luchador.getVigor());
         vidaBar1.setValue(luchador.getVigor());
         vidaBar1.setStringPainted(true);
-        vidaBar1.setPreferredSize(new Dimension(500,18));
+        vidaBar1.setPreferredSize(new Dimension(600,20));
         vidaBar1.setForeground(new Color(105, 0, 0));
-        vidaBar1.setBackground(new Color(42, 42, 42, 207));
+        vidaBar1.setBackground(new Color(42, 42, 42, 237));
         vidaBar1.setBorder(new BevelBorder(5, Color.black, Color.black, Color.black, Color.black));
-        vidaBar1.setStringPainted(false);
+        vidaBar1.setString(""+luchador.getVigor());
+        vidaBar1.setUI(new BasicProgressBarUI() {
+            protected Color getSelectionBackground() { return Color.BLACK; }
+            protected Color getSelectionForeground() { return Color.BLACK; }
+        });
         panelAñadirVida.add(vidaBar1);
     }
 
@@ -598,10 +603,14 @@ public class EntornoGrafico extends JFrame{
         vidaBar2.setValue(luchador.getVigor());
         vidaBar2.setStringPainted(true);
         vidaBar2.setForeground(new Color(105, 0, 0));
-        vidaBar2.setPreferredSize(new Dimension(500,18));
-        vidaBar2.setBackground(new Color(42, 42, 42, 207));
+        vidaBar2.setBackground(new Color(42, 42, 42, 237));
+        vidaBar2.setPreferredSize(new Dimension(600,20));
         vidaBar2.setBorder(new BevelBorder(5, Color.black, Color.black, Color.black, Color.black));
-        vidaBar2.setStringPainted(false);
+        vidaBar2.setString(""+luchador.getVigor());
+        vidaBar2.setUI(new BasicProgressBarUI() {
+            protected Color getSelectionBackground() { return Color.BLACK; }
+            protected Color getSelectionForeground() { return Color.BLACK; }
+        });
         panelAñadirVida.add(vidaBar2);
     }
 

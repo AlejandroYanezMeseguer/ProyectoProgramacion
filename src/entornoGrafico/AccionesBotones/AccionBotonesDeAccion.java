@@ -56,6 +56,8 @@ public class AccionBotonesDeAccion {
         }
         vidaBar1.setValue(luchador1.getVigor());
         vidaBar2.setValue(luchador2.getVigor());
+        vidaBar1.setString(""+luchador1.getVigor());
+        vidaBar2.setString(""+luchador2.getVigor());
 
         if (vigorFinal < 0) {
 
