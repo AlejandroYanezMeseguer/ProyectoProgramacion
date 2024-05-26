@@ -1,5 +1,6 @@
 package cargarArmas;
 
+import Configuracion.CargarConfiguration;
 import armas_java.Escudos;
 import interfaces.IAcciones;
 import jugador.TipoGuerrero;
@@ -13,8 +14,8 @@ public class CargarEscudos {
 
         ArrayList<IAcciones> escudos = new ArrayList<IAcciones>();
 
-        try( Connection connection = DriverManager.getConnection("jdbc:sqlite:DB/coia_ring.db");
-             Statement statement = connection.createStatement();
+        try(Connection connection = DriverManager.getConnection(CargarConfiguration.CadenaDeConexion);
+            Statement statement = connection.createStatement();
              )
         {
 
@@ -25,7 +26,9 @@ public class CargarEscudos {
             {
                 escudos.add(crearEscudo(rs.getInt("Defensa"),
                         rs.getInt("Peso"),
-                        rs.getString("Nombre")));
+                        rs.getString("Nombre"),
+                        rs.getString("UrlLink"))
+                );
             }
 
             }catch(SQLException e)
@@ -35,8 +38,8 @@ public class CargarEscudos {
 
         return escudos;
     }
-    public static IAcciones crearEscudo(int defensa, int peso, String nombre){
-           return new Escudos(defensa,peso,nombre);
+    public static IAcciones crearEscudo(int defensa, int peso, String nombre, String image){
+           return new Escudos(defensa,peso,nombre,image);
     }
 }
 

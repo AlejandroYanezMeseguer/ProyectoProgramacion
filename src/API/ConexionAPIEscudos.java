@@ -5,12 +5,15 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class ConexionAPIEscudos {
 
-    public void APIEscudos() {
+    public EldenRingData APIEscudos() {
 
-        String apiUrl = "https://eldenring.fanapis.com/api/shields";
+        EldenRingData escudos = null;
+
+        String apiUrl = "https://eldenring.fanapis.com/api/shields?limit=100";
 
         try {
 
@@ -31,8 +34,8 @@ public class ConexionAPIEscudos {
                 content.append(inputLine);
 
             }
-
-            // Procesar JSON y actualizar interfaz aquí
+            ObjectMapper mapper = new ObjectMapper();
+             escudos = mapper.readValue(content.toString(), EldenRingData.class);
 
             in.close();
 
@@ -44,6 +47,7 @@ public class ConexionAPIEscudos {
 
         }
 
+        return escudos;
     }
 
 }

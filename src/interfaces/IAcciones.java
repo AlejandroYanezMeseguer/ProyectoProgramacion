@@ -18,4 +18,6 @@ public interface IAcciones {
     int defender(int ValorD);
 
     String getNombre();
+
+    String getImage();
 }

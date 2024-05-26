@@ -151,7 +151,7 @@ public class AccionBotonesDeAccion {
      *
      * @param e
      */
-    public static void seleccionDeEquipo(ActionEvent e, Jugador jugador1, int condicion) {
+    public static void seleccionDeEquipo(ActionEvent e, Jugador jugador, int condicion) {
 
         var boton = (JButton) e.getSource();
         String[] posicionArma = boton.getName().split("\\|");
@@ -163,10 +163,10 @@ public class AccionBotonesDeAccion {
 
         switch (condicion) {
             case 1:
-                jugador1.cambiarArma(posicion);
+                jugador.cambiarArma(posicion);
                 break;
             case 2:
-                jugador1.cambiarEscudo(posicion);
+                jugador.cambiarEscudo(posicion);
                 break;
         }
 

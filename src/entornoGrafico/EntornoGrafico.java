@@ -550,6 +550,7 @@ public class EntornoGrafico extends JFrame{
      */
     private void cambiarArmaJ1ActionPerformed(ActionEvent e){
        AccionBotonesDeAccion.cambiarArma(e,panelCambiarArmaJ1,jugador1,skinJ1,1,cambiarArmaJ1,cambiarEscudoJ1, ataqueJ1);
+
     }
 
     /**

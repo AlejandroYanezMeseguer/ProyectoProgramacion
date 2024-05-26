@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 
 public class PanelCambiarEscudos{
 
@@ -47,7 +48,15 @@ public class PanelCambiarEscudos{
 
             for(int j = 0;j < 9; j++){
 
+                BufferedImage imagenEscudo = null;
+                try {
+                    imagenEscudo = ImageIO.read(new File(escudos[i][j].getImage()));
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                }
                 JButton boton = new JButton(escudos[i][j].getNombre());
+                boton.setIcon(new ImageIcon(imagenEscudo.getScaledInstance(LADO_BOTON,LADO_BOTON, Image.SCALE_SMOOTH)));
+                boton.setOpaque(false);
                 boton.setName(i +"|" +j);
                 boton.addActionListener(e);
                 int y = VALOR_INICIAL_Y_BOTONES +j*INCREMENTO_EJE_Y;

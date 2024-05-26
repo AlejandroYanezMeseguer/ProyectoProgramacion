@@ -1,5 +1,6 @@
 package cargarArmas;
 
+import Configuracion.CargarConfiguration;
 import armas_java.Bastones;
 import armas_java.Catalizadores;
 import interfaces.IAcciones;
@@ -14,8 +15,8 @@ public class CargarArmasMago {
 
         ArrayList<IAcciones> armas = new ArrayList<IAcciones>();
 
-        try( Connection connection = DriverManager.getConnection("jdbc:sqlite:DB/coia_ring.db");
-             Statement statement = connection.createStatement();
+        try(Connection connection = DriverManager.getConnection(CargarConfiguration.CadenaDeConexion);
+            Statement statement = connection.createStatement();
              )
         {
 

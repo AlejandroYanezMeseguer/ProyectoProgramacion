@@ -15,7 +15,7 @@ public abstract class Jugador {
     protected int fe;
     protected int mente;
     protected String nombre;
-    public Posicion[] armasSeleccionadas = {new Posicion(0,0),new Posicion(0,2)};
+    public Posicion[] armasSeleccionadas = {new Posicion(0,0),new Posicion(2,0)};
     public ContenedorArmas baul;
 
     /**
@@ -113,5 +113,9 @@ public abstract class Jugador {
 
     public TipoGuerrero getTipoGuerrero(){
         return TipoGuerrero.valueOf(this.getClass().getSimpleName());
+    }
+
+    public String getImagenEscudo() {
+        return baul.listaArmas[armasSeleccionadas[1].x][armasSeleccionadas[1].y].getImage();
     }
 }
