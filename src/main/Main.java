@@ -1,7 +1,9 @@
 
 package main;
 
+import API.ConexionAPIArmas;
 import API.ConexionAPIEscudos;
+import API.SincronizacionArmas;
 import API.SincronizacionEscudos;
 import Configuracion.CargarConfiguration;
 import entornoGrafico.EntornoGrafico;
@@ -17,6 +19,10 @@ public class Main {
         ConexionAPIEscudos escudos = new ConexionAPIEscudos();
         SincronizacionEscudos sincronizacionEscudos = new SincronizacionEscudos();
         sincronizacionEscudos.sincronizar();
+
+        ConexionAPIArmas armas = new ConexionAPIArmas();
+        SincronizacionArmas sincronizacionArmas = new SincronizacionArmas();
+        sincronizacionArmas.sincronizar();
 
         EntornoGrafico xss = new EntornoGrafico();
 

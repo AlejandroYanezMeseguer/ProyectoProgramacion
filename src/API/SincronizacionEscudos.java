@@ -43,7 +43,7 @@ public class SincronizacionEscudos {
             if(escudos.size() > 0){
                 EldenRingData eldenRingData = APIEscudos.APIEscudos();
                 for (Escudos escudo : escudos) {
-                    String urlLink = eldenRingData.getEldenRingReferencia(escudo.EldenRingReferencia);
+                    String urlLink = eldenRingData.getEldenRingReferenciaEscudo(escudo.EldenRingReferencia);
                     BufferedImage imagenEscudo = null;
                     String ruta = "src/imagenes/Escudos/" + escudo.EldenRingReferencia + ".png";
                     try {

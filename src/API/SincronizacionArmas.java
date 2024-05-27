@@ -42,7 +42,7 @@ public class SincronizacionArmas {
             if(armas.size() > 0){
                 EldenRingData eldenRingData = APIArmas.APIArmas();
                 for (Armas arma : armas) {
-                    String urlLink = eldenRingData.getEldenRingReferencia(arma.EldenRingReferencia);
+                    String urlLink = eldenRingData.getEldenRingReferenciaArmas(arma.EldenRingReferencia);
                     BufferedImage imagenArma = null;
                     String ruta = "src/imagenes/Armas/" + arma.EldenRingReferencia + ".png";
                     try {

@@ -13,14 +13,23 @@ public class EldenRingData {
     public Data[] data;
 
     /**
-     * Getter de la referencia de EldenRing (id de las armas en la API)
+     * Getter de la referencia de EldenRing (id de los escudos en la API)
      * @param id
      * @return String
      */
-    public String getEldenRingReferencia(String id) {
+    public String getEldenRingReferenciaEscudo(String id) {
         for (Data escudo : data) {
             if (escudo.id.equals(id)) {
                 return escudo.image;
+            }
+        }
+        return null;
+    }
+
+    public String getEldenRingReferenciaArmas(String id) {
+        for (Data arma : data) {
+            if (arma.id.equals(id)) {
+                return arma.image;
             }
         }
         return null;
