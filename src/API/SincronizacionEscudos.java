@@ -11,8 +11,14 @@ import java.net.URL;
 import java.sql.*;
 import java.util.ArrayList;
 
+/**
+ * Clase SincronizacionEscudos que se utilizara para sincronizar los escudos con la API
+ */
 public class SincronizacionEscudos {
 
+    /**
+     * Metodo que se utilizara para sincronizar los escudos con la API
+     */
     public static void sincronizar()  {
 
         ConexionAPIEscudos APIEscudos = new ConexionAPIEscudos();
@@ -33,6 +39,7 @@ public class SincronizacionEscudos {
                         rs.getString("UrlLink"))
                 );
             }
+            // Si hay escudos sin imagen, se descargan las imagenes de la API
             if(escudos.size() > 0){
                 EldenRingData eldenRingData = APIEscudos.APIEscudos();
                 for (Escudos escudo : escudos) {
