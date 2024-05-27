@@ -10,7 +10,7 @@ public class Mago extends Jugador{
 
     private static final int FUERZA = 10;
     private static final int DESTREZA = 12;
-    private static final int VIGOR = 1700;
+    private static final int VIGOR = 350;
     private static final int AGUANTE = 15;
     private static final int FE = 22;
     private static final int MENTE = 28;

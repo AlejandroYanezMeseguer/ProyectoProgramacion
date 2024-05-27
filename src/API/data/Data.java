@@ -1,4 +1,4 @@
-package API;
+package API.data;
 
 public class Data {
         public String id;

@@ -1,5 +1,7 @@
 package API;
 
+import API.data.Data;
+
 public class EldenRingData {
 
     public boolean success;

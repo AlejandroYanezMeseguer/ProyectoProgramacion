@@ -1,6 +1,8 @@
 package API;
 
 
+import Configuracion.CargarConfiguration;
+
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -17,7 +19,7 @@ public class SincronizacionEscudos {
 
         ArrayList<Escudos> escudos = new ArrayList<Escudos>();
 
-        try(Connection connection = DriverManager.getConnection("jdbc:sqlite:DB/coia_ring.db");
+        try(Connection connection = DriverManager.getConnection(CargarConfiguration.CadenaDeConexion);
             Statement statement = connection.createStatement();
         )
         {

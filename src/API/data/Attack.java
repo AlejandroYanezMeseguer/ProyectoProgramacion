@@ -1,7 +1,6 @@
-package API;
+package API.data;
 
-public class requiredAttributes {
-
+public class Attack {
     public String name;
     public int amount;
 }

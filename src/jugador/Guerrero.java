@@ -11,7 +11,7 @@ public class Guerrero extends Jugador{
 
     private static final int FUERZA = 18;
     private static final int DESTREZA = 21;
-    private static final int VIGOR = 2600;
+    private static final int VIGOR = 1100;
     private static final int AGUANTE = 21;
     private static final int FE = 10;
     private static final int MENTE = 12;

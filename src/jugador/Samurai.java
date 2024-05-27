@@ -10,7 +10,7 @@ public class Samurai extends Jugador{
 
     private static final int FUERZA = 18;
     private static final int DESTREZA = 22;
-    private static final int VIGOR = 2800;
+    private static final int VIGOR = 1400;
     private static final int AGUANTE = 19;
     private static final int FE = 11;
     private static final int MENTE = 12;
