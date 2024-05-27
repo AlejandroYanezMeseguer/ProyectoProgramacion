@@ -9,8 +9,15 @@ import java.util.ArrayList;
 
 import static entornoGrafico.PanelesInformacion.PanelesInformacionClases.crearPanelesInformacionClases;
 
+/**
+ * Clase que crea las acciones que ejecutan los botones de elegir clase
+ */
 public class AccionBotonElegirClase {
 
+    /**
+     * metodo que crea las acciones que ejecuta el boton elegir clase
+     * @param e
+     */
     public static void seleccionarclase(ActionEvent e, JButton botonSeleccionado,JButton botondDeseleccionado1,JButton botondDeseleccionado2){
         botonSeleccionado.setEnabled(false);
         botondDeseleccionado1.setEnabled(true);

@@ -41,11 +41,21 @@ public class Escudos implements IAcciones {
         return ValorD+ defensa + peso;
     }
 
+    // Getters
+
+    /**
+     * getter de nombre
+     * @return nombre
+     */
     @Override
     public String getNombre() {
         return nombre;
     }
 
+    /**
+     * getter de imagen
+     * @return image
+     */
     @Override
     public String getImage() {
         return image;

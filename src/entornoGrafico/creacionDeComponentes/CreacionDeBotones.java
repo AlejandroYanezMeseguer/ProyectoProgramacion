@@ -1,12 +1,13 @@
 package entornoGrafico.creacionDeComponentes;
 
-import jugador.Jugador;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
 import java.awt.image.BufferedImage;
 
+/**
+ * Clase que crea botones con texto o con imagen y los añade a un panel
+ */
 public class CreacionDeBotones {
 
     /**
@@ -27,6 +28,16 @@ public class CreacionDeBotones {
 
     }
 
+    /**
+     * Metodo que crea un boton con una imagen y lo añade a un panel
+     * @param Boton
+     * @param PanelDondeAñadir
+     * @param x
+     * @param y
+     * @param width
+     * @param height
+     * @param imagen
+     */
     public static void crearBotonImagen(JButton Boton, JPanel PanelDondeAñadir, int x, int y, int width, int height, BufferedImage imagen){
 
         Boton.setBounds(x,y,width,height);

@@ -8,8 +8,6 @@ import entornoGrafico.EntornoGrafico;
 
 import java.io.IOException;
 import java.sql.SQLException;
-//import Guerrero.Guerrero;
-//import Guerrero.TipoGuerrero;
 
 public class Main {
 

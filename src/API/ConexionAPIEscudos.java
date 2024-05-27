@@ -7,8 +7,15 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+/**
+ * Clase ConexionAPIEscudos que se utilizara para conectar con la API de los escudos
+ */
 public class ConexionAPIEscudos {
 
+    /**
+     * Metodo que se utilizara para conectar con la API de los escudos
+     * @return EldenRingData
+     */
     public EldenRingData APIEscudos() {
 
         EldenRingData escudos = null;

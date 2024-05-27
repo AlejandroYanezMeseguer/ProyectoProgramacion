@@ -7,7 +7,6 @@ import jugador.*;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.BevelBorder;
-import javax.swing.border.MatteBorder;
 import javax.swing.plaf.basic.BasicProgressBarUI;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -384,6 +383,9 @@ public class EntornoGrafico extends JFrame{
 
     }
 
+    /**
+     * Metodo que crea los Mouselisteners de todos los JButton
+     */
     private void mouseListenersBotones() {
         addMouseListenerToButton(seleccionarMagoJ1, panelinformacionMagoJ1,informacionMagoJ1 ,Mago::getStats);
         addMouseListenerToButton(seleccionarGuerreroJ1, panelinformacionGuerreroJ1, informacionGuerreroJ1,Guerrero::getStats);
@@ -554,7 +556,7 @@ public class EntornoGrafico extends JFrame{
     }
 
     /**
-     * metodo que crea las acciones que ejecuta el boton cambiarArmaJ1
+     * metodo que crea las acciones que ejecuta el boton cambiarArmaJ2
      * @param e
      */
     private void cambiarArmaJ2ActionPerformed(ActionEvent e){
@@ -578,7 +580,7 @@ public class EntornoGrafico extends JFrame{
     }
 
     /**
-     * Metodo que crea las JLabel con las vidas de los jugadores
+     * Metodo que crea la JProgressBar  con la vida del jugador1
      * @param luchador
      */
     private void crearVidaJ1(Jugador luchador, JPanel panelAñadirVida){
@@ -598,6 +600,10 @@ public class EntornoGrafico extends JFrame{
         panelAñadirVida.add(vidaBar1);
     }
 
+    /**
+     * Metodo que crea la JProgressBar con la vida del jugador2
+     * @param luchador
+     */
     private void crearVidaJ2(Jugador luchador,JPanel panelAñadirVida){
 
         vidaBar2 = new JProgressBar(0, luchador.getVigor());

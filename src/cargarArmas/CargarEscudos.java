@@ -8,8 +8,15 @@ import jugador.TipoGuerrero;
 import java.sql.*;
 import java.util.ArrayList;
 
+/**
+ * Clase que carga los escudos
+ */
 public class CargarEscudos {
 
+    /**
+     * Metodo que carga los escudos llamando a la base de datos para obtener los datos
+     * @return escudos
+     */
     public static ArrayList<IAcciones> cargar()  {
 
         ArrayList<IAcciones> escudos = new ArrayList<IAcciones>();
@@ -38,6 +45,14 @@ public class CargarEscudos {
 
         return escudos;
     }
+    /**
+     * Metodo que crea los escudos en base a los datos obtenidos de la base de datos
+     * @param defensa
+     * @param peso
+     * @param nombre
+     * @param image
+     * @return escudo
+     */
     public static IAcciones crearEscudo(int defensa, int peso, String nombre, String image){
            return new Escudos(defensa,peso,nombre,image);
     }

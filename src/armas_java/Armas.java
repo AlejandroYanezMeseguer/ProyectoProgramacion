@@ -55,11 +55,20 @@ public abstract class Armas {
         return ValorA;
     }
 
+    // Getters
 
+    /**
+     * Getter de nombre
+     * @return nombre
+     */
     public String getNombre() {
         return nombre;
     }
 
+    /**
+     * Getter de la imagen
+     * @return image
+     */
     public String getImage() {
         return image;
     }

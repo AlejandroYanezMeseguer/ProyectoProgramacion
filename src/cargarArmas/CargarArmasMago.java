@@ -9,8 +9,16 @@ import jugador.TipoGuerrero;
 import java.sql.*;
 import java.util.ArrayList;
 
+/**
+ * Clase que carga las armas de los magos
+ */
 public class CargarArmasMago {
 
+    /**
+     * Metodo que carga las armas de los magos llamanado a la base de datos para obtener los datos
+     * @param tipoGuerrero
+     * @return armas
+     */
     public static ArrayList<IAcciones> cargar(TipoGuerrero tipoGuerrero)  {
 
         ArrayList<IAcciones> armas = new ArrayList<IAcciones>();
@@ -40,6 +48,17 @@ public class CargarArmasMago {
 
         return armas;
     }
+
+    /**
+     * Metodo que crea las armas en base a los datos obtenidos de la base de datos
+     * @param daño
+     * @param durabilidad
+     * @param escalabilidad
+     * @param velocidadAtaque
+     * @param nombre
+     * @param tipoArma
+     * @return arma
+     */
     public static IAcciones crearArma(int daño, int durabilidad, String escalabilidad, String velocidadAtaque,String nombre,int tipoArma){
 
         switch (tipoArma){

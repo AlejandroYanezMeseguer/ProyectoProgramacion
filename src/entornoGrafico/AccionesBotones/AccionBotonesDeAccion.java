@@ -12,11 +12,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Random;
 
+/**
+ * Clase que crea las acciones que ejecutan los botones de accion
+ */
 public class AccionBotonesDeAccion {
     Random rand = new Random();
 
     /**
-     * metodo que crea las acciones que ejecuta el boton ataqueJ1
+     * metodo que crea las acciones que ejecuta el boton de ataque
      * @param e
      * @param luchador1
      * @param luchador2
@@ -33,6 +36,7 @@ public class AccionBotonesDeAccion {
         Random rand = new Random();
 
         switch (condicion){
+            //ataque jugador 1
             case 1:{
                 int condicionAleatoria = rand.nextInt(15) + 1;
                 if (condicionAleatoria == 1) {
@@ -43,6 +47,7 @@ public class AccionBotonesDeAccion {
                     vigorFinal = luchador2.recibirGolpe(daño);
                 }
             }break;
+            //ataque jugador 2
             case 2:{
                 int condicionAleatoria = rand.nextInt(15) + 1;
                 if (condicionAleatoria == 1) {
@@ -68,8 +73,7 @@ public class AccionBotonesDeAccion {
     }
 
     /**
-     * metodo que crea las acciones que ejecuta el boton cambiarArmaJ1
-     *
+     * metodo que crea las acciones que ejecutan los botones de cambiarArma
      * @param e
      */
     public static void cambiarArma(ActionEvent e, JPanel panelCambiarArma, Jugador jugador, JPanel skin, int condicion,JButton botonDesactivar1,JButton botonDesactivar2,JButton botonDesactivar3) {
@@ -85,6 +89,7 @@ public class AccionBotonesDeAccion {
             }
         };
         switch (condicion) {
+            //cambiar arma jugador 1
             case 1: {
                 armas.añadirArmas(listener);
 
@@ -94,6 +99,7 @@ public class AccionBotonesDeAccion {
                 panelCambiarArma.setVisible(true);
             }
             break;
+            //cambiar arma jugador 2
             case 2: {
                 armas.añadirArmas(listener);
 
@@ -109,8 +115,7 @@ public class AccionBotonesDeAccion {
     }
 
     /**
-     * metodo que crea las acciones que ejecuta el boton cambiarEscudoJ1
-     *
+     * metodo que crea las acciones que ejecutan los botones cambiarEscudo
      * @param e
      */
     public static void cambiarEscudo(ActionEvent e, JPanel panelCambiarEscudo, Jugador jugador, JPanel skin, int condicion,JButton botonDesactivar1,JButton botonDesactivar2,JButton botonDesactivar3) {
@@ -125,6 +130,7 @@ public class AccionBotonesDeAccion {
             }
         };
         switch (condicion) {
+            //cambiar escudo jugador 1
             case 1: {
                 escudos.añadirEscudos(listener);
                 stats.statsEscudos();
@@ -133,6 +139,7 @@ public class AccionBotonesDeAccion {
                 panelCambiarEscudo.setVisible(true);
             }
             break;
+            //cambar escudo jugador 2
             case 2: {
                 escudos.añadirEscudos(listener);
                 stats.statsEscudos();
@@ -147,8 +154,7 @@ public class AccionBotonesDeAccion {
     }
 
     /**
-     * metodo que crea las acciones que se le pasan al listener de seleccionDeArmaJ1 para el J1
-     *
+     * metodo que crea las acciones que se le pasan al listener de seleccionDeArma
      * @param e
      */
     public static void seleccionDeEquipo(ActionEvent e, Jugador jugador, int condicion) {
@@ -162,9 +168,11 @@ public class AccionBotonesDeAccion {
         Posicion posicion = new Posicion(x, y);
 
         switch (condicion) {
+            //cambiar arma
             case 1:
                 jugador.cambiarArma(posicion);
                 break;
+            //cambiar escudo
             case 2:
                 jugador.cambiarEscudo(posicion);
                 break;
@@ -172,6 +180,15 @@ public class AccionBotonesDeAccion {
 
     }
 
+  /**
+     * metodo que crea las acciones que ejecutan el boton de seleccionarEquipo
+     * @param e
+     * @param Skin
+     * @param panel
+     * @param botonactivar1
+     * @param botonactivar2
+     * @param botonactivar3
+     */
     public static void seleccionarEquipo(ActionEvent e,JPanel Skin, JPanel panel,JButton botonactivar1,JButton botonactivar2,JButton botonactivar3){
         Skin.setVisible(true);
         panel.setVisible(false);

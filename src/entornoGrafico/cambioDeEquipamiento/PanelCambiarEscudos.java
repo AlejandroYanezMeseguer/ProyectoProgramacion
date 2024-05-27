@@ -11,6 +11,9 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 
+/**
+ * Clase que añade al panel de cambiar de escudo los botones para seleccionar el escudo de cada clase en 3 columnas
+ */
 public class PanelCambiarEscudos{
 
     private JPanel panel;
@@ -35,7 +38,7 @@ public class PanelCambiarEscudos{
     }
 
     /**
-     * Metodo que añade al panel de cambiar de escudo los botones para seleccionar el escudo de cada clase en 3 columnas para el jugador 2
+     * Metodo que añade al panel de cambiar de escudo los botones para seleccionar el escudo de cada clase en 3 columnas
      * @param e
      */
     public void añadirEscudos(ActionListener e){
@@ -83,7 +86,7 @@ public class PanelCambiarEscudos{
     }
 
     /**
-     * Metodo que añade al panel de cambiar de arma las etiquetas con el nombre del escudo de cada clase en 3 columnas para el jugador 2
+     * Metodo que añade al panel de cambiar de arma las etiquetas con el nombre del escudo de cada clase en 3 columnas
      */
     public void añadirNombresEscudos(){
 
@@ -118,43 +121,6 @@ public class PanelCambiarEscudos{
                 nombreEscudo.setForeground(new Color(255,211,97,200));
                 nombreEscudo.setFont(new Font(null,Font.PLAIN,20));
                 panel.add(nombreEscudo);
-            }
-        }
-    }
-    public void fondoEscudos() throws IOException {
-        BufferedImage fondo = ImageIO.read(new File("src/imagenes/equipoSeleccionado.png"));
-        int incrementoColumna = 0;
-        boolean cambioColumna = true;
-        var escudos = jugador.baul.listaArmas;
-
-        for(int i = 2;i < 3; i++){
-
-            for(int j = 0;j < 9; j++){
-
-                JPanel fondoEscudo = new JPanel(){protected void paintComponent(Graphics g) {
-                    super.paintComponent(g);
-                    g.drawImage(fondo, 200, 100, LADO_BOTON, LADO_BOTON, this);
-                }};
-                fondoEscudo.setName(i +"|" +j);
-                int y = VALOR_INICIAL_Y_ETIQUETAS +j*INCREMENTO_EJE_Y;
-                if (j==6){
-                    cambioColumna=true;
-                    etiquetasPorColumna = 6;
-                }
-                if (j>2){
-
-                    if(cambioColumna){
-
-                        incrementoColumna++;
-                        cambioColumna=false;
-
-                    }
-                    y = VALOR_INICIAL_Y_ETIQUETAS +(j- etiquetasPorColumna)*INCREMENTO_EJE_Y;
-
-                }
-                int x = VALOR_INICIAL_X +(i+incrementoColumna)*INCREMENTO_EJE_X;
-                fondoEscudo.setBounds(x,y,LADO_BOTON,LADO_BOTON);
-                panel.add(fondoEscudo);
             }
         }
     }

@@ -4,10 +4,16 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
+/**
+ * Clase que carga la configuracion de la aplicacion
+ */
 public  class CargarConfiguration {
 
     public static String CadenaDeConexion;
 
+    /**
+     * Metodo que lee el archivo de configuracion
+     */
   public static void leerFicheros() {
       try {
           // Abrir el archivo para leerlo
@@ -22,8 +28,6 @@ public  class CargarConfiguration {
                 if(configurationItem[0].equals("CadenaDeConexion")){
                     CadenaDeConexion = configurationItem[1];
                 }
-
-
           }
 
           // Cerrar el archivo

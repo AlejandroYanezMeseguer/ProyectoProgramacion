@@ -15,6 +15,7 @@ public class Samurai extends Jugador{
     private static final int FE = 11;
     private static final int MENTE = 12;
 
+    //Estadisticas del samurai
     private static String estadisticas = " - Fuerza: " +FUERZA +"<br>"+"- Destreza: " +DESTREZA +"<br>"+"- Vigor: " +VIGOR +"<br>"+"- Aguante: " +AGUANTE +"<br>"+"- Fe: " +FE +"<br>"+"- Mente: " +MENTE;
 
     /**
@@ -27,6 +28,11 @@ public class Samurai extends Jugador{
         baul =new ContenedorArmas(TipoGuerrero.Samurai);
 
     }
+
+    /**
+     * Metodo que devuelve las estadisticas del samurai
+     * @return
+     */
     public static String getStats(){
         return "<html><p>" +estadisticas +"</html></p>";
     }
