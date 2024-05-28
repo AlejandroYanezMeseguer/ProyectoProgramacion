@@ -1,5 +1,6 @@
 package entornoGrafico.PanelesInformacion;
 
+import Configuracion.CargarConfiguration;
 import jugador.Jugador;
 import jugador.TipoGuerrero;
 
@@ -21,7 +22,7 @@ public class PanelesInformacionArmas {
 
         ArrayList<String> armas = new ArrayList<String>();
 
-        try(Connection connection = DriverManager.getConnection("jdbc:sqlite:DB/coia_ring.db");
+        try(Connection connection = DriverManager.getConnection(CargarConfiguration.CadenaDeConexion);
             Statement statement = connection.createStatement();
         )
         {

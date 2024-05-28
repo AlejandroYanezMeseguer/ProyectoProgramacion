@@ -10,6 +10,7 @@ public abstract class Armas {
     protected String escalabilidad;
     protected String velocidadAtaque;
     protected String nombre;
+    protected String image;
 
     /**
      * Constructor de la clase armas
@@ -54,8 +55,21 @@ public abstract class Armas {
         return ValorA;
     }
 
+    // Getters
 
+    /**
+     * Getter de nombre
+     * @return nombre
+     */
     public String getNombre() {
         return nombre;
+    }
+
+    /**
+     * Getter de la imagen
+     * @return image
+     */
+    public String getImage() {
+        return image;
     }
 }

@@ -1,0 +1,1 @@
+CadenaDeConexion|jdbc:sqlite:DB/coia_ring.db

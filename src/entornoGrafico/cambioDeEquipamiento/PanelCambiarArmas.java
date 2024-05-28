@@ -2,10 +2,17 @@ package entornoGrafico.cambioDeEquipamiento;
 
 import jugador.Jugador;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
+/**
+ * Clase que añade al panel de cambiar de arma los botones para seleccionar el arma de cada clase en 4 columnas
+ */
 public class PanelCambiarArmas {
 
     private JPanel panel;
@@ -28,7 +35,7 @@ public class PanelCambiarArmas {
     }
 
     /**
-     * Metodo que añade al panel de cambiar de arma los botones para seleccionar el arma de cada clase en 4 columnas para el jugador 1
+     * Metodo que añade al panel de cambiar de arma los botones para seleccionar el arma de cada clase en 4 columnas
      * @param e
      */
     public void añadirArmas(ActionListener e){
@@ -66,7 +73,7 @@ public class PanelCambiarArmas {
     }
 
     /**
-     * Metodo que añade al panel de cambiar de arma las etiquetas con el nombre del arma de cada clase en 4 columnas para el jugador 1
+     * Metodo que añade al panel de cambiar de arma las etiquetas con el nombre del arma de cada clase en 4 columnas
      */
     public void añadirNombresArmas(){
 
@@ -96,8 +103,8 @@ public class PanelCambiarArmas {
                 }
                 int x = VALOR_INICIAL_X +(i+incrementoColumna)*INCREMENTO_EJE_X;
                 nombreArma.setBounds(x,y,250,21);
-                nombreArma.setFont(new Font(null,Font.PLAIN,15));
-                nombreArma.setForeground(new Color(255,211,97,200));
+                nombreArma.setFont(new Font(null,Font.PLAIN,16));
+                nombreArma.setForeground(new Color(255,211,97,230));
                 panel.add(nombreArma);
             }
         }

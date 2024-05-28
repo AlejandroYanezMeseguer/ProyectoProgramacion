@@ -35,4 +35,4 @@ public class Alabardas extends Armas implements IAcciones {
     public int defender(int ValorD) {
         return 0;
     }
- }
+}

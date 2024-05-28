@@ -1,5 +1,6 @@
 package cargarArmas;
 
+import Configuracion.CargarConfiguration;
 import armas_java.Alabardas;
 import armas_java.Katanas;
 import interfaces.IAcciones;
@@ -12,14 +13,22 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+/**
+ * Clase que carga las armas de los samurais
+ */
 public class CargarArmasSamurai {
 
+    /**
+     * Metodo que carga las armas de los samurais llamanado a la base de datos para obtener los datos
+     * @param tipoGuerrero
+     * @return armas
+     */
     public static ArrayList<IAcciones> cargar(TipoGuerrero tipoGuerrero)  {
 
         ArrayList<IAcciones> armas = new ArrayList<IAcciones>();
 
-        try( Connection connection = DriverManager.getConnection("jdbc:sqlite:DB/coia_ring.db");
-             Statement statement = connection.createStatement();
+        try(Connection connection = DriverManager.getConnection(CargarConfiguration.CadenaDeConexion);
+            Statement statement = connection.createStatement();
              )
         {
 
@@ -43,6 +52,16 @@ public class CargarArmasSamurai {
 
         return armas;
     }
+    /**
+     * Metodo que crea las armas en base a los datos obtenidos de la base de datos
+     * @param daño
+     * @param durabilidad
+     * @param escalabilidad
+     * @param velocidadAtaque
+     * @param nombre
+     * @param tipoArma
+     * @return arma
+     */
     public static IAcciones crearArma(int daño, int durabilidad, String escalabilidad, String velocidadAtaque,String nombre,int tipoArma){
 
         switch (tipoArma){

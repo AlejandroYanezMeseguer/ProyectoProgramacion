@@ -8,13 +8,14 @@ import java.lang.*;
  */
 public class Samurai extends Jugador{
 
-    private static final int FUERZA = 10;
-    private static final int DESTREZA = 12;
-    private static final int VIGOR = 600;
-    private static final int AGUANTE = 16;
-    private static final int FE = 10;
+    private static final int FUERZA = 18;
+    private static final int DESTREZA = 22;
+    private static final int VIGOR = 1400;
+    private static final int AGUANTE = 19;
+    private static final int FE = 11;
     private static final int MENTE = 12;
 
+    //Estadisticas del samurai
     private static String estadisticas = " - Fuerza: " +FUERZA +"<br>"+"- Destreza: " +DESTREZA +"<br>"+"- Vigor: " +VIGOR +"<br>"+"- Aguante: " +AGUANTE +"<br>"+"- Fe: " +FE +"<br>"+"- Mente: " +MENTE;
 
     /**
@@ -27,6 +28,11 @@ public class Samurai extends Jugador{
         baul =new ContenedorArmas(TipoGuerrero.Samurai);
 
     }
+
+    /**
+     * Metodo que devuelve las estadisticas del samurai
+     * @return
+     */
     public static String getStats(){
         return "<html><p>" +estadisticas +"</html></p>";
     }

@@ -1,5 +1,6 @@
 package entornoGrafico.PanelesInformacion;
 
+import Configuracion.CargarConfiguration;
 import jugador.Jugador;
 import jugador.TipoGuerrero;
 
@@ -27,7 +28,7 @@ public static ArrayList<String> cargarStatsEscudos()  {
 
         ArrayList<String> escudos = new ArrayList<String>();
 
-        try(Connection connection = DriverManager.getConnection("jdbc:sqlite:DB/coia_ring.db");
+        try(Connection connection = DriverManager.getConnection(CargarConfiguration.CadenaDeConexion);
             Statement statement = connection.createStatement();
         )
         {

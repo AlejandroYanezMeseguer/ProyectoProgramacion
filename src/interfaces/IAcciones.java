@@ -17,5 +17,13 @@ public interface IAcciones {
      */
     int defender(int ValorD);
 
+    /**
+     * getter del nombre del arma
+     */
     String getNombre();
+
+    /**
+     * getter de la imagen del arma
+     */
+    String getImage();
 }

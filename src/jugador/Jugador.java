@@ -15,7 +15,7 @@ public abstract class Jugador {
     protected int fe;
     protected int mente;
     protected String nombre;
-    public Posicion[] armasSeleccionadas = {new Posicion(0,0),new Posicion(0,2)};
+    public Posicion[] armasSeleccionadas = {new Posicion(0,0),new Posicion(2,0)};
     public ContenedorArmas baul;
 
     /**
@@ -31,6 +31,10 @@ public abstract class Jugador {
         this.nombre = nombre;
     }
 
+    /**
+     * getter del vigor
+     * @return vigor
+     */
     public int getVigor() {
         return vigor;
     }
@@ -111,7 +115,12 @@ public abstract class Jugador {
         return vigor;
     }
 
+    /**
+     * getter del tipo de guerrero
+     * @return TipoGuerrero
+     */
     public TipoGuerrero getTipoGuerrero(){
         return TipoGuerrero.valueOf(this.getClass().getSimpleName());
     }
+
 }

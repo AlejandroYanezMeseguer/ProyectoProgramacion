@@ -2,10 +2,18 @@ package entornoGrafico.cambioDeEquipamiento;
 
 import jugador.Jugador;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.net.URL;
 
+/**
+ * Clase que añade al panel de cambiar de escudo los botones para seleccionar el escudo de cada clase en 3 columnas
+ */
 public class PanelCambiarEscudos{
 
     private JPanel panel;
@@ -30,7 +38,7 @@ public class PanelCambiarEscudos{
     }
 
     /**
-     * Metodo que añade al panel de cambiar de escudo los botones para seleccionar el escudo de cada clase en 3 columnas para el jugador 2
+     * Metodo que añade al panel de cambiar de escudo los botones para seleccionar el escudo de cada clase en 3 columnas
      * @param e
      */
     public void añadirEscudos(ActionListener e){
@@ -43,7 +51,15 @@ public class PanelCambiarEscudos{
 
             for(int j = 0;j < 9; j++){
 
+                BufferedImage imagenEscudo = null;
+                try {
+                    imagenEscudo = ImageIO.read(new File(escudos[i][j].getImage()));
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                }
                 JButton boton = new JButton(escudos[i][j].getNombre());
+                boton.setIcon(new ImageIcon(imagenEscudo.getScaledInstance(LADO_BOTON,LADO_BOTON, Image.SCALE_SMOOTH)));
+                boton.setOpaque(false);
                 boton.setName(i +"|" +j);
                 boton.addActionListener(e);
                 int y = VALOR_INICIAL_Y_BOTONES +j*INCREMENTO_EJE_Y;
@@ -70,7 +86,7 @@ public class PanelCambiarEscudos{
     }
 
     /**
-     * Metodo que añade al panel de cambiar de arma las etiquetas con el nombre del escudo de cada clase en 3 columnas para el jugador 2
+     * Metodo que añade al panel de cambiar de arma las etiquetas con el nombre del escudo de cada clase en 3 columnas
      */
     public void añadirNombresEscudos(){
 
@@ -108,5 +124,4 @@ public class PanelCambiarEscudos{
             }
         }
     }
-
 }

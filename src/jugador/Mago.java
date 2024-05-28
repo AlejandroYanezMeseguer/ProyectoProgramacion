@@ -10,11 +10,12 @@ public class Mago extends Jugador{
 
     private static final int FUERZA = 10;
     private static final int DESTREZA = 12;
-    private static final int VIGOR = 500;
-    private static final int AGUANTE = 16;
-    private static final int FE = 10;
-    private static final int MENTE = 12;
+    private static final int VIGOR = 350;
+    private static final int AGUANTE = 15;
+    private static final int FE = 22;
+    private static final int MENTE = 28;
 
+    //Estadisticas del mago
     private static String estadisticas = " - Fuerza: " +FUERZA +"<br>"+"- Destreza: " +DESTREZA +"<br>"+"- Vigor: " +VIGOR +"<br>"+"- Aguante: " +AGUANTE +"<br>"+"- Fe: " +FE +"<br>"+"- Mente: " +MENTE;
 
     /**
@@ -28,6 +29,10 @@ public class Mago extends Jugador{
 
     }
 
+    /**
+     * Metodo que devuelve las estadisticas del mago
+     * @return
+     */
     public static String getStats(){
         return "<html><p>" +estadisticas +"</html></p>";
     }
