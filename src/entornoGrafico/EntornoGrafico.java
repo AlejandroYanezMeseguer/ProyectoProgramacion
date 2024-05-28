@@ -322,16 +322,16 @@ public class EntornoGrafico extends JFrame{
         crearBotonImagen(empezarPelea,comenzarPelea,800,0,270,70,iconoEmpezarPelea);
 
         seleccionarArmaJ1 = new JButton(textoBoton[4]);
-        crearBotonImagen(seleccionarArmaJ1,panelCambiarArmaJ1,195,615,355,70,seleccionarArma);
+        crearBotonImagen(seleccionarArmaJ1,panelCambiarArmaJ1,195,615,365,70,seleccionarArma);
 
         seleccionarArmaJ2 = new JButton(textoBoton[4]);
-        crearBotonImagen(seleccionarArmaJ2,panelCambiarArmaJ2,195,615,355,70,seleccionarArma);
+        crearBotonImagen(seleccionarArmaJ2,panelCambiarArmaJ2,195,615,365,70,seleccionarArma);
 
         seleccionarEscudoJ1 = new JButton(textoBoton[5]);
-        crearBotonImagen(seleccionarEscudoJ1,panelCambiarEscudoJ1,178,590,380,70,seleccionarEscudo);
+        crearBotonImagen(seleccionarEscudoJ1,panelCambiarEscudoJ1,165,590,380,70,seleccionarEscudo);
 
         seleccionarEscudoJ2 = new JButton(textoBoton[5]);
-        crearBotonImagen(seleccionarEscudoJ2,panelCambiarEscudoJ2,178,590,380,70,seleccionarEscudo);
+        crearBotonImagen(seleccionarEscudoJ2,panelCambiarEscudoJ2,165,590,380,70,seleccionarEscudo);
     }
 
     /**
