@@ -1,5 +1,6 @@
 package API;
 
+import API.data.Data;
 import Configuracion.CargarConfiguration;
 
 import javax.imageio.ImageIO;
@@ -40,9 +41,9 @@ public class SincronizacionArmas {
             }
             // Si hay armas sin imagen, se descargan las imagenes de la API
             if(armas.size() > 0){
-                EldenRingData eldenRingData = APIArmas.APIArmas();
+                ArrayList<Data> armasEldenRing = APIArmas.APIArmas();
                 for (Armas arma : armas) {
-                    String urlLink = eldenRingData.getEldenRingReferenciaArmas(arma.EldenRingReferencia);
+                    String urlLink = getEldenRingReferenciaArmas(arma.EldenRingReferencia, armasEldenRing);
                     BufferedImage imagenArma = null;
                     String ruta = "src/imagenes/Armas/" + arma.EldenRingReferencia + ".png";
                     try {
@@ -59,6 +60,20 @@ public class SincronizacionArmas {
         {
             e.printStackTrace(System.err);
         }
+    }
+
+    /**
+     * Getter de la referencia de EldenRing (id de las armas en la API)
+     * @param id
+     * @return String
+     */
+    private static String getEldenRingReferenciaArmas(String id, ArrayList<Data> data) {
+        for (Data arma : data) {
+            if (arma.id.equals(id)) {
+                return arma.image;
+            }
+        }
+        return null;
     }
 
 }

@@ -1,6 +1,5 @@
 package API;
 
-
 import Configuracion.CargarConfiguration;
 
 import javax.imageio.ImageIO;

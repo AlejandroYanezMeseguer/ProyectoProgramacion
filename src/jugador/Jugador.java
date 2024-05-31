@@ -3,6 +3,9 @@ package jugador;
 import armas_java.ContenedorArmas;
 import interfaces.IAcciones;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 /**
  * Clase abstracta con las propiedades y metodos de las clases y jugadores
  */
@@ -17,6 +20,7 @@ public abstract class Jugador {
     protected String nombre;
     public Posicion[] armasSeleccionadas = {new Posicion(0,0),new Posicion(2,0)};
     public ContenedorArmas baul;
+    private ActionListener listener;
 
     /**
      * Contructos de la clase Jugador
@@ -43,9 +47,10 @@ public abstract class Jugador {
      * Metodo uqe crea la funcionalidad de cambiar de arma
      * @param armaSeleccionada
      */
-    public void cambiarArma(Posicion armaSeleccionada){
+    public void cambiarArma(Posicion armaSeleccionada, ActionEvent e){
 
         armasSeleccionadas[0] = armaSeleccionada;
+        listener.actionPerformed(e);
 
     }
 
@@ -53,9 +58,10 @@ public abstract class Jugador {
      * Metodo uqe crea la funcionalidad de cambiar de escudo
      * @param armaSeleccionada
      */
-    public void cambiarEscudo(Posicion armaSeleccionada){
+    public void cambiarEscudo(Posicion armaSeleccionada, ActionEvent e){
 
         armasSeleccionadas[1] = armaSeleccionada;
+        listener.actionPerformed(e);
 
     }
 
@@ -123,4 +129,14 @@ public abstract class Jugador {
         return TipoGuerrero.valueOf(this.getClass().getSimpleName());
     }
 
+    public void addActionListener(ActionListener listenerDesdeEscenario){
+        listener = listenerDesdeEscenario;
+    }
+
+    public String getImageEscudo(){
+        return baul.listaArmas[armasSeleccionadas[1].x][armasSeleccionadas[1].y].getImage();
+    }
+    public String getImageArma(){
+        return baul.listaArmas[armasSeleccionadas[0].x][armasSeleccionadas[0].y].getImage();
+    }
 }

@@ -42,7 +42,8 @@ public class CargarArmasSamurai {
                         rs.getString("Escalabilidad"),
                         rs.getString("VelocidadAtaque"),
                         rs.getString("Nombre"),
-                        rs.getInt("TipoDeArma")));
+                        rs.getInt("TipoDeArma"),
+                        rs.getString("UrlLink")));
             }
 
             }catch(SQLException e)
@@ -62,11 +63,11 @@ public class CargarArmasSamurai {
      * @param tipoArma
      * @return arma
      */
-    public static IAcciones crearArma(int daño, int durabilidad, String escalabilidad, String velocidadAtaque,String nombre,int tipoArma){
+    public static IAcciones crearArma(int daño, int durabilidad, String escalabilidad, String velocidadAtaque,String nombre,int tipoArma,String image){
 
         switch (tipoArma){
-            case 0 -> {return new Alabardas(daño,durabilidad,escalabilidad,velocidadAtaque,nombre);}
-            case 1 -> {return new Katanas(daño,durabilidad,escalabilidad,velocidadAtaque,nombre);}
+            case 0 -> {return new Alabardas(daño,durabilidad,escalabilidad,velocidadAtaque,nombre,image);}
+            case 1 -> {return new Katanas(daño,durabilidad,escalabilidad,velocidadAtaque,nombre,image);}
         }
 
         return null;

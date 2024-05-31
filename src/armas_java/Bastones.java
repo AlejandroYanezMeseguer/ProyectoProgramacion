@@ -8,14 +8,16 @@ public class Bastones extends Armas implements IAcciones {
 
     /**
      * Constructor con parametros de bastones
+     *
      * @param daño
      * @param durabilidad
      * @param escalabilidad
      * @param velocidadAtaque
      * @param nombre
+     * @param image
      */
-    public Bastones(int daño, int durabilidad, String escalabilidad, String velocidadAtaque,String nombre) {
-        super(daño, durabilidad, escalabilidad, velocidadAtaque,nombre);
+    public Bastones(int daño, int durabilidad, String escalabilidad, String velocidadAtaque, String nombre, String image) {
+        super(daño, durabilidad, escalabilidad, velocidadAtaque,nombre,image);
     }
 
     /**

@@ -8,6 +8,7 @@ import jugador.Jugador;
 import jugador.Posicion;
 
 import javax.swing.*;
+import javax.swing.text.Position;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Random;
@@ -17,6 +18,8 @@ import java.util.Random;
  */
 public class AccionBotonesDeAccion {
     Random rand = new Random();
+
+    public static Posicion PosicionEscudoJ1;
 
     /**
      * metodo que crea las acciones que ejecuta el boton de ataque
@@ -97,7 +100,7 @@ public class AccionBotonesDeAccion {
             //cambiar arma jugador 1
             case 1: {
                 armas.añadirArmas(listener);
-
+                armas.fondoArmas();
                 armas.añadirNombresArmas();
                 stats.statsArmas(jugador.getTipoGuerrero());
                 skin.setVisible(false);
@@ -107,7 +110,7 @@ public class AccionBotonesDeAccion {
             //cambiar arma jugador 2
             case 2: {
                 armas.añadirArmas(listener);
-
+                armas.fondoArmas();
                 stats.statsArmas(jugador.getTipoGuerrero());
                 armas.añadirNombresArmas();
                 skin.setVisible(false);
@@ -123,9 +126,10 @@ public class AccionBotonesDeAccion {
      * metodo que crea las acciones que ejecutan los botones cambiarEscudo
      * @param e
      */
-    public static void cambiarEscudo(ActionEvent e, JPanel panelCambiarEscudo, Jugador jugador, JPanel skin, int condicion,JButton botonDesactivar1,JButton botonDesactivar2,JButton botonDesactivar3) {
+    public static void cambiarEscudo(ActionEvent e, JPanel panelCambiarEscudo, Jugador jugador, JPanel skin, int condicion, JButton botonDesactivar1, JButton botonDesactivar2, JButton botonDesactivar3) {
         PanelCambiarEscudos escudos = new PanelCambiarEscudos(panelCambiarEscudo, jugador);
         PanelesInformacionEscudos stats = new PanelesInformacionEscudos(panelCambiarEscudo, jugador);
+        Posicion posicion = null;
         var listener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -138,15 +142,17 @@ public class AccionBotonesDeAccion {
             //cambiar escudo jugador 1
             case 1: {
                 escudos.añadirEscudos(listener);
+                escudos.fondoEscudo();
                 stats.statsEscudos();
                 escudos.añadirNombresEscudos();
                 skin.setVisible(false);
                 panelCambiarEscudo.setVisible(true);
             }
             break;
-            //cambar escudo jugador 2
+            //cambiar escudo jugador 2
             case 2: {
                 escudos.añadirEscudos(listener);
+                escudos.fondoEscudo();
                 stats.statsEscudos();
                 escudos.añadirNombresEscudos();
                 skin.setVisible(false);
@@ -170,19 +176,19 @@ public class AccionBotonesDeAccion {
         int x = Integer.parseInt(posicionArma[0]);
         int y = Integer.parseInt(posicionArma[1]);
 
-        Posicion posicion = new Posicion(x, y);
+        var posicion = new Posicion(x, y);
+        PosicionEscudoJ1 = posicion;
 
         switch (condicion) {
             //cambiar arma
             case 1:
-                jugador.cambiarArma(posicion);
+                jugador.cambiarArma(posicion,e);
                 break;
             //cambiar escudo
             case 2:
-                jugador.cambiarEscudo(posicion);
+                jugador.cambiarEscudo(posicion,e);
                 break;
         }
-
     }
 
   /**

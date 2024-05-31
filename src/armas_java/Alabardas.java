@@ -8,14 +8,16 @@ public class Alabardas extends Armas implements IAcciones {
 
     /**
      * Constructor con parametros de alabardas
+     *
      * @param daño
      * @param durabilidad
      * @param escalabilidad
      * @param velocidadAtaque
      * @param nombre
+     * @param image
      */
-    public Alabardas(int daño, int durabilidad, String escalabilidad, String velocidadAtaque,String nombre) {
-        super(daño, durabilidad, escalabilidad, velocidadAtaque,nombre);
+    public Alabardas(int daño, int durabilidad, String escalabilidad, String velocidadAtaque, String nombre, String image) {
+        super(daño, durabilidad, escalabilidad, velocidadAtaque,nombre,image);
     }
 
     /**

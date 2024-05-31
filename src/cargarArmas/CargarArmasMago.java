@@ -38,7 +38,8 @@ public class CargarArmasMago {
                         rs.getString("Escalabilidad"),
                         rs.getString("VelocidadAtaque"),
                         rs.getString("Nombre"),
-                        rs.getInt("TipoDeArma")));
+                        rs.getInt("TipoDeArma"),
+                        rs.getString("UrlLink")));
             }
 
             }catch(SQLException e)
@@ -51,19 +52,21 @@ public class CargarArmasMago {
 
     /**
      * Metodo que crea las armas en base a los datos obtenidos de la base de datos
+     *
      * @param daño
      * @param durabilidad
      * @param escalabilidad
      * @param velocidadAtaque
      * @param nombre
      * @param tipoArma
+     * @param urlLink
      * @return arma
      */
-    public static IAcciones crearArma(int daño, int durabilidad, String escalabilidad, String velocidadAtaque,String nombre,int tipoArma){
+    public static IAcciones crearArma(int daño, int durabilidad, String escalabilidad, String velocidadAtaque, String nombre, int tipoArma, String image){
 
         switch (tipoArma){
-            case 0 -> {return new Bastones(daño,durabilidad,escalabilidad,velocidadAtaque,nombre);}
-            case 1 -> {return new Catalizadores(daño,durabilidad,escalabilidad,velocidadAtaque,nombre);}
+            case 0 -> {return new Bastones(daño,durabilidad,escalabilidad,velocidadAtaque,nombre,image);}
+            case 1 -> {return new Catalizadores(daño,durabilidad,escalabilidad,velocidadAtaque,nombre,image);}
         }
 
         return null;

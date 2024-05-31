@@ -1,5 +1,7 @@
 package entornoGrafico.AccionesBotones;
 
+import jugador.Jugador;
+
 import javax.swing.*;
 
 import java.awt.event.ActionListener;
@@ -19,6 +21,10 @@ public class CreacionDeListeners{
      */
     public static void addListener(JButton button, ActionListener listener) {
         button.addActionListener(listener);
+    }
+
+    public static void addListenerJugador(Jugador jugador, ActionListener listener) {
+        jugador.addActionListener(listener);
     }
 
     /**

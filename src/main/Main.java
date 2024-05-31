@@ -16,9 +16,11 @@ public class Main {
     public static void main(String[] args) throws IOException, SQLException {
         CargarConfiguration.leerFicheros();
 
-        ConexionAPIEscudos escudos = new ConexionAPIEscudos();
         SincronizacionEscudos sincronizacionEscudos = new SincronizacionEscudos();
         sincronizacionEscudos.sincronizar();
+
+        SincronizacionArmas sincronizacionArmas = new SincronizacionArmas();
+        sincronizacionArmas.sincronizar();
 
         EntornoGrafico xss = new EntornoGrafico();
 

@@ -26,14 +26,7 @@ public class EldenRingData {
         return null;
     }
 
-    public String getEldenRingReferenciaArmas(String id) {
-        for (Data arma : data) {
-            if (arma.id.equals(id)) {
-                return arma.image;
-            }
-        }
-        return null;
-    }
+
 }
 
 

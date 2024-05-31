@@ -20,12 +20,13 @@ public abstract class Armas {
      * @param velocidadAtaque
      * @param nombre
      */
-    public Armas(int daño, int durabilidad, String escalabilidad, String velocidadAtaque,String nombre) {
+    public Armas(int daño, int durabilidad, String escalabilidad, String velocidadAtaque,String nombre,String image) {
         this.daño = daño;
         this.durabilidad = durabilidad;
         this.escalabilidad = escalabilidad;
         this.velocidadAtaque = velocidadAtaque;
         this.nombre = nombre;
+        this.image = image;
     }
 
     /**

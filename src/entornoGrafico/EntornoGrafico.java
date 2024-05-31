@@ -14,11 +14,10 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
-import static entornoGrafico.AccionesBotones.CreacionDeListeners.addMouseListenerToButton;
+import static entornoGrafico.AccionesBotones.CreacionDeListeners.*;
 import static entornoGrafico.PanelesInformacion.PanelesInformacionClases.crearPanelesInformacionClases;
 import static entornoGrafico.creacionDeComponentes.CreacionDeBotones.crearBotonImagen;
 import static entornoGrafico.creacionDeComponentes.CreacionDeEtiquetas.CrearEtiquetaStandard;
-import static entornoGrafico.AccionesBotones.CreacionDeListeners.addListener;
 import static entornoGrafico.creacionDeComponentes.CreacionDePaneles.*;
 import static entornoGrafico.creacionDeComponentes.CreacionDeTextArea.crearTextArea;
 import static entornoGrafico.creacionDeComponentes.CreacionDeTextField.crearTextFieldStandard;
@@ -84,6 +83,14 @@ public class EntornoGrafico extends JFrame{
     public JButton cambiarEscudoJ2;
     public JButton seleccionarEscudoJ1;
     public JButton seleccionarEscudoJ2;
+    public JButton escudoSeleccionadoJ1;
+    public JButton escudoSeleccionadoJ2;
+    public JButton armaSeleccionadaJ1;
+    public JButton armaSeleccionadaJ2;
+    public JButton fondoEscudoSeleccionadoJ1;
+    public JButton fondoEscudoSeleccionadoJ2;
+    public JButton fondoArmaSeleccionadaJ1;
+    public JButton fondoArmaSeleccionadaJ2;
 
     public JLabel vidaJ1;
     public JLabel vidaJ2;
@@ -126,6 +133,7 @@ public class EntornoGrafico extends JFrame{
     BufferedImage seleccionarEscudo = ImageIO.read(new File("src/imagenes/seleciconarEscudo.png"));
     BufferedImage ganador1 = ImageIO.read(new File("src/imagenes/Ganador1.png"));
     BufferedImage ganador2 = ImageIO.read(new File("src/imagenes/Ganador2.png"));
+    BufferedImage fondoEquipo= ImageIO.read(new File("src/imagenes/equipo.png"));
 
     /**
      * Constructor de la clase donde se crea la ventana
@@ -322,16 +330,40 @@ public class EntornoGrafico extends JFrame{
         crearBotonImagen(empezarPelea,comenzarPelea,800,0,270,70,iconoEmpezarPelea);
 
         seleccionarArmaJ1 = new JButton(textoBoton[4]);
-        crearBotonImagen(seleccionarArmaJ1,panelCambiarArmaJ1,195,615,355,70,seleccionarArma);
+        crearBotonImagen(seleccionarArmaJ1,panelCambiarArmaJ1,195,615,365,70,seleccionarArma);
 
         seleccionarArmaJ2 = new JButton(textoBoton[4]);
-        crearBotonImagen(seleccionarArmaJ2,panelCambiarArmaJ2,195,615,355,70,seleccionarArma);
+        crearBotonImagen(seleccionarArmaJ2,panelCambiarArmaJ2,195,615,365,70,seleccionarArma);
 
         seleccionarEscudoJ1 = new JButton(textoBoton[5]);
-        crearBotonImagen(seleccionarEscudoJ1,panelCambiarEscudoJ1,178,590,380,70,seleccionarEscudo);
+        crearBotonImagen(seleccionarEscudoJ1,panelCambiarEscudoJ1,165,590,380,70,seleccionarEscudo);
 
         seleccionarEscudoJ2 = new JButton(textoBoton[5]);
-        crearBotonImagen(seleccionarEscudoJ2,panelCambiarEscudoJ2,178,590,380,70,seleccionarEscudo);
+        crearBotonImagen(seleccionarEscudoJ2,panelCambiarEscudoJ2,165,590,380,70,seleccionarEscudo);
+
+        escudoSeleccionadoJ1 = new JButton();
+        crearBotonImagen(escudoSeleccionadoJ1,entornoPelea,27,262,60,60,seleccionarEscudo);
+
+        escudoSeleccionadoJ2 = new JButton();
+        crearBotonImagen(escudoSeleccionadoJ2,entornoPelea,1767,262,60,60,seleccionarEscudo);
+
+        armaSeleccionadaJ1 = new JButton();
+        crearBotonImagen(armaSeleccionadaJ1,entornoPelea,30,412,60,60,seleccionarEscudo);
+
+        armaSeleccionadaJ2 = new JButton();
+        crearBotonImagen(armaSeleccionadaJ2,entornoPelea,1770,412,60,60,seleccionarEscudo);
+
+        fondoEscudoSeleccionadoJ1 = new JButton();
+        crearBotonImagen(fondoEscudoSeleccionadoJ1,entornoPelea,20,250,80,80,fondoEquipo);
+
+        fondoEscudoSeleccionadoJ2 = new JButton();
+        crearBotonImagen(fondoEscudoSeleccionadoJ2,entornoPelea,1760,250,80,80,fondoEquipo);
+
+        fondoArmaSeleccionadaJ1 = new JButton();
+        crearBotonImagen(fondoArmaSeleccionadaJ1,entornoPelea,20,400,80,80,fondoEquipo);
+
+        fondoArmaSeleccionadaJ2 = new JButton();
+        crearBotonImagen(fondoArmaSeleccionadaJ2,entornoPelea,1760,400,80,80,fondoEquipo);
     }
 
     /**
@@ -357,6 +389,47 @@ public class EntornoGrafico extends JFrame{
         addListener(seleccionarEscudoJ1, this::seleccionarEscudoJ1ActionPerformed);
         addListener(seleccionarEscudoJ2, this::seleccionarEscudoJ2ActionPerformed);
 
+
+    }
+
+    private void seleccionarEquipo(ActionEvent actionEvent) {
+        actualizarEquipo();
+    }
+
+    private void actualizarEquipo(){
+        BufferedImage equipo = null;
+        if(jugador1 != null){
+
+            try {
+                equipo = ImageIO.read(new File(jugador1.getImageEscudo()));
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            escudoSeleccionadoJ1.setIcon(new ImageIcon(equipo.getScaledInstance(escudoSeleccionadoJ1.getWidth(),escudoSeleccionadoJ1.getHeight(), Image.SCALE_SMOOTH)));
+            try {
+                equipo = ImageIO.read(new File(jugador1.getImageArma()));
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            armaSeleccionadaJ1.setIcon(new ImageIcon(equipo.getScaledInstance(armaSeleccionadaJ1.getWidth(),armaSeleccionadaJ1.getHeight(), Image.SCALE_SMOOTH)));
+
+        }
+
+        if(jugador2 != null){
+            try {
+                equipo = ImageIO.read(new File(jugador2.getImageEscudo()));
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            escudoSeleccionadoJ2.setIcon(new ImageIcon(equipo.getScaledInstance(escudoSeleccionadoJ2.getWidth(),escudoSeleccionadoJ2.getHeight(), Image.SCALE_SMOOTH)));
+            try {
+                equipo = ImageIO.read(new File(jugador2.getImageArma()));
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            armaSeleccionadaJ2.setIcon(new ImageIcon(equipo.getScaledInstance(armaSeleccionadaJ2.getWidth(),armaSeleccionadaJ2.getHeight(), Image.SCALE_SMOOTH)));
+
+        }
     }
 
     /**
@@ -405,7 +478,12 @@ public class EntornoGrafico extends JFrame{
      * @param e
      */
     private void seleccionarMagoJ1ActionPerformed(ActionEvent e){
+
+        if (skinJ1 != null)entornoPelea.remove(skinJ1);
+        panelVidaJ1.removeAll();
         jugador1 = new Mago(nombreJ1.getText());
+        addListenerJugador(jugador1, this::seleccionarEquipo);
+        actualizarEquipo();
         skinJ1 = new JPanel(){protected void paintComponent(Graphics g) {
             super.paintComponent(g);
             g.drawImage(iconoMago, 260, 100, 350, 490, this);
@@ -420,7 +498,11 @@ public class EntornoGrafico extends JFrame{
      * @param e
      */
     private void seleccionarGuerreroJ1ActionPerformed(ActionEvent e){
+        if (skinJ1 != null)entornoPelea.remove(skinJ1);
+        panelVidaJ1.removeAll();
         jugador1 = new Guerrero(nombreJ1.getText());
+        addListenerJugador(jugador1, this::seleccionarEquipo);
+        actualizarEquipo();
         skinJ1 = new JPanel(){protected void paintComponent(Graphics g) {
             super.paintComponent(g);
             g.drawImage(iconoGuerrero, 260, 100, 350, 490, this);
@@ -435,7 +517,11 @@ public class EntornoGrafico extends JFrame{
      * @param e
      */
     private void seleccionarSamuraiJ1ActionPerformed(ActionEvent e){
+        if (skinJ1 != null)entornoPelea.remove(skinJ1);
+        panelVidaJ1.removeAll();
         jugador1 = new Samurai(nombreJ1.getText());
+        addListenerJugador(jugador1, this::seleccionarEquipo);
+        actualizarEquipo();
         skinJ1 = new JPanel(){protected void paintComponent(Graphics g) {
             super.paintComponent(g);
             g.drawImage(iconoSamurai, 260, 100, 350, 490, this);
@@ -450,7 +536,11 @@ public class EntornoGrafico extends JFrame{
      * @param e
      */
     private void seleccionarMagoJ2ActionPerformed(ActionEvent e){
+        if (skinJ2 != null)entornoPelea.remove(skinJ2);
+        panelVidaJ2.removeAll();
         jugador2 = new Mago(nombreJ2.getText());
+        addListenerJugador(jugador2, this::seleccionarEquipo);
+        actualizarEquipo();
         skinJ2 = new JPanel(){protected void paintComponent(Graphics g) {
             super.paintComponent(g);
             g.drawImage(iconoMago, 200, 100, 350, 490, this);
@@ -465,7 +555,11 @@ public class EntornoGrafico extends JFrame{
      * @param e
      */
     private void seleccionarGuerreroJ2ActionPerformed(ActionEvent e){
+        if (skinJ2 != null)entornoPelea.remove(skinJ2);
+        panelVidaJ2.removeAll();
         jugador2 = new Guerrero(nombreJ2.getText());
+        addListenerJugador(jugador2, this::seleccionarEquipo);
+        actualizarEquipo();
         skinJ2 = new JPanel(){protected void paintComponent(Graphics g) {
             super.paintComponent(g);
             g.drawImage(iconoGuerrero, 200, 100, 350, 490, this);
@@ -480,7 +574,11 @@ public class EntornoGrafico extends JFrame{
      * @param e
      */
     private void seleccionarSamuraiJ2ActionPerformed(ActionEvent e){
+        if (skinJ2 != null)entornoPelea.remove(skinJ2);
+        panelVidaJ2.removeAll();
         jugador2 = new Samurai(nombreJ2.getText());
+        addListenerJugador(jugador2, this::seleccionarEquipo);
+        actualizarEquipo();
         skinJ2 = new JPanel(){protected void paintComponent(Graphics g) {
             super.paintComponent(g);
             g.drawImage(iconoSamurai, 200, 100, 350, 490, this);
@@ -528,7 +626,6 @@ public class EntornoGrafico extends JFrame{
      */
     private void cambiarArmaJ1ActionPerformed(ActionEvent e){
        AccionBotonesDeAccion.cambiarArma(e,panelCambiarArmaJ1,jugador1,skinJ1,1,cambiarArmaJ1,cambiarEscudoJ1, ataqueJ1);
-
     }
 
     /**
@@ -545,6 +642,8 @@ public class EntornoGrafico extends JFrame{
      */
     private void cambiarEscudoJ1ActionPerformed(ActionEvent e){
         AccionBotonesDeAccion.cambiarEscudo(e,panelCambiarEscudoJ1,jugador1,skinJ1,1,cambiarArmaJ1,cambiarEscudoJ1, ataqueJ1);
+        if (AccionBotonesDeAccion.PosicionEscudoJ1 != null)
+        System.out.println(AccionBotonesDeAccion.PosicionEscudoJ1.toString());
     }
 
     /**
@@ -687,6 +786,8 @@ public class EntornoGrafico extends JFrame{
         crearTextFieldStandard(nombreJ2,panelIntroducirNombreJ2,320,55,300,32,24);
 
     }
+
+
 
     /**
      * Metodo que carga todos los componentes del progrrama para que en el constructor solo se cargue este

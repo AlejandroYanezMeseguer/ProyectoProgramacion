@@ -13,7 +13,7 @@ public class PanelesInformacionEscudos {
 
     private JPanel panel;
     private Jugador jugador;
-    final int VALOR_INICIAL_X = -310;
+    final int VALOR_INICIAL_X = -295;
     final int INCREMENTO_EJE_X = 240;
     final int VALOR_INICIAL_Y = 80;
     final int INCREMENTO_EJE_Y = 165;
